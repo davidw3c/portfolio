@@ -1,0 +1,46 @@
+<div class="header">
+    <div class="grid-container">
+        <div class="grid-30 tablet-grid-30 mobile-grid-100">
+            <a href="/" class="header-logoLink">
+                <img src="/img/logo.gif" alt="" width="220" height="48.25" class="header-logo" alt="David Walker">
+            </a>
+            <!-- <h1 class="header-logo"><a href="/">David Walker</a></h1>  -->
+        </div>
+        <div class="grid-70 tablet-grid-70 mobile-grid-100">
+            <nav class="header-nav">
+                <ul>
+                {{ $currentPage := . }}
+                {{ range .Site.Menus.main }}
+                <li><a class="header-nav-item{{if or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }} active{{end}}" href="{{ .URL }}" title="{{ .Title }}">{{ .Name }}</a></li>
+                {{ end }}
+                <li>
+                    <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- <nav>
+    <div class="measure">
+        <div class="nav-logo">
+            <h1><a href="/">David Walker</a></h1>
+        </div>
+
+        <div class="nav-links">
+            <ul>
+                {{ range .Site.Menus.main }}
+                <li><a class="nav-link" href="{{ .URL }}">
+                {{ $text := print .Name | safeHTML }}
+                {{ $text }}
+                </a></li>
+                {{ end }}
+                <li><a href="https://codepen.io/davidatchameleon" target="_blank"><img src="/img/codepen.svg" alt="Codepen" class="codepen-logo"></a></li>
+            </ul> 
+        </div>
+    </div>
+</nav> -->

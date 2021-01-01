@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">{{ .Title }}</h1>
+
+			<p>Trying to find a specific article? Select a tag from the tag list below to view a filtered list.</p>
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-100">
+
+			<div class="tags">
+				<ul class="tagsList">
+				{{ range .Pages.ByPublishDate.Reverse }}
+					<li class="tagsList-item"><a class="tag" href="{{ .RelPermalink }}"><span class="hash">#</span>{{ .Title }}</a></li>
+				{{ end }}
+				</ul>		
+			</div>
+
+		</div>
+	</div>
+</div>
+
+{{ end }}
