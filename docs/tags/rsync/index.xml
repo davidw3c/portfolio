@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rsync on David Walker</title>
+    <link>https://davidw3c.github.io/portfolio/tags/rsync/</link>
+    <description>Recent content in Rsync on David Walker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 May 2020 18:45:10 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/tags/rsync/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to bulk clone folders using rsync</title>
+      <link>https://davidw3c.github.io/portfolio/posts/clone-using-rsync/</link>
+      <pubDate>Fri, 15 May 2020 18:45:10 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/clone-using-rsync/</guid>
+      <description>&lt;p&gt;One of the best features of a computer is the ability to automate tasks so that you don&amp;rsquo;t have to repeat the same task manually over and over. One such task you may face is copying files across multiple folders from one location to another.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

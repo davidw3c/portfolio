@@ -1,7 +1,7 @@
 ---
 title: "Find & replace words using a Perl script"
 date: 2019-11-15T18:37:02Z
-draft: true
+draft: false
 tags: ["Perl"]
 ---
 

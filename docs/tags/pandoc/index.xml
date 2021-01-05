@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pandoc on David Walker</title>
+    <link>https://davidw3c.github.io/portfolio/tags/pandoc/</link>
+    <description>Recent content in Pandoc on David Walker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 12 Oct 2020 22:18:48 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/tags/pandoc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Create Pandoc Templates</title>
+      <link>https://davidw3c.github.io/portfolio/posts/how-to-create-pandoc-templates/</link>
+      <pubDate>Mon, 12 Oct 2020 22:18:48 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/how-to-create-pandoc-templates/</guid>
+      <description>&lt;p&gt;Pandoc is a powerful tool that lets you convert one document type into another. It also has the ability to reference a template when converting multiple files.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

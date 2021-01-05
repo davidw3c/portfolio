@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>David Walker</title>
-    <link>https://davidw3c.github.io/portfolio/</link>
-    <description>Recent content on David Walker</description>
+    <title>Posts on David Walker</title>
+    <link>https://davidw3c.github.io/portfolio/posts/</link>
+    <description>Recent content in Posts on David Walker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2020 22:18:48 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 12 Oct 2020 22:18:48 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Create Pandoc Templates</title>
       <link>https://davidw3c.github.io/portfolio/posts/how-to-create-pandoc-templates/</link>

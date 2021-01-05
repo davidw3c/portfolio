@@ -1,7 +1,7 @@
 ---
 title: "How to Create Pandoc Templates"
 date: 2020-10-12T22:18:48+01:00
-draft: true
+draft: false
 tags: ["Pandoc"]
 ---
 

@@ -3,15 +3,52 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://davidw3c.github.io/portfolio/categories/</loc>
+    <loc>https://davidw3c.github.io/portfolio/</loc>
+    <lastmod>2020-10-12T22:18:48+01:00</lastmod>
   </url>
   
   <url>
-    <loc>https://davidw3c.github.io/portfolio/</loc>
+    <loc>https://davidw3c.github.io/portfolio/posts/how-to-create-pandoc-templates/</loc>
+    <lastmod>2020-10-12T22:18:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/pandoc/</loc>
+    <lastmod>2020-10-12T22:18:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/</loc>
+    <lastmod>2020-10-12T22:18:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>https://davidw3c.github.io/portfolio/tags/</loc>
+    <lastmod>2020-10-12T22:18:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/clone-using-rsync/</loc>
+    <lastmod>2020-05-15T18:45:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/rsync/</loc>
+    <lastmod>2020-05-15T18:45:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/find-replace-words-perl-script/</loc>
+    <lastmod>2019-11-15T18:37:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/perl/</loc>
+    <lastmod>2019-11-15T18:37:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/categories/</loc>
   </url>
   
 </urlset>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/unsemantic.css">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://davidw3c.github.io/portfolio/favicon.png">
+    
+    
+    <title>David Walker | How to bulk clone folders using rsync</title>
+</head><body class="site"><div class="header">
+    <div class="grid-container">
+        <div class="grid-30 tablet-grid-30 mobile-grid-100">
+            <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
+                <img src="https://davidw3c.github.io/portfolio/img/logo.gif" alt="" width="220" height="48.25" class="header-logo" alt="David Walker">
+            </a>
+            
+        </div>
+        <div class="grid-70 tablet-grid-70 mobile-grid-100">
+            <nav class="header-nav">
+                <ul>
+                
+                
+                <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
+                
+                <li>
+                    <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<main>
+           
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">How to bulk clone folders using rsync</h1>
+
+			<p class="date">
+
+
+<time datetime="2020-05-15">15 May, 2020</time>
+
+		
+</p>	
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p>One of the best features of a computer is the ability to automate tasks so that you don&rsquo;t have to repeat the same task manually over and over. One such task you may face is copying files across multiple folders from one location to another.</p>
+<h2 id="what-is-rsync">What is rsync?</h2>
+<p>Rsync is a handy little utility tool which can help you sync and copy the contents of a folder into another folder in one easy command.</p>
+<p>Initially released back in 1996, You can usually find pre-installed on Mac and Linux.
+Check rsync is installed</p>
+<p>To double check rsync is installed, just open your Terminal app and type:</p>
+<pre><code>rsync -v
+</code></pre><h2 id="how-to-write-rsync-commands">How to write rsync commands</h2>
+<p>Rsync commands use the following easy to remember structure:</p>
+<pre><code>rsync -[OPTIONS] [SOURCE FILE PATH] [DESTINATION PATH]
+</code></pre><h2 id="basic-terminal-example">Basic Terminal example</h2>
+<p>You can copy one folder into another by opening your Terminal App and writing:</p>
+<pre><code>rsync -r /path/to/src_folder /path/to/dest_folder
+</code></pre><p>Note that the above example would would copy the folder <code>src_folder</code> INTO the folder <code>dest_folder</code>, so you’d end up with a folder structure like this: <code>dest_folder/src_folder</code>.</p>
+<h2 id="glossary-of-terms">Glossary of terms</h2>
+<p><code>-r</code>: recursive - you recurse the command into directories.
+<code>-a</code>: archive - useful for backups - preserves file information (such as time stamps and permissions ect).</p>
+<h2 id="copy-only-the-contents-of-a-folder">Copy only the contents of a folder</h2>
+<p>In order to copy the contents of <code>src_folder</code> into <code>dest_folder</code>, you need to add a forward slash <code>/</code> onto the end of your <code>src_folder</code> path (but not onto the <code>dest_folder</code>) like so:</p>
+<pre><code>rsync -r /path/to/src_folder/ /path/to/dest_folder
+</code></pre><h2 id="how-to-run-multiple-rsync-commands-inside-a-shell-script">How to run multiple rsync commands inside a shell script</h2>
+<p>Let’s say you have multiple rsync commands you want to run, but don’t want to keep copying and pasting them into the terminal every time.</p>
+<p>You can create a shell script with multiple commands.</p>
+<p>Open a code editor and enter the following:</p>
+<pre><code>#!/bin/bash
+rsync -r /path/to/src_folder1/ /path/to/dest_folder1
+rsync -r /path/to/src_folder2/ /path/to/dest_folder2
+rsync -r /path/to/src_folder3/ /path/to/dest_folder3
+</code></pre><p>Obviously the paths would be changed to meet your requirements.</p>
+<p>The line at the top <code>#!/bin/bash</code> is known as the &ldquo;shebang line&rdquo;.</p>
+<p>Save the file with the <code>.sh</code> extension.</p>
+<p>In order to run the shell script, you can usually just open up Terminal and type <code>sh</code> , then press the space key, followed by entering the shell script file path. You can do this by dragging and dropping the shell script into the terminal and it will auto populate the path.</p>
+<p>Here&rsquo;s an Example:</p>
+<pre><code>sh /path/to/file.sh
+</code></pre><p>If you run into errors, check the file is executable by running the following command in terminal:</p>
+<pre><code>chmod +x /path/to/shellscript.sh
+</code></pre><p>This article gives only a very basic overview of rsync, however much more advanced capabilities are also available.</p>				
+		</div>
+	</div>
+</div>
+
+   
+           
+        </main><div class="footer">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p style="margin-top:0;">&copy; 2021 David Walker. All rights reserved. Ad free &amp; Always will be. Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" alt=""></a></p>
+
+			
+			
+		</div>
+	</div>
+</div></body>
+</html>

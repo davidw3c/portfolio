@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/unsemantic.css">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://davidw3c.github.io/portfolio/favicon.png">
+    
+    
+    <title>David Walker | Find &amp; replace words using a Perl script</title>
+</head><body class="site"><div class="header">
+    <div class="grid-container">
+        <div class="grid-30 tablet-grid-30 mobile-grid-100">
+            <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
+                <img src="https://davidw3c.github.io/portfolio/img/logo.gif" alt="" width="220" height="48.25" class="header-logo" alt="David Walker">
+            </a>
+            
+        </div>
+        <div class="grid-70 tablet-grid-70 mobile-grid-100">
+            <nav class="header-nav">
+                <ul>
+                
+                
+                <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
+                
+                <li>
+                    <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<main>
+           
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">Find &amp; replace words using a Perl script</h1>
+
+			<p class="date">
+
+
+<time datetime="2019-11-15">15 November, 2019</time>
+
+		
+</p>	
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p>Are you looking for a quick, powerful way to find and replace a word across multiple documents? Writing a small Perl
+script is a simple and powerful method you could try.</p>
+<h2 id="perl-one-liner-to-find--replace-word-in-a-file">Perl one liner to find &amp; replace word in a file</h2>
+<p>The following “one liner” can be directly used in Terminal (in MacOS or Linux):</p>
+<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n">perl</span> <span class="o">-</span><span class="n">pi</span> <span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">e</span> <span class="s">&#39;s/old-word/new-word/g;&#39;</span> <span class="sr">/absolute/</span><span class="n">path</span><span class="sr">/to/</span><span class="n">folder</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">html</span>
+</code></pre></div><p>The above example would replace all instances of <code>old-word</code> with <code>new-word</code> in <code>file.html</code>.</p>
+<p>The <code>/g</code> tells Perl to perform this operation “globally” - in other words, on the entire file.</p>
+<h2 id="multiple-commands-in-a-bash-script">Multiple commands in a bash script</h2>
+<p>If you need to update multiple files, you could execute this command several times, in a shell script.</p>
+<p>Simply create a file that ends in the .sh file extension. e.g. replace.sh and populate it like so:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file.html
+perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file2.html
+perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file3.html
+</code></pre></div>				
+		</div>
+	</div>
+</div>
+
+   
+           
+        </main><div class="footer">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p style="margin-top:0;">&copy; 2021 David Walker. All rights reserved. Ad free &amp; Always will be. Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" alt=""></a></p>
+
+			
+			
+		</div>
+	</div>
+</div></body>
+</html>

@@ -1,7 +1,7 @@
 ---
 title: "How to bulk clone folders using rsync"
 date: 2020-05-15T18:45:10Z
-draft: true
+draft: false
 tags: ["Rsync"]
 ---
 
