@@ -2,7 +2,7 @@ baseURL = "https://davidw3c.github.io/portfolio/"
 languageCode = "en-us"
 title = "David Walker"
 theme = "davidwalker"
-paginate = 4
+paginate = 6
 publishDir = "docs"
 
 # Enable for syntax highlighting
