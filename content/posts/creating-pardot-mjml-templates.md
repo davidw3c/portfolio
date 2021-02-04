@@ -11,6 +11,8 @@ Creating an email template that works across multiple email clients can be a not
 
 However, it is important to understand that there are some special considerations which must be made when using [MJML](https://mjml.io/) in conjunction with [Pardot](https://www.pardot.com/).
 
+In this guide I will seek to establish some useful tips when it comes to making MJML tags work in conjunction with Pardots "editable region" attributes.
+
 ## How to make an template editable in Pardot
 
 In order to make parts of an email template editable in Pardot you need to attach `pardot-region` attributes to HTML tags. 
