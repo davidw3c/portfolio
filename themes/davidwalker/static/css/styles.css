@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 :root {
 	--dark-background-color: #191919;
 	--dark-text-color: #000;
@@ -14,7 +16,7 @@ html {
 }
 
 body {
-	font: 19px/1.55 Helvetica,Arial,sans-serif; 
+	font: 19px/1.55 'Inter', Helvetica, Arial, sans-serif; 
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
