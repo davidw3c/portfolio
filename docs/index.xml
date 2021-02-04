@@ -6,7 +6,25 @@
     <description>Recent content on David Walker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2020 22:18:48 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Feb 2021 20:34:21 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using the Wordpress Command Line</title>
+      <link>https://davidw3c.github.io/portfolio/posts/using-wordpress-cli/</link>
+      <pubDate>Thu, 04 Feb 2021 20:34:21 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/using-wordpress-cli/</guid>
+      <description>&lt;p&gt;The Wordpress Command Line (WP-CLI) utility allows you to quickly perform tasks such as installing and updating Wordpress via the Terminal Command Line, as opposed to using the usual Graphical User Interface.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Creating Pardot Email Templates using MJML</title>
+      <link>https://davidw3c.github.io/portfolio/posts/creating-pardot-mjml-templates/</link>
+      <pubDate>Thu, 04 Feb 2021 20:28:54 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/creating-pardot-mjml-templates/</guid>
+      <description>&lt;p&gt;Creating an email template that works across multiple email clients can be a notoriously difficult task. However, templating tools such as MJML can make things much easier, and combining MJML with Pardot is a robust workflow to create effective email marketing campaigns.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>How to Create Pandoc Templates</title>
       <link>https://davidw3c.github.io/portfolio/posts/how-to-create-pandoc-templates/</link>
