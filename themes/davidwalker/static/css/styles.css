@@ -16,7 +16,8 @@ html {
 }
 
 body {
-	font: 19px/1.55 'Inter', Helvetica, Arial, sans-serif; 
+	/*font: 19px/1.55 'Inter', Helvetica, Arial, sans-serif; */
+	font: 19px/1.55 Helvetica, Arial, sans-serif; 
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -24,9 +25,9 @@ body {
 	margin:0 auto;
 	background:#fff;
 	max-width: 1300px;
-	box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.08);
-	-webkit-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.08);
-	-moz-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.08);
+	box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.05);
+	-webkit-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.05);
+	-moz-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.05);
 }
 
 @media (max-width: 768px) {
@@ -64,8 +65,10 @@ h1,h2,h3 {
 /*======== HEADER ========*/
 
 .header {
+	border-top: 10px solid #005eb8;
 	background:#000;
 	padding:19px 0;
+	border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 .header .grid-container {
@@ -128,9 +131,9 @@ h1,h2,h3 {
 	font-weight: bold;
 	font-size:14px;
 	line-height: 14px;
-	padding-bottom: 4px;
+	padding-bottom: 5px;
 	text-decoration: none;
-	border-bottom: 3px solid transparent;
+	border-bottom: 1px solid transparent;
 	text-transform: uppercase;
 }
 
@@ -143,14 +146,14 @@ h1,h2,h3 {
 
 .header-nav a:hover,
 .header-nav a.active {
-	border-bottom: 3px solid #fff;
+	border-bottom: 1px solid #fff;
 }
 
 .navButton {
 	background:transparent;
 	color:#fff !important;
 	padding:10px 10px 10px 10px !important;	
-	border:2px solid white !important;
+	border:1px solid white !important;
 }
 
 /*.navButton {
@@ -172,10 +175,11 @@ h1,h2,h3 {
 /*======== HEADING ========*/
 
 .heading {
-	padding: 60px 0 60px 0;
-	background:#f2f2f2;
+	padding: 70px 0 80px 0;
+	background:#000;
+	color:#fff;
 	position: relative;
-	border-bottom: 10px solid #e6e6e6;
+	/*border-bottom: 10px solid #e6e6e6;*/
 }
 
 @media (max-width: 768px) {
@@ -184,18 +188,20 @@ h1,h2,h3 {
 	}
 }
 
-.heading:before {
+/*.heading:before {
 	content:"";
 	display: block;
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-image: url('/portfolio/img/tiny-squares.png');
+	background-image: url('/portfolio/img/orbs.jpg');
 	left:0;
 	right:0;
 	top:0;
-	opacity:0.4;
-}
+	opacity:0.5;
+	background-size: cover;
+	background-position: center;
+}*/
 
 .heading a {
 	color:inherit;
@@ -208,7 +214,7 @@ h1,h2,h3 {
 }
 
 .heading-title {
-	font-size:52px;
+	font-size:54px;
 	margin: 0 0 15px 0;
 }
 
@@ -228,6 +234,12 @@ h1,h2,h3 {
 	text-align: center;
 	margin:0 0 0.7rem 0;
 	font-weight: bold;
+}
+
+.heading .button {
+	background:none;
+	border:1px solid #fff;
+	margin-top: 20px;
 }
 
 /*Heading Pacman Animation*/
@@ -255,7 +267,7 @@ h1,h2,h3 {
 .headingPacman-item {
 	height:30px;
 	width:30px;
-	background:blue;
+	background:#005eb8;
 	position: absolute;
 	left:0;
 	animation-name: example;
@@ -279,7 +291,7 @@ h1,h2,h3 {
 }
 
 .content h2 {
-	font-size: 1.8rem;
+	font-size: 30px;
 	margin-top: 45px;
 	margin-bottom: 1rem;
 	border-bottom: 5px solid #ececec;
@@ -305,9 +317,13 @@ h1,h2,h3 {
 }
 
 .content a {
-	color:#bd0827;
+	color:#005eb8;
 	text-decoration: none;
 	font-weight: bold;
+}
+
+.content a:hover {
+	text-decoration: underline;
 }
 
 .content ul {
@@ -342,7 +358,9 @@ h1,h2,h3 {
 }
 
 .content .articleList-item {
-	margin-bottom: 55px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	/*border-bottom: 1px solid #ddd;*/
 }
 
 .content .articleList-item:last-child {
@@ -351,15 +369,17 @@ h1,h2,h3 {
 
 .content .articleList-articleTitle {
 	margin: 0;
+	padding:0;
 	font-size:27px;
+	border-bottom: 0;
 }
 
 .articleList-articleTitle a {
-	color:#000;
+	/*border-bottom: 1px solid #005eb8;*/
 }
 
 .articleList-articleTitle a:hover {
-	color:#bd0827;
+	text-decoration: none;
 }
 
 .content .articleList .date {
@@ -370,7 +390,7 @@ h1,h2,h3 {
 
 .content .articleList p {
 	/*font-size:16px;*/
-	margin-top: 10px;
+	margin-top: 5px;
 }
 
 .content .articleList-readmore {
@@ -389,8 +409,8 @@ h1,h2,h3 {
 
 .content pre {
 	font-size:16px;
-	background:#000;
-	color:#fff;
+	background:#ececec;
+	color:#000;
 	overflow: auto;
 	padding:1rem;
 	/*font-weight: bold;*/
@@ -423,9 +443,10 @@ h1,h2,h3 {
 
 .footer {
 	font-size:0.94rem;
-	background: #f2f2f2;
+	background: #000;
+	color:#fff;
 	padding: 35px 0 35px 0;
-	border-top: 10px solid #e6e6e6;
+	border-top: 10px solid #005eb8;
 	/*background-image: url('/portfolio/img/qbkls.png');*/
 }
 

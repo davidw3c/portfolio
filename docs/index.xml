@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 04 Feb 2021 20:34:21 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Projects</title>
+      <link>https://davidw3c.github.io/portfolio/projects/</link>
+      <pubDate>Tue, 02 Mar 2021 15:50:22 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/</guid>
+      <description>Space Invaders - coded in Javascript (coming soon) </description>
+    </item>
+    
+    <item>
       <title>Using the Wordpress Command Line</title>
       <link>https://davidw3c.github.io/portfolio/posts/using-wordpress-cli/</link>
       <pubDate>Thu, 04 Feb 2021 20:34:21 +0000</pubDate>
