@@ -1,5 +1,5 @@
 ---
-title: "7 Reasons why Libraries are a good alternative to the internet"
+title: "7 Reasons why Libraries are a great alternative to the internet"
 date: 2021-03-16T21:54:44Z
 draft: false
 ---
