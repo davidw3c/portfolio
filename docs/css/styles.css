@@ -66,7 +66,7 @@ h1,h2,h3 {
 
 .header {
 	/*border-top: 10px solid #005eb8;*/
-	background:#000;
+	background:#171717;
 	padding:19px 0;
 	border-bottom: 1px solid rgba(255,255,255,0.3);
 }
@@ -183,7 +183,7 @@ h1,h2,h3 {
 
 .heading {
 	padding: 60px 0 70px 0;
-	background:#000;
+	background:#171717;
 	color:#fff;
 	position: relative;
 	/*border-bottom: 10px solid #e6e6e6;*/
@@ -456,7 +456,7 @@ h1,h2,h3 {
 
 .footer {
 	font-size:0.94rem;
-	background: #000;
+	background: #171717;
 	color:#fff;
 	padding: 35px 0 35px 0;
 	border-top: 12px solid #005eb8;
