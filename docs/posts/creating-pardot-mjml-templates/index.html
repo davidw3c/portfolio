@@ -13,9 +13,7 @@
         <div class="grid-30 tablet-grid-30 mobile-grid-100">
             <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
                 David Walker
-                
             </a>
-            
         </div>
         <div class="grid-70 tablet-grid-70 mobile-grid-100">
             <nav class="header-nav">
@@ -25,6 +23,8 @@
                 <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
                 
                 <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/projects/" title="">Projects</a></li>
                 
                 <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
                 
@@ -90,8 +90,7 @@
 <pre><code>pardot-repeatable=&quot;name-of-section&quot;
 </code></pre><h3 id="removable-email-only">Removable (Email only)</h3>
 <pre><code>pardot-removable=&quot;name-of-section&quot;
-</code></pre><hr>
-<h2 id="how-to-add-pardot-regions-into-mjml-templates">How to add Pardot Regions into MJML Templates</h2>
+</code></pre><h2 id="how-to-add-pardot-regions-into-mjml-templates">How to add Pardot Regions into MJML Templates</h2>
 <p>If you are using MJML, you may be tempted to try adding your pardot region attributes to the MJML tags themselves, for example:</p>
 <pre><code>&lt;mj-image src=&quot;path/to/image.jpg&quot; pardot-region=&quot;my-image-region&quot; /&gt;
 </code></pre><p>However, if you try to attach <code>pardot-region</code> attributes to MJML tags like this, it will NOT work because <strong>MJML does not recognise Pardot region attributes.</strong></p>
@@ -118,7 +117,10 @@
 <pre><code>&lt;mj-text&gt;
     &lt;a href=&quot;#&quot; class=&quot;button&quot; pardot-region=&quot;editable-button&quot;&gt;
 &lt;/mj-text&gt;
-</code></pre><p>The same also applies to <code>&lt;mj-social&gt;</code> tags. It is better to create the social icons using HTML code and then insert that code inside the <code>&lt;mj-raw&gt;</code> tags.</p>				
+</code></pre><p>The same also applies to <code>&lt;mj-social&gt;</code> tags. It is better to create the social icons using HTML code and then insert that code inside the <code>&lt;mj-raw&gt;</code> tags.</p>	
+
+			<br>
+			<p><a href="https://davidw3c.github.io/portfolio/posts">Return to Posts</a></p>			
 		</div>
 	</div>
 </div>

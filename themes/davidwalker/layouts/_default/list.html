@@ -22,7 +22,9 @@
 				<div class="articleList-item">
 			    <h2 class="articleList-articleTitle"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 				{{ partial "metadata.html" . }}
-			    <p class="articleList-text">{{ .Summary }}</p>
+			    <!-- <p class="articleList-text"> -->
+			    {{ .Summary }}
+				<!-- </p> -->
 			    <p class="articleList-readmore"><a href="{{ .RelPermalink }}">Read more</a></p>
 				</div>
 			{{ end }}				

@@ -71,8 +71,6 @@ pardot-repeatable="name-of-section"
 pardot-removable="name-of-section"
  ```
 
- ---
-
 ## How to add Pardot Regions into MJML Templates
 
 If you are using MJML, you may be tempted to try adding your pardot region attributes to the MJML tags themselves, for example:
