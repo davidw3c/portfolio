@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/unsemantic.css">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://davidw3c.github.io/portfolio/favicon.png">
+    
+    
+    <title>David Walker | Create a Wordpress User role that only has access to a specific custom post type</title>
+</head><body class="site"><div class="header">
+    <div class="grid-container">
+        <div class="grid-30 tablet-grid-30 mobile-grid-100">
+            <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
+                David Walker
+            </a>
+
+            <a href="#" id="nav_toggle">Show Menu</a>
+        </div>
+        <div class="grid-70 tablet-grid-70 mobile-grid-100">
+            <nav class="header-nav">
+                <ul>
+                
+                
+                <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/projects/" title="">Projects</a></li>
+                
+                <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
+                
+                <li>
+                    <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<main>
+           
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">Create a Wordpress User role that only has access to a specific custom post type</h1>
+
+			<p class="date">
+
+
+<time datetime="2021-10-06">6 October, 2021</time>
+
+		
+</p>	
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p>There are already some default User Roles that can be used in Wordpress such as Editor, and Author. However, Custom User Roles can be useful to create in Wordpress if you want a finer level of control over the permissions.</p>
+<p>In this article, I am going to show you how to set up a user role which can only access a custom post type you created.</p>
+<p>Step one is to create the user role.
+This can be done using the <code>add_role()</code> function. Add the following code to your functions.php file in Wordpress:</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">add_role</span><span class="p">(</span><span class="s1">&#39;contributor&#39;</span><span class="p">,</span> <span class="s1">&#39;Contributor&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;read&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;edit_posts&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;delete_posts&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="p">));</span>
+</code></pre></div><p>This is going to setup a new role called “Contributor”.</p>
+<p>We now need to define what permissions this role does, and does not have. I prefer to remove all permissions by default, and then add the ones I want.</p>
+<pre><code>function add_capability()
+{
+    $contributor_role = get_role('contributor');
+
+    $contributor_role-&gt;add_cap( 'read' );
+
+    // Remove all other capabilities
+    $contributor_role-&gt;add_cap('edit_pages', false );
+    $contributor_role-&gt;add_cap('publish_pages', false );
+    $contributor_role-&gt;add_cap('edit_others_pages', false);
+    $contributor_role-&gt;add_cap('edit_private_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('delete_others_pages', false);
+
+    $contributor_role-&gt;add_cap('activate_plugins', false);
+    $contributor_role-&gt;add_cap('edit_plugins', false);
+    $contributor_role-&gt;add_cap('delete_plugins', false);
+    $contributor_role-&gt;add_cap('install_plugins', false);
+    $contributor_role-&gt;add_cap('update_plugins', false);
+
+    $contributor_role-&gt;add_cap('delete_others_posts', false);
+    $contributor_role-&gt;add_cap('delete_posts', false);
+    $contributor_role-&gt;add_cap('delete_private_pages', false);
+    $contributor_role-&gt;add_cap('delete_published_pages', false);
+    $contributor_role-&gt;add_cap('delete_private_posts', false);
+    $contributor_role-&gt;add_cap('delete_published_posts', false);
+    $contributor_role-&gt;add_cap('edit_others_pages', false);
+    $contributor_role-&gt;add_cap('edit_others_posts', false);
+    $contributor_role-&gt;add_cap('edit_posts', false);
+    $contributor_role-&gt;add_cap('edit_private_posts', false);
+    $contributor_role-&gt;add_cap('edit_private_posts', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_posts', false);
+    $contributor_role-&gt;add_cap('manage_categories', false);
+    $contributor_role-&gt;add_cap('manage_links', false);
+    $contributor_role-&gt;add_cap('moderate_comments', false);
+    $contributor_role-&gt;add_cap('publish_pages', false);
+    $contributor_role-&gt;add_cap('publish_posts', false);
+    $contributor_role-&gt;add_cap('read_private_pages', false);
+    $contributor_role-&gt;add_cap('read_private_posts', false);
+    $contributor_role-&gt;add_cap('unfiltered_html', false);
+    $contributor_role-&gt;add_cap('upload_files', false);
+
+    // Add only magazine access
+    $contributor_role-&gt;add_cap('read_magazines');
+    $contributor_role-&gt;add_cap('readmagazines');
+    $contributor_role-&gt;add_cap('deletemagazines');
+    $contributor_role-&gt;add_cap('editmagazines');
+    $contributor_role-&gt;add_cap('read_private_magazines');
+    $contributor_role-&gt;add_cap('edit_magazines');
+    $contributor_role-&gt;add_cap('edit_others_magazines');
+    $contributor_role-&gt;add_cap('publish_magazines');
+    $contributor_role-&gt;add_cap('delete_magazines'); // to be sure
+
+    $contributor_role-&gt;add_cap('read_documents', false);
+}
+add_action('admin_init', 'add_capability');
+</code></pre><p>In this instance we are adding the functionality for this user to ONLY be able to edit a post group we have created called ‘Magazines’.</p>
+<p>To see the full list of capabilities for the default user groups - check out this page: <a href="https://wordpress.org/support/article/roles-and-capabilities/">Roles and Capabilities | WordPress.org</a></p>
+<p>An important thing to note here is that when we setup our custom post type, we need to manually create the labels for the capabilities.</p>
+<pre><code>'public' =&gt; false,  
+'supports' =&gt; array( 'title', 'thumbnail'),
+ect...
+
+'capability_type' =&gt; 'magazines', // the name of your post group
+'capabilities' =&gt; array(
+    'publish_posts' =&gt; 'publish_magazines',
+    'edit_posts' =&gt; 'edit_magazines',
+    'edit_others_posts' =&gt; 'edit_others_magazines',
+    'read_private_posts' =&gt; 'read_private_magazines',
+    'edit_post' =&gt; 'editmagazines',
+    'delete_post' =&gt; 'deletemagazines',
+    'read_post' =&gt; 'readmagazines',
+),
+</code></pre><p>All you need to do now is ADD a new user in Wordpress, and assign them to the ‘contributor’ user group.</p>
+<p>Once you login you should see that this user only has access to the ‘Magazines’ post group.</p>	
+
+			<br>
+			<p><a href="https://davidw3c.github.io/portfolio/posts">Return to Posts</a></p>			
+		</div>
+	</div>
+</div>
+
+   
+           
+        </main><div class="footer">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p style="margin-top:0;">&copy; 2021 David Walker. All rights reserved. <span>Website Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" alt=""></a></span>
+			</p>
+
+			
+			
+		</div>
+	</div>
+</div>
+
+<script src="https://davidw3c.github.io/portfolio/js/main.js"></script></body>
+</html>

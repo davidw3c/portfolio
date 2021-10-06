@@ -97,6 +97,12 @@ h1,h2,h3 {
 	transition: 0.1s border-bottom;
 }
 
+@media (max-width: 768px) {
+	.header-logoLink {
+		font-size:20px;
+	}
+}
+
 .header-logoLink:hover {
 	border-bottom: 1px solid #fff;
 }
@@ -105,9 +111,27 @@ h1,h2,h3 {
 	float:right;
 }
 
+#nav_toggle {
+	display: none;
+}
+
 @media (max-width: 768px) {
 	.header-nav {
 		float:none;
+		display: none;
+	}
+
+	.header-nav.visible {
+		display: block;
+	}
+
+	#nav_toggle {
+		display: block;
+		color:#fff;
+		position: absolute;
+		top:20px;
+		right:15px;
+		text-decoration: none;
 	}
 }
 
@@ -131,7 +155,8 @@ h1,h2,h3 {
 @media (max-width: 768px) {
 	.header-nav li {
 		margin-left: 0;
-		margin-right: 15px;
+		margin-bottom:13px;
+		display: block;
 	}	
 }
 
@@ -509,6 +534,14 @@ h1,h2,h3 {
 .footer span {
 	float:right;
 }
+
+@media (max-width: 768px) {
+	.footer span {
+		float:none;
+		display: block;
+	}	
+}
+
 
 .footer-credit {
 	text-align: right;

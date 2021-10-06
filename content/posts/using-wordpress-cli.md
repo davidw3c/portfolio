@@ -1,7 +1,7 @@
 ---
 title: "Using the Wordpress Command Line"
 date: 2021-02-04T20:34:21Z
-draft: false
+draft: true
 tags: ["Wordpress"]
 ---
 

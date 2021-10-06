@@ -1,0 +1,37 @@
+{{ define "main" }}
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-100">
+			<h1 class="heading-title">{{ .Title }}</h1>
+
+			<p>Here you will find a list of both personal and commercial projects I have worked on.</p>
+		
+		</div>
+	</div>
+</div>
+
+<div class="content">
+
+	<div class="grid-container">
+		<div class="grid-100">
+
+			{{ .Content }}	
+
+			<div class="grid-container">
+			{{ range .Paginator.Pages.ByPublishDate.Reverse }}
+				<div class="grid-50">
+				    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+				    <p>{{ .Summary }}</p>
+				</div>
+			{{ end }}
+			</div>				
+
+		{{ partial "pagination" .}}	
+
+		</div>
+	</div>
+
+</div>
+
+{{ end }}

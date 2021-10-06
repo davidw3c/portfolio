@@ -1,0 +1,24 @@
+{{ define "main" }}
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">{{ .Title }}</h1>
+
+			{{ partial "metadata.html" . }}	
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-100">
+			{{ .Content }}	
+
+			<br>
+			<p><a href="{{.Site.BaseURL}}projects">Return to Projects</a></p>			
+		</div>
+	</div>
+</div>
+
+{{ end }}
