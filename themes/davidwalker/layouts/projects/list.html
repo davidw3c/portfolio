@@ -1,33 +1,46 @@
 {{ define "main" }}
 
-<div class="heading">
+<section class="heading">
 	<div class="grid-container">
 		<div class="grid-100">
 			<h1 class="heading-title">{{ .Title }}</h1>
 
-			<p>Here you will find a list of both personal and commercial projects I have worked on.</p>
+			<p>In this section, you will find a list of both personal and commercial development projects I have worked on whereby I have acted as the lead front end developer or lead developer, along with case studies of the technologies used and the planning and attention to detail given to each project.</p>
 		
 		</div>
 	</div>
-</div>
+</section>
 
 <div class="content">
 
-	<div class="grid-container">
+	<div class="projectsList">
+		<div class="projectsList-item">
+			
+		</div>
+	</div>
+
+	<div class="grid-container grid-parent">
 		<div class="grid-100">
 
 			{{ .Content }}	
 
-			<div class="grid-container">
+			<div class="cardsGrid">
 			{{ range .Paginator.Pages.ByPublishDate.Reverse }}
-				<div class="grid-50">
-				    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-				    <p>{{ .Summary }}</p>
+				<div class="card">
+					<div class="card-image">
+						<picture>
+							<img src="{{ .Params.featured_image }}" alt="" width="301" height="226">
+						</picture>
+					</div>
+					<div class="card-body">
+						<h3 class="card-title"><a href="{{ .RelPermalink }}" class="card-link">{{ .Title }}</a></h3>
+						{{ .Summary }}
+					</div>
 				</div>
 			{{ end }}
-			</div>				
+			</div><!-- ends cardsGriod container -->
 
-		{{ partial "pagination" .}}	
+			{{ partial "pagination" .}}	
 
 		</div>
 	</div>

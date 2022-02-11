@@ -13,15 +13,13 @@
 <div class="content">
 	<div class="grid-container">
 		<div class="grid-100">
-
-			<div class="tags">
-				<ul class="tagsList">
+			<nav role="complementary">
+				<ul>
 				{{ range .Pages.ByPublishDate.Reverse }}
-					<li class="tagsList-item"><a class="tag" href="{{ .RelPermalink }}"><span class="hash">#</span>{{ .Title }}</a></li>
+					<li><a class="tag" href="{{ .RelPermalink }}"><span class="hash">#</span>{{ .Title }}</a></li>
 				{{ end }}
-				</ul>		
-			</div>
-
+				</ul>
+			</nav>		
 		</div>
 	</div>
 </div>

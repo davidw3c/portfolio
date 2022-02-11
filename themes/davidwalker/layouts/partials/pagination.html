@@ -8,7 +8,7 @@
         {{ end }}
 
         {{ if $pag.HasPrev  }}
-        <a href="{{ $pag.Prev.URL }}" rel="prev" class="page-link">Previous page</a>
+        <a href="{{ $pag.Prev.URL }}" rel="prev" class="page-link prev-link">Previous page</a>
         {{ end }}
 
         {{ range $pag.Pagers }}
@@ -24,7 +24,7 @@
         {{ end }}
 
         {{ if $pag.HasNext }}
-        <a href="{{ $pag.Next.URL }}" rel="next" class="page-link">Next page</a>
+        <a href="{{ $pag.Next.URL }}" rel="next" class="page-link next-link">Next page</a>
         {{ end }}
 
         <!-- Don't show on last and 2nd last page -->
