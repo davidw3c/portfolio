@@ -6,14 +6,14 @@
     <description>Recent content in Wordpress on David Walker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Feb 2021 20:34:21 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 07 Oct 2021 14:35:59 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/tags/wordpress/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Using the Wordpress Command Line</title>
-      <link>https://davidw3c.github.io/portfolio/posts/using-wordpress-cli/</link>
-      <pubDate>Thu, 04 Feb 2021 20:34:21 +0000</pubDate>
+      <title>Interactive Google Map Tutorial: Multiple markers, marker toggles &amp; Wordpress CMS integration</title>
+      <link>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</link>
+      <pubDate>Thu, 07 Oct 2021 14:35:59 +0100</pubDate>
       
-      <guid>https://davidw3c.github.io/portfolio/posts/using-wordpress-cli/</guid>
-      <description>&lt;p&gt;The Wordpress Command Line (WP-CLI) utility allows you to quickly perform tasks such as installing and updating Wordpress via the Terminal Command Line, as opposed to using the usual Graphical User Interface.&lt;/p&gt;</description>
+      <guid>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</guid>
+      <description>&lt;p&gt;In this tutorial, I will walk through how to set up a map with multiple markers using the Google Maps API,  make it editable in Wordpress using the Advanced Custom Fields repeater field and additionally to categorise groups of map markers so that they can be filtered using onclick buttons in Javascript.&lt;/p&gt;</description>
     </item>
     
   </channel>

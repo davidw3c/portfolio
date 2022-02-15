@@ -6,7 +6,34 @@
     <description>Recent content in Posts on David Walker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Oct 2021 19:35:30 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Jan 2022 15:28:42 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to create code snippets in Sublime Text 3</title>
+      <link>https://davidw3c.github.io/portfolio/posts/sublime-snippets/</link>
+      <pubDate>Tue, 25 Jan 2022 15:28:42 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/sublime-snippets/</guid>
+      <description>&lt;p&gt;Code snippets in Sublime Text 3 can save you a lot of time. They allow you to create a key word which you type and then press &amp;lsquo;tab&amp;rsquo; to generate a code block.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handy SVG Resources</title>
+      <link>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</link>
+      <pubDate>Thu, 13 Jan 2022 09:48:02 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</guid>
+      <description>&lt;p&gt;This is a list of easy to copy and paste SVG&amp;rsquo;s that might be commonly used on projects. All SVG code will be clean, simple and easy to use. This list will be periodically updated.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Interactive Google Map Tutorial: Multiple markers, marker toggles &amp; Wordpress CMS integration</title>
+      <link>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</link>
+      <pubDate>Thu, 07 Oct 2021 14:35:59 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</guid>
+      <description>&lt;p&gt;In this tutorial, I will walk through how to set up a map with multiple markers using the Google Maps API,  make it editable in Wordpress using the Advanced Custom Fields repeater field and additionally to categorise groups of map markers so that they can be filtered using onclick buttons in Javascript.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Create a Wordpress User role that only has access to a specific custom post type</title>
       <link>https://davidw3c.github.io/portfolio/posts/create-wordpress-user-restricted-custom-post-type/</link>

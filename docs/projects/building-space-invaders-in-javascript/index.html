@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/unsemantic.css">
+    <link rel="stylesheet" type="text/css" href="https://davidw3c.github.io/portfolio/css/styles.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://davidw3c.github.io/portfolio/favicon.png">
+    
+    
+    <title>David Walker | Building Space Invaders in Vanilla Javascript</title>
+</head><body class="site"><header role="header">
+    <div class="grid-container">
+        <div class="grid-30 tablet-grid-30 mobile-grid-100">
+            <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
+                David Walker
+            </a>
+
+            
+        </div>
+        <div class="grid-70 tablet-grid-70 mobile-grid-100">
+            <nav role="navigation">
+                <ul>
+                
+                
+                    <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
+                
+                    <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                
+                    <li><a class="header-nav-item" href="/portfolio/projects/" title="">Projects</a></li>
+                
+                    <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
+                
+                <li>
+                    <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header><main role="main">
+
+<div class="heading">
+	<div class="grid-container">
+		<div class="grid-90">
+			<h1 class="heading-title">Building Space Invaders in Vanilla Javascript</h1>
+
+			<p class="date">
+
+
+<time datetime="2021-03-02">2 March, 2021</time>
+
+		
+</p>	
+		</div>
+	</div>
+</div>
+
+<div class="content">
+	<div class="grid-container">
+		<div class="grid-80">
+			<p>A fun side project, where I create an ongoing journal log of my attempts to build the classic arcade game &lsquo;Space Invaders&rsquo; from the ground up, with zero tutorials, using Javascript.</p>
+<blockquote>
+<p>NOTE: This article is NOT a tutorial! It is a journal log which documents my time building Space Invaders without the aid of step by step guides. I’m figuring out everything as I go so the code will change drastically from start to finish as I learn from my own mistakes and challenges.</p>
+</blockquote>
+<p><strong>Written in January &amp; February of 2021</strong></p>
+<h2 id="building-space-invaders-from-scratch-without-any-tutorials-in-january-2021">Building Space Invaders from scratch without ANY tutorials in January 2021</h2>
+<p>As I write, Britain is currently in lockdown - as a result of the terrible ongoing coronavirus pandemic. I wanted to use this time to dedicate to a new project. For my first personal project of 2021, I have decided to build the classic 1978 arcade game ‘Space Invaders’ using Javascript.</p>
+<p>To give myself an added challenge, I have decided that I will adopt a “no tutorials” rule while building the game.</p>
+<p>Instead of blindly following step by step tutorials on the internet, which encourage you to simply re-type or copy blocks of code, my objective is to build space invaders from the ground up and actively think about how I will create each part of the game. I will use a combination of my existing Javascript knowledge and also use this exercise to improve my Javascript. Whilst I will not be looking at any tutorials - I will occasionally research certain Javascript features to help me achieve my objectives.</p>
+<p>This article will take you through my mistakes and then how I resolved them and improved my code - so this definitely not a tutorial, but more of a code journal to track my progress with this challenge.</p>
+<h2 id="game-components">Game Components</h2>
+<p>First of all, let’s establish the basic components of the Space Invaders game. The following is a list of basic Space Invader game components I will need to get started:</p>
+<ul>
+<li>A canvas</li>
+<li>The cannon which will fire the lazers</li>
+<li>The Lazer Beams</li>
+<li>The alien invaders</li>
+<li>A scoreboard</li>
+</ul>
+<h2 id="using-javascript-to-listen-for-key-press-events">Using Javascript to listen for key press events</h2>
+<p>One of my first considerations is that game players will need to control the ‘laser cannon’ in the game via 3 primary keyboard keys: The left arrow key (move left), the right arrow key (move right) and the spacebar (fire the laser!).</p>
+<p>I will therefore need a Keydown event listener.</p>
+<p>To detect the user pressing the arrow keys on their keyboard, I am going to need a ‘keydown’ event. The other event listener ‘keypress’ does not work for arrow keys.</p>
+<p>Every key on a keyboard has a corresponding Unicode KEY.  These are the Unicode keys for the two arrows:</p>
+<p>Left arrow unicode key = 37
+Right arrow unicode key = 39</p>
+<p>The spacebar key can use either the ‘keypress’ or ‘keydown’ event listener, but to keep things consistent, I’m going to stick with the ‘keydown’ event.</p>
+<p>Spacebar unicode key = 32</p>
+<p>The following simple IF statement allows us to generate an alert message if the user presses the arrow or space bar keys:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">37</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&#34;You pressed the left arrow key&#34;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">39</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;You pressed the right arrow key&#39;</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">32</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s1">&#39;You pressed the spacebar key&#39;</span><span class="p">);</span>
+  <span class="p">}</span>  
+<span class="p">});</span>
+</code></pre></div><p>Great! We can now use this code for the next step.</p>
+<h2 id="move-a-div-from-left-to-right-with-keyboard-arrow-keys-using-javascript-event-listener">Move a div from left to right with keyboard arrow keys, using Javascript event listener</h2>
+<p>In the Space Invaders game, the laser cannon will be moved from left to right using the arrow keys.</p>
+<p>To do this I’m going to setup a simple canvas with a div for the cannon, along with some text to track the position of the cannon.</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cannon&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Position of cannon: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;number&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div><p>Now let’s style it up a bit - I am going to be using the colours from the original Space Invader game from 1978.</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">canvas</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">108</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#000000</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">cannon</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#33ff00</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>To make the ‘cannon’ div move 100px FROM the left when I press the right arrow key I could simply do the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="mi">39</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="s2">&#34;100px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>However, obviously we want a bit more control than that. We need that number to increase if we press and hold the right arrow key, and decrease if we press and hold the left arrow key.  We also want to make sure that number doesn’t decrease past 0, or increase past the width of our container. This can be achieved by a calculation: Cannon width MINUS the canvas width , in our case this is 200 - 100 = 100. But we also need to minus 1, to make sure the number doesn’t go to 101, so I’ll be using 99.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rightArrowKey</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">leftArrowKey</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">rightArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&lt;=</span> <span class="mi">99</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>    
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="p">}</span>  
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">leftArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>Here’s my updated code. I’m setting the count variable to zero, and when the user presses the right arrow key, ‘count’ will go to 1 and keep going up by 1 as the key is held down. Pressing the left arrow key reduces the number by 1 all the way down to zero.</p>
+<p>The effects can be seen in the console log:</p>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+<span class="m">2</span>
+<span class="m">1</span>
+<span class="m">0</span>
+</code></pre></div><p>Perfect. Now all I need to do is “inject” this value as an inline style on the cannon div! I do this by targeting the cannon div, adding an inline style of ‘left’ and concatenating ‘px’ to the end of the count variable.</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rightArrowKey</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">leftArrowKey</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">canvasWidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cannonWidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxCount</span> <span class="o">=</span> <span class="nx">canvasWidth</span> <span class="o">-</span> <span class="nx">cannonWidth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">rightArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&lt;=</span> <span class="nx">maxCount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>    
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>  
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">leftArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>To make things a little more fancy, I added in 3 new variables - <code>canvasWidth</code> , <code>cannonWidth</code> and <code>maxCount</code>  - This is so I can perform the basic calculation to stop the cannon going past the container, and allows me to easily tweak this number in future.</p>
+<h2 id="firing-a-lazer-on-space-bar-key-press">Firing a Lazer on Space Bar Key Press</h2>
+<p>So next thing I need to do is fire a lazerbeam out that cannon when the user presses the space bar.</p>
+<p>To start, I need to update my styles. I need to make sure the <code>Lazer</code> moves with the <code>cannon</code> so that the two are in sync.</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cannon&#34;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cannon-lazer&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><p>For now I’ll just keep things simple and worry about the precise positioning of the <code>lazer</code> later:</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">canvas</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">108</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#000000</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">cannon</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#33ff00</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">cannon-lazer</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">transition</span><span class="p">:</span><span class="mf">0.3</span><span class="kt">s</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>I managed to add a very basic “lazer fire” effect simply by manipulating the ‘bottom’ position of the div on space bar key press:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">lazer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon-lazer&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rightArrowKey</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">leftArrowKey</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">spaceBarKey</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">canvasWidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cannonWidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxCount</span> <span class="o">=</span> <span class="nx">canvasWidth</span> <span class="o">-</span> <span class="nx">cannonWidth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">rightArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&lt;=</span> <span class="nx">maxCount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>    
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>  
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">leftArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">spaceBarKey</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">lazer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">=</span> <span class="s2">&#34;93px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>I now have a problem. The lazer only fires once, and the effect is very limited. I need to find a way to make it so that the lazer fires an unlimited number of times.</p>
+<p>I was stumped for a while, then I have a brainwave! My initial idea of giving the lazer a static value like <code>lazer.style.button = 93px</code> and then letting CSS handle the smooth motion is not going to work. What I need to do instead is use Javascript to create a counter - which counts from 0 to 93, and when it gets to 93, reset back to 0 again (thus ‘reloading’ the lazer cannon). This value will then be injected into the lazer div’s style position.</p>
+<p>I created the following demo code which provides a basic example of how to trigger a counter function, which counts from 1 to 10 and then resets to 0 in the console log…</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">countToTenAndBack</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">counter</span><span class="o">++</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">timeOutFunc</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&#34;countToTenAndBack()&#34;</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+ 
+  <span class="k">if</span><span class="p">(</span><span class="nx">counter</span> <span class="o">==</span> <span class="mi">11</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">counter</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">timeOutFunc</span><span class="p">);</span>
+  <span class="p">}</span>  
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">counter</span><span class="p">);</span>
+<span class="p">}</span>  
+<span class="nx">countToTenAndBack</span><span class="p">();</span>
+</code></pre></div><p>I now just need to take this code and apply it to my lazer div, and count to 93 instead of 10.</p>
+<p>Here’s an updated version of my javascript, at this stage:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">lazer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon-lazer&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rightArrowKey</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">leftArrowKey</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">spaceBarKey</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">canvasWidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cannonWidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxCount</span> <span class="o">=</span> <span class="nx">canvasWidth</span> <span class="o">-</span> <span class="nx">cannonWidth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">lazer_position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">fire</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">lazer_position</span><span class="o">++</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">myTimeoutFunction</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&#34;fire()&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+ 
+  <span class="k">if</span><span class="p">(</span><span class="nx">lazer_position</span> <span class="o">==</span> <span class="mi">94</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">lazer_position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">myTimeoutFunction</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">lazer</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">=</span> <span class="nx">lazer_position</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">rightArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&lt;=</span> <span class="nx">maxCount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>    
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>  
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">leftArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">spaceBarKey</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">fire</span><span class="p">();</span>
+  <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><h2 id="creating-and-destroying-the-lazer-element-in-the-dom">Creating and destroying the lazer element in the DOM</h2>
+<p>I had another brainwave. Perhaps instead of ‘resetting’ the position of the same lazer div on the space bar key press each time, I should instead be creating a new lazer beam by inserting it into the DOM, and then once said lazer beam reaches the top of the canvas (as per the conditional statement), I then remove it from the DOM and create a new lazer.</p>
+<p>I therefore modified my code to come up with the following:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;cannon&#34;</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><p>CSS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">canvas</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">108</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">200</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#000000</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">cannon</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="mh">#33ff00</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">newlazer</span> <span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">width</span><span class="p">:</span><span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+  <span class="k">background</span><span class="p">:</span><span class="kc">red</span><span class="p">;</span>
+  <span class="k">position</span><span class="p">:</span><span class="kc">absolute</span><span class="p">;</span>
+  <span class="k">bottom</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+  <span class="k">left</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><p>JS:</p>
+<div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">cannon</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">lazer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;cannon-lazer&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">count</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">rightArrowKey</span> <span class="o">=</span> <span class="mi">39</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">leftArrowKey</span> <span class="o">=</span> <span class="mi">37</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">spaceBarKey</span> <span class="o">=</span> <span class="mi">32</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">canvasWidth</span> <span class="o">=</span> <span class="mi">200</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">cannonWidth</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">maxCount</span> <span class="o">=</span> <span class="nx">canvasWidth</span> <span class="o">-</span> <span class="nx">cannonWidth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lazer_position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">createLazer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">newLazer</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">);</span>
+  <span class="nx">newLazer</span><span class="p">.</span><span class="nx">className</span> <span class="o">=</span> <span class="s2">&#34;newlazer&#34;</span><span class="p">;</span>
+  <span class="nx">cannon</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">newLazer</span><span class="p">);</span>  
+<span class="p">}</span>
+
+<span class="c1">// create a new lazer on page load
+</span><span class="c1"></span><span class="nx">createLazer</span><span class="p">();</span>
+
+<span class="kd">function</span> <span class="nx">destroyLazer</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lazer_to_destroy</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.newlazer&#39;</span><span class="p">);</span>
+  <span class="nx">lazer_to_destroy</span><span class="p">.</span><span class="nx">remove</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">fire</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">lazerbeam</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s1">&#39;.newlazer&#39;</span><span class="p">);</span>
+  <span class="nx">lazer_position</span><span class="o">++</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">myTimeoutFunction</span> <span class="o">=</span> <span class="nx">setTimeout</span><span class="p">(</span><span class="s2">&#34;fire()&#34;</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>  
+  <span class="k">if</span><span class="p">(</span><span class="nx">lazer_position</span> <span class="o">==</span> <span class="mi">94</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">lazer_position</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="nx">clearTimeout</span><span class="p">(</span><span class="nx">myTimeoutFunction</span><span class="p">);</span>
+    <span class="nx">destroyLazer</span><span class="p">();</span>
+  <span class="p">}</span>
+  <span class="nx">lazerbeam</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">bottom</span> <span class="o">=</span> <span class="nx">lazer_position</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nb">document</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;keydown&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">rightArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&lt;=</span> <span class="nx">maxCount</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">++</span><span class="p">;</span>    
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>  
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">leftArrowKey</span> <span class="o">&amp;&amp;</span> <span class="nx">count</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">count</span><span class="o">--</span><span class="p">;</span>
+    <span class="nx">cannon</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">left</span> <span class="o">=</span> <span class="nx">count</span> <span class="o">+</span> <span class="s2">&#34;px&#34;</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">keyCode</span> <span class="o">===</span> <span class="nx">spaceBarKey</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="nx">createLazer</span><span class="p">();</span>
+    <span class="nx">fire</span><span class="p">();</span>
+   <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div><p>This works much better. You can now press the space bar key and fire lasers at rapid speed!</p>
+<h2 id="collision-detection">Collision Detection</h2>
+<p>The next thing I need to be able to do is master ‘collision detection’ in Javascript. Collision detection is essentially how you might detect when two objects collide.</p>
+<p>My research has uncovered that in order to detect a collision, you must calculate the space between two objects - and once that space is reduced to zero, in theory, that is a collision - in practice however, there is much more to it than that!</p>
+<p>After a lot of research into this topic, I managed to get a very basic form of collision detection working. Here’s my setup:</p>
+<div class="highlight"><pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;canvas&#34;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;object-1&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&#34;object-2&#34;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-css" data-lang="css"><span class="p">#</span><span class="nn">canvas</span> <span class="p">{</span>
+<span class="k">background</span><span class="p">:</span><span class="mh">#000</span><span class="p">;</span>
+<span class="k">height</span><span class="p">:</span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span><span class="mi">100</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">relative</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">object-1</span> <span class="p">{</span>
+<span class="k">height</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">background</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+<span class="k">top</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">left</span><span class="p">:</span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">#</span><span class="nn">object-2</span> <span class="p">{</span>
+<span class="k">height</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">width</span><span class="p">:</span><span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+<span class="k">background</span><span class="p">:</span><span class="mh">#fff</span><span class="p">;</span>
+<span class="k">position</span><span class="p">:</span> <span class="kc">absolute</span><span class="p">;</span>
+<span class="k">top</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="k">right</span><span class="p">:</span><span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div><div class="highlight"><pre class="chroma"><code class="language-javascript" data-lang="javascript"><span class="kd">var</span> <span class="nx">object_1</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;object-1&#39;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">object_2</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s1">&#39;object-2&#39;</span><span class="p">);</span>
+
+<span class="kd">var</span> <span class="nx">object_1_left</span> <span class="o">=</span> <span class="nx">object_1</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">left</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">object_2_left</span> <span class="o">=</span> <span class="nx">object_2</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">left</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">object_1_top</span> <span class="o">=</span> <span class="nx">object_1</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">top</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">object_2_top</span> <span class="o">=</span> <span class="nx">object_2</span><span class="p">.</span><span class="nx">getBoundingClientRect</span><span class="p">().</span><span class="nx">top</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">object_1</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">x</span><span class="o">:</span> <span class="nx">object_1_left</span><span class="p">,</span>
+<span class="nx">y</span><span class="o">:</span> <span class="nx">object_1_top</span><span class="p">,</span>
+<span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+
+<span class="kd">var</span> <span class="nx">object_2</span> <span class="o">=</span> <span class="p">{</span>
+<span class="nx">x</span><span class="o">:</span> <span class="nx">object_2_left</span><span class="p">,</span>
+<span class="nx">y</span><span class="o">:</span> <span class="nx">object_2_top</span><span class="p">,</span>
+<span class="nx">width</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+<span class="nx">height</span><span class="o">:</span> <span class="mi">10</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">object_1</span><span class="p">.</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="nx">object_2</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">object_2</span><span class="p">.</span><span class="nx">width</span> <span class="o">&amp;&amp;</span> <span class="nx">object_1</span><span class="p">.</span><span class="nx">x</span> <span class="o">+</span> <span class="nx">object_1</span><span class="p">.</span><span class="nx">width</span> <span class="o">&gt;</span> <span class="nx">object_2</span><span class="p">.</span><span class="nx">x</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;COLLISION!!!!!&#34;</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">write</span><span class="p">(</span><span class="s2">&#34;No collision detected&#34;</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div><p><code>getBoundingClientRect()</code> is a method that I had not used much before. Essentially, it will provide me with information about where certain objects are within the viewport. By attaching rules such as <code>getBoundingClientRect().left</code> and <code>getBoundingClientRect().top</code> I can get the distance of a <code>&lt;div&gt;</code> from the left and top of the viewport.</p>
+<p>I then create two Javascript objects - giving them height, width and x and y properties.</p>
+<p>Then a conditional is used to check when these objects collide. The following conditional creates a collision when the objects overlap by 1px:</p>
+<pre><code>object_1.x &lt; object_2.x + object_2.width &amp;&amp; object_1.x + object_1.width &gt; object_2.x
+</code></pre><p>However, I wanted a collision to occur when the two objects touch, rather than overlap, so I decided to add a <code>-1</code> :</p>
+<pre><code>object_1.x &lt; object_2.x + object_2.width &amp;&amp; object_1.x + object_1.width &gt; object_2.x - 1
+</code></pre><p>Currently, in this example, the position of the objects is being set manually, in CSS (with the left and right absolute positions). So you can tweak these CSS values until the divs “collide” in order to render the conditional as true. For the sake of mastering a simple collision detection, this example is fine, however for the game of course I will need to try to merge this code in with my other code, so that the positions are being set by the keydown event listeners.</p>
+<p>The example of using Javascript objects has also given me some things to think about in terms of re-thinking how I might code the overall game using a more object-oriented approach.</p>
+<p>My next steps therefore are to create an object-oriented version of the game, with keyboard controls, and collision detection in place.</p>
+<p><strong>TO BE CONTINUED&hellip;</strong></p>
+<h2 id="what-have-i-learned">What have I learned</h2>
+<p>So far this project has helped me to learn more about:</p>
+<ol>
+<li>Javascript keydown events using unicodes</li>
+<li>Javascript object-oriented programming</li>
+<li>Collision detection</li>
+<li>The setTimeout function</li>
+</ol>	
+
+			<br>
+			<p><a href="https://davidw3c.github.io/portfolio/projects">Return to Projects</a></p>			
+		</div>
+	</div>
+</div>
+
+   
+        </main><footer role="footer">
+	<div class="grid-container">
+		<div class="grid-100">
+			<p style="margin-top:0;">&copy; 2022 David Walker. All rights reserved. <span>Website Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" width="59" height="16" alt="HUGO"></a></span>
+			</p>
+			
+		</div>
+	</div>
+</footer>
+
+<script src="https://davidw3c.github.io/portfolio/js/main.js"></script></body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SVG on David Walker</title>
+    <link>https://davidw3c.github.io/portfolio/tags/svg/</link>
+    <description>Recent content in SVG on David Walker</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 13 Jan 2022 09:48:02 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/tags/svg/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Handy SVG Resources</title>
+      <link>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</link>
+      <pubDate>Thu, 13 Jan 2022 09:48:02 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</guid>
+      <description>&lt;p&gt;This is a list of easy to copy and paste SVG&amp;rsquo;s that might be commonly used on projects. All SVG code will be clean, simple and easy to use. This list will be periodically updated.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

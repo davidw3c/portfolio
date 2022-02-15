@@ -8,27 +8,27 @@
     
     
     <title>David Walker | How to Create Pandoc Templates</title>
-</head><body class="site"><div class="header">
+</head><body class="site"><header role="header">
     <div class="grid-container">
         <div class="grid-30 tablet-grid-30 mobile-grid-100">
             <a href="https://davidw3c.github.io/portfolio/" class="header-logoLink">
                 David Walker
             </a>
 
-            <a href="#" id="nav_toggle">Show Menu</a>
+            
         </div>
         <div class="grid-70 tablet-grid-70 mobile-grid-100">
-            <nav class="header-nav">
+            <nav role="navigation">
                 <ul>
                 
                 
-                <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
+                    <li><a class="header-nav-item" href="/portfolio/" title="">Home</a></li>
                 
-                <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
+                    <li><a class="header-nav-item" href="/portfolio/posts/" title="">Posts</a></li>
                 
-                <li><a class="header-nav-item" href="/portfolio/projects/" title="">Projects</a></li>
+                    <li><a class="header-nav-item" href="/portfolio/projects/" title="">Projects</a></li>
                 
-                <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
+                    <li><a class="header-nav-item" href="/portfolio/tags/" title="">Tags</a></li>
                 
                 <li>
                     <a href="https://codepen.io/davidatchameleon/" target="_blank" class="navButton navButton--codepen">Codepen</a>
@@ -36,14 +36,7 @@
             </nav>
         </div>
     </div>
-</div>
-
-
-
-
-
-<main>
-           
+</header><main role="main">
 
 <div class="heading">
 	<div class="grid-container">
@@ -63,7 +56,7 @@
 
 <div class="content">
 	<div class="grid-container">
-		<div class="grid-100">
+		<div class="grid-80">
 			<p>Pandoc is a powerful tool that lets you convert one document type into another. It also has the ability to reference a template when converting multiple files.</p>
 <p>Using Pandoc templates, you can give your content a consistent header and footer without having to add these repeatable elemenets manually each time.</p>
 <p>In this tutorial, I aim to take you step by step through a very simple example of how we can utilise Pandoc templates. Please note the commands in this tutorial have been written for Mac OS or Linux Terminal use.</p>
@@ -225,24 +218,21 @@ done
 <p>For example, instead of just saying <code>THIS IS THE HEADER</code> - Why not go ahead and create an entire HTML header document, with the <!-- raw HTML omitted -->, <!-- raw HTML omitted --> and opening <!-- raw HTML omitted --> tags, in addition to your header markup, and to the same for footer too?</p>	
 
 			<br>
-			<p><a href="https://davidw3c.github.io/portfolio/posts">Return to Posts</a></p>			
+			<p class="return-to-posts"><a href="https://davidw3c.github.io/portfolio/posts">Return to Posts</a></p>			
 		</div>
 	</div>
 </div>
 
    
-           
-        </main><div class="footer">
+        </main><footer role="footer">
 	<div class="grid-container">
 		<div class="grid-100">
-			<p style="margin-top:0;">&copy; 2021 David Walker. All rights reserved. <span>Website Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" alt=""></a></span>
+			<p style="margin-top:0;">&copy; 2022 David Walker. All rights reserved. <span>Website Powered by <a href="https://gohugo.io/"><img src="https://davidw3c.github.io/portfolio//img/hugo.svg" width="59" height="16" alt="HUGO"></a></span>
 			</p>
-
-			
 			
 		</div>
 	</div>
-</div>
+</footer>
 
 <script src="https://davidw3c.github.io/portfolio/js/main.js"></script></body>
 </html>

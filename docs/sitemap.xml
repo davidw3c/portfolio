@@ -3,17 +3,92 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://davidw3c.github.io/portfolio/posts/create-wordpress-user-restricted-custom-post-type/</loc>
-    <lastmod>2021-10-06T19:35:30+01:00</lastmod>
+    <loc>https://davidw3c.github.io/portfolio/</loc>
+    <lastmod>2022-01-26T16:05:40+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://davidw3c.github.io/portfolio/</loc>
-    <lastmod>2021-10-06T19:35:30+01:00</lastmod>
+    <loc>https://davidw3c.github.io/portfolio/projects/uk-music/</loc>
+    <lastmod>2022-01-26T16:05:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/sublime-snippets/</loc>
+    <lastmod>2022-01-25T15:28:42+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://davidw3c.github.io/portfolio/posts/</loc>
+    <lastmod>2022-01-25T15:28:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/sublime/</loc>
+    <lastmod>2022-01-25T15:28:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/</loc>
+    <lastmod>2022-01-25T15:28:42+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</loc>
+    <lastmod>2022-01-13T09:48:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/svg/</loc>
+    <lastmod>2022-01-13T09:48:02+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/projects/ogden-trust/</loc>
+    <lastmod>2021-12-02T15:50:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/google-maps/</loc>
+    <lastmod>2021-10-07T14:35:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</loc>
+    <lastmod>2021-10-07T14:35:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/javascript/</loc>
+    <lastmod>2021-10-07T14:35:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/tags/wordpress/</loc>
+    <lastmod>2021-10-07T14:35:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/projects/domino-printing/</loc>
+    <lastmod>2021-10-07T13:06:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/projects/oryx/</loc>
+    <lastmod>2021-10-07T13:06:59+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/projects/freman-college/</loc>
+    <lastmod>2021-10-07T13:03:03+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/projects/woolf-institute/</loc>
+    <lastmod>2021-10-07T12:59:26+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://davidw3c.github.io/portfolio/posts/create-wordpress-user-restricted-custom-post-type/</loc>
     <lastmod>2021-10-06T19:35:30+01:00</lastmod>
   </url>
   
@@ -23,12 +98,7 @@
   </url>
   
   <url>
-    <loc>https://davidw3c.github.io/portfolio/projects/project-2/</loc>
-    <lastmod>2021-10-02T15:50:22+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://davidw3c.github.io/portfolio/projects/project-1/</loc>
+    <loc>https://davidw3c.github.io/portfolio/projects/building-space-invaders-in-javascript/</loc>
     <lastmod>2021-03-02T15:50:22+00:00</lastmod>
   </url>
   
@@ -54,11 +124,6 @@
   
   <url>
     <loc>https://davidw3c.github.io/portfolio/tags/pardot/</loc>
-    <lastmod>2021-02-04T20:28:54+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://davidw3c.github.io/portfolio/tags/</loc>
     <lastmod>2021-02-04T20:28:54+00:00</lastmod>
   </url>
   

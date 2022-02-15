@@ -6,7 +6,88 @@
     <description>Recent content on David Walker</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 Oct 2021 19:35:30 +0100</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Jan 2022 16:05:40 +0000</lastBuildDate><atom:link href="https://davidw3c.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>UK Music</title>
+      <link>https://davidw3c.github.io/portfolio/projects/uk-music/</link>
+      <pubDate>Wed, 26 Jan 2022 16:05:40 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/uk-music/</guid>
+      <description>&lt;p&gt;An accessibility focussed re-brand for one of the UK&amp;rsquo;s leading industry-funded bodies representing the interests of the British music industry.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How to create code snippets in Sublime Text 3</title>
+      <link>https://davidw3c.github.io/portfolio/posts/sublime-snippets/</link>
+      <pubDate>Tue, 25 Jan 2022 15:28:42 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/sublime-snippets/</guid>
+      <description>&lt;p&gt;Code snippets in Sublime Text 3 can save you a lot of time. They allow you to create a key word which you type and then press &amp;lsquo;tab&amp;rsquo; to generate a code block.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Handy SVG Resources</title>
+      <link>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</link>
+      <pubDate>Thu, 13 Jan 2022 09:48:02 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/handy-svg-resources/</guid>
+      <description>&lt;p&gt;This is a list of easy to copy and paste SVG&amp;rsquo;s that might be commonly used on projects. All SVG code will be clean, simple and easy to use. This list will be periodically updated.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Ogden Trust</title>
+      <link>https://davidw3c.github.io/portfolio/projects/ogden-trust/</link>
+      <pubDate>Thu, 02 Dec 2021 15:50:22 +0000</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/ogden-trust/</guid>
+      <description>&lt;p&gt;The Ogden Trust is a charitable organisation based in London which aims to increase the uptake of physics for all at post-16.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Interactive Google Map Tutorial: Multiple markers, marker toggles &amp; Wordpress CMS integration</title>
+      <link>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</link>
+      <pubDate>Thu, 07 Oct 2021 14:35:59 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/posts/interactive-google-map-tutorial/</guid>
+      <description>&lt;p&gt;In this tutorial, I will walk through how to set up a map with multiple markers using the Google Maps API,  make it editable in Wordpress using the Advanced Custom Fields repeater field and additionally to categorise groups of map markers so that they can be filtered using onclick buttons in Javascript.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Domino Printing</title>
+      <link>https://davidw3c.github.io/portfolio/projects/domino-printing/</link>
+      <pubDate>Thu, 07 Oct 2021 13:06:59 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/domino-printing/</guid>
+      <description>&lt;p&gt;From late 2018 to present (January 2019), I was tasked with hand coding a number of email templates for Domino printing. These email templates ranged from standard marketing emails, to internal newsletters.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Oryx the Journal</title>
+      <link>https://davidw3c.github.io/portfolio/projects/oryx/</link>
+      <pubDate>Thu, 07 Oct 2021 13:06:59 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/oryx/</guid>
+      <description>&lt;p&gt;From late 2018 to present (January 2019), I was tasked with hand coding a number of email templates for Domino printing. These email templates ranged from standard marketing emails, to internal newsletters.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Freman College</title>
+      <link>https://davidw3c.github.io/portfolio/projects/freman-college/</link>
+      <pubDate>Thu, 07 Oct 2021 13:03:03 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/freman-college/</guid>
+      <description>&lt;p&gt;In March 2017, I was tasked with building the brand new Freman College website. Following on from other successful projects such as Lucy Cavendish College, I have found over the years that education based websites have been some of my favourite projects to work on.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>The Woolf Institute</title>
+      <link>https://davidw3c.github.io/portfolio/projects/woolf-institute/</link>
+      <pubDate>Thu, 07 Oct 2021 12:59:26 +0100</pubDate>
+      
+      <guid>https://davidw3c.github.io/portfolio/projects/woolf-institute/</guid>
+      <description>&lt;p&gt;The Woolf Institute approached Chameleon for a brand new website which would launch in conjunction with their move to an impressive new premises on Madingley Road in Cambridge.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Create a Wordpress User role that only has access to a specific custom post type</title>
       <link>https://davidw3c.github.io/portfolio/posts/create-wordpress-user-restricted-custom-post-type/</link>
@@ -26,20 +107,11 @@
     </item>
     
     <item>
-      <title>The Ogden Trust - Front end site build</title>
-      <link>https://davidw3c.github.io/portfolio/projects/project-2/</link>
-      <pubDate>Sat, 02 Oct 2021 15:50:22 +0000</pubDate>
-      
-      <guid>https://davidw3c.github.io/portfolio/projects/project-2/</guid>
-      <description>&lt;p&gt;The Ogden Trust is a charitable organisation based in London which aims to increase the uptake of physics for all at post-16.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Building Space Invaders in Javascript</title>
-      <link>https://davidw3c.github.io/portfolio/projects/project-1/</link>
+      <title>Building Space Invaders in Vanilla Javascript</title>
+      <link>https://davidw3c.github.io/portfolio/projects/building-space-invaders-in-javascript/</link>
       <pubDate>Tue, 02 Mar 2021 15:50:22 +0000</pubDate>
       
-      <guid>https://davidw3c.github.io/portfolio/projects/project-1/</guid>
+      <guid>https://davidw3c.github.io/portfolio/projects/building-space-invaders-in-javascript/</guid>
       <description>&lt;p&gt;A fun side project, where I create an ongoing journal log of my attempts to build the classic arcade game &amp;lsquo;Space Invaders&amp;rsquo; from the ground up, with zero tutorials, using Javascript.&lt;/p&gt;</description>
     </item>
     
