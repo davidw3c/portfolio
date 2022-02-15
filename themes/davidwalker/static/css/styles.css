@@ -248,7 +248,7 @@ nav[role="navigation"] a:focus {
 	}
 }
 
-.heading:before {
+/*.heading:before {
 	content:"";
 	display: block;
 	position: absolute;
@@ -262,6 +262,14 @@ nav[role="navigation"] a:focus {
 	background-size: cover;
 	background-position: center;
 }
+*/
+@media (max-width: 768px) {
+	.heading:before {
+		display: none;
+	}
+
+}
+
 
 .heading a {
 	color:inherit;
@@ -728,7 +736,7 @@ footer[role='footer'] span {
 		display: block;
 	}	
 }
-
+/*
 footer[role='footer']:before {
 	content:"";
 	display: block;
@@ -743,7 +751,12 @@ footer[role='footer']:before {
 	background-size: cover;
 	background-position: center;
 }
-
+*/
+@media (max-width: 768px) {
+	footer[role='footer']:before {
+		display: none;
+	}
+}
 
 .footer-credit {
 	text-align: right;
