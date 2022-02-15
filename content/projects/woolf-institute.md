@@ -2,7 +2,7 @@
 title: "The Woolf Institute"
 date: 2021-10-07T12:59:26+01:00
 draft: false
-featured_image: "/portfolio/img/projects/woolf.jpg"
+featured_image: "img/projects/woolf.jpg"
 ---
 
 The Woolf Institute approached Chameleon for a brand new website which would launch in conjunction with their move to an impressive new premises on Madingley Road in Cambridge.

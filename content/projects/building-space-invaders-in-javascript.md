@@ -2,7 +2,7 @@
 title: "Building Space Invaders in Vanilla Javascript"
 date: 2021-03-02T15:50:22Z
 draft: false
-featured_image: "/portfolio/img/projects/space-invaders.jpg"
+featured_image: 'img/projects/space-invaders.jpg'
 ---
 
 A fun side project, where I create an ongoing journal log of my attempts to build the classic arcade game 'Space Invaders' from the ground up, with zero tutorials, using Javascript.

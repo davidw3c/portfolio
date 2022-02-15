@@ -2,7 +2,7 @@
 title: "Domino Printing"
 date: 2021-10-07T13:06:59+01:00
 draft: false
-featured_image: "/portfolio/img/projects/domino.jpg"
+featured_image: "img/projects/domino.jpg"
 ---
 
 From late 2018 to present (January 2019), I was tasked with hand coding a number of email templates for Domino printing. These email templates ranged from standard marketing emails, to internal newsletters. 

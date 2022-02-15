@@ -2,7 +2,7 @@
 title: "Freman College"
 date: 2021-10-07T13:03:03+01:00
 draft: false
-featured_image: "/portfolio/img/projects/freman.jpg"
+featured_image: "/img/projects/freman.jpg"
 ---
 
 In March 2017, I was tasked with building the brand new Freman College website. Following on from other successful projects such as Lucy Cavendish College, I have found over the years that education based websites have been some of my favourite projects to work on.

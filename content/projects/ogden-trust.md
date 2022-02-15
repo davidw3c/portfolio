@@ -2,7 +2,7 @@
 title: "The Ogden Trust"
 date: 2021-12-02T15:50:22Z
 draft: false
-featured_image: "/portfolio/img/projects/ogden.jpg"
+featured_image: "img/projects/ogden.jpg"
 ---
 
 The Ogden Trust is a charitable organisation based in London which aims to increase the uptake of physics for all at post-16. 
