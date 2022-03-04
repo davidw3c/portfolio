@@ -1,50 +1,40 @@
 {{ define "main" }}
 
 <section class="heading">
-	<div class="grid-container">
-		<div class="grid-100">
-			<h1 class="heading-title">{{ .Title }}</h1>
+	<div class="container">
+		<h1 class="heading-title">{{ .Title }}</h1>
 
-			<p>In this section, you will find a list of both personal and commercial development projects I have worked on whereby I have acted as the lead front end developer or lead developer, along with case studies of the technologies used and the planning and attention to detail given to each project.</p>
-		
-		</div>
+		<p>In this section, you will find a list of both personal and commercial development projects I have worked on whereby I have acted as the lead front end developer or lead developer, along with case studies of the technologies used and the planning and attention to detail given to each project.</p>
 	</div>
 </section>
 
-<div class="content">
-
-	<div class="projectsList">
-		<div class="projectsList-item">
-			
-		</div>
-	</div>
-
-	<div class="grid-container grid-parent">
-		<div class="grid-100">
+<section class="content content--shade">
+	<div class="container">
 
 			{{ .Content }}	
 
-			<div class="cardsGrid">
+			<div class="previews">
 			{{ range .Paginator.Pages.ByPublishDate.Reverse }}
-				<div class="card">
-					<div class="card-image">
-						<picture>
-							<img src="{{ $.Site.BaseURL }}{{ .Params.featured_image }}" alt="" width="301" height="226">
-						</picture>
+
+				<div class="preview">
+					<div class="preview-image">
+						<img src="{{ $.Site.BaseURL }}{{ .Params.featured_image }}">
 					</div>
-					<div class="card-body">
-						<h3 class="card-title"><a href="{{ .RelPermalink }}" class="card-link">{{ .Title }}</a></h3>
-						{{ .Summary }}
+					<div class="preview-body">
+						<h3 class="preview-title"><a href="{{ .RelPermalink }}" class="preview-link">{{ .Title }}</a></h3>
+						{{/*
+						<div class="preview-text">
+							{{ .Summary }}
+						</div>
+						*/}}
 					</div>
 				</div>
 			{{ end }}
-			</div><!-- ends cardsGriod container -->
+			</div>
 
-			{{ partial "pagination" .}}	
+		{{ partial "pagination" .}}	
 
-		</div>
 	</div>
-
-</div>
+</section>
 
 {{ end }}

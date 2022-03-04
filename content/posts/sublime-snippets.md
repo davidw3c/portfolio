@@ -1,5 +1,5 @@
 ---
-title: "How to create code snippets in Sublime Text 3"
+title: "Create code snippets in Sublime Text 3"
 date: 2022-01-25T15:28:42Z
 draft: false
 tags: ["Sublime"]
