@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="author" content="David Walker">
+	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
+</head>
+
+<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+
+<header>
+	<div class="container">
+		<div><a href="index.html"><b>David Walker</b></a></div>
+		<nav>
+			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+
+			<a href="#" id="mode" class="light">
+				<img src="img/sun.png" id="mode_image" height="22" width="22">
+			</a>
+		</nav>
+	</div>	
+</header>
+
+<main class="container">
+
+<section id="welcome">
+	<h1>Creating Pardot Email Templates using MJML</h1>	
+<p>Creating an email template that works across multiple email clients can be a notoriously difficult task. However, templating tools such as MJML can make things much easier, and combining MJML with Pardot is a robust workflow to create effective email marketing campaigns.</p>
+<p>However, it is important to understand that there are some special considerations which must be made when using <a href="https://mjml.io/">MJML</a> in conjunction with <a href="https://www.pardot.com/">Pardot</a>.</p>
+<p>In this guide I will seek to establish some useful tips when it comes to making MJML tags work in conjunction with Pardots &ldquo;editable region&rdquo; attributes.</p>
+<h2 id="how-to-make-an-template-editable-in-pardot">How to make an template editable in Pardot</h2>
+<p>In order to make parts of an email template editable in Pardot you need to attach <code>pardot-region</code> attributes to HTML tags.</p>
+<p>A typical Pardot Region might look something like this:</p>
+<pre><code>&lt;p pardot-region=&quot;editable-paragraph&quot;&gt;Some text&lt;/p&gt;
+</code></pre><p>You can enter any name you like into your pardot region- but the naming structure must obey css class naming rules - in other words, you cannot have spaces between words!</p>
+<h2 id="pardot-region-types">Pardot Region Types</h2>
+<p>In Pardot, there are several different types of Pardot Regions. Here is a brief overview of some of the most popular types:</p>
+<h3 id="link">Link</h3>
+<pre><code>&lt;a href=&quot;#&quot; pardot-region=&quot;editable-link&quot; pardot-region-type=&quot;link&quot;&gt;My Link&lt;/a&gt;
+</code></pre><h3 id="image">Image</h3>
+<pre><code>&lt;img src=&quot;image.jpg&quot; pardot-region=&quot;editable-image&quot; pardot-region-type=&quot;image&quot;&gt;
+</code></pre><h3 id="simple--plain-text-editor">Simple / Plain Text Editor</h3>
+<pre><code>&lt;p pardot-region=&quot;simple-text&quot; pardot-region-type=&quot;simple&quot;&gt;Your text here&lt;/p&gt;
+</code></pre><h3 id="basic-editor">Basic Editor</h3>
+<pre><code>&lt;div pardot-region=&quot;pardot-basic&quot; pardot-region-type=&quot;basic&quot;&gt;&lt;h3&gt;My Header&lt;/h3&gt;&lt;/div&gt;
+</code></pre><h3 id="wysiwyg-editor">WYSIWYG Editor</h3>
+<pre><code>&lt;div pardot-region=&quot;pardot&quot; pardot-region-type=&quot;pardot&quot;&gt;&lt;h3&gt;My Header&lt;/h3&gt;&lt;/div&gt;
+</code></pre><h3 id="html">HTML</h3>
+<pre><code>&lt;code pardot-region=&quot;editable-html&quot; pardot-region-type=&quot;html&quot;&gt; 
+    &lt;p&gt;This is some code&lt;/p&gt;
+&lt;/code&gt; 
+</code></pre><h3 id="repeatable-email-only">Repeatable (Email only)</h3>
+<pre><code>pardot-repeatable=&quot;name-of-section&quot;
+</code></pre><h3 id="removable-email-only">Removable (Email only)</h3>
+<pre><code>pardot-removable=&quot;name-of-section&quot;
+</code></pre><h2 id="how-to-add-pardot-regions-into-mjml-templates">How to add Pardot Regions into MJML Templates</h2>
+<p>If you are using MJML, you may be tempted to try adding your pardot region attributes to the MJML tags themselves, for example:</p>
+<pre><code>&lt;mj-image src=&quot;path/to/image.jpg&quot; pardot-region=&quot;my-image-region&quot; /&gt;
+</code></pre><p>However, if you try to attach <code>pardot-region</code> attributes to MJML tags like this, it will NOT work because <strong>MJML does not recognise Pardot region attributes.</strong></p>
+<p>When you try to transpile the MJML into HTML, it will throw an error because the pardot attribute is not supported.</p>
+<p>The solution is to avoid using many of the MJML component tags such as:</p>
+<ul>
+<li><code>&lt;mj-image&gt;</code></li>
+<li><code>&lt;mj-button&gt;</code></li>
+<li><code>&lt;mj-social&gt;</code></li>
+</ul>
+<p>And instead use MJTML tags which will allow you to nest raw HTML inside of them.</p>
+<p>Two tags which accept raw HTML input are:</p>
+<ul>
+<li><code>&lt;mj-text&gt;</code></li>
+<li><code>&lt;mj-raw&gt;</code></li>
+</ul>
+<p>This will then allow you to add HTML for editable buttons, images and text <em>inside</em> these MJML tags.</p>
+<p>For example, the way to create an editable image using Pardot regions would be:</p>
+<pre><code>&lt;mj-text&gt;
+    &lt;img pardot-region=&quot;editable-image&quot; pardot-region-type=&quot;image&quot;&gt;
+&lt;/mj-text&gt;
+</code></pre><p>If you wanted to create an editable button, the <code>&lt;mj-button&gt;</code> tag is not a good idea, because you would not be able to use <code>&lt;mj-button pardot-region=&quot;editable-button&quot;&gt;</code> since MJML does not regonise pardot attributes.</p>
+<p>The better solution would be to nest a button inside <code>&lt;mj-text&gt;</code> e.g.</p>
+<pre><code>&lt;mj-text&gt;
+    &lt;a href=&quot;#&quot; class=&quot;button&quot; pardot-region=&quot;editable-button&quot;&gt;
+&lt;/mj-text&gt;
+</code></pre><p>The same also applies to <code>&lt;mj-social&gt;</code> tags. It is better to create the social icons using HTML code and then insert that code inside the <code>&lt;mj-raw&gt;</code> tags.</p>	
+
+
+</section>
+
+</main>
+
+<footer class="container">
+	<hr size="10px" color="#cccccc" noshade>
+	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
+</footer>
+
+<script type="text/javascript">
+	var mode = document.getElementById('mode');
+	mode.onclick = function(event) {
+		event.preventDefault();
+
+		document.body.className = "dark-mode";
+	}
+</script>
+
+</body>
+</html>
