@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="author" content="David Walker">
+	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
+</head>
+
+<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+
+<header>
+	<div class="container">
+		<div><a href="index.html"><b>David Walker</b></a></div>
+		<nav>
+			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+
+			<a href="#" id="mode" class="light">
+				<img src="img/sun.png" id="mode_image" height="22" width="22">
+			</a>
+		</nav>
+	</div>	
+</header>
+
+<main class="container">
+
+<section>
+	<h1>Create a Wordpress User role that only has access to a specific custom post type</h1>
+
+
+<p>There are already some default User Roles that can be used in Wordpress such as Editor, and Author. However, Custom User Roles can be useful to create in Wordpress if you want a finer level of control over the permissions.</p>
+<p>In this article, I am going to show you how to set up a user role which can only access a custom post type you created.</p>
+<p>Step one is to create the user role.
+This can be done using the <code>add_role()</code> function. Add the following code to your functions.php file in Wordpress:</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="nx">add_role</span><span class="p">(</span><span class="s1">&#39;contributor&#39;</span><span class="p">,</span> <span class="s1">&#39;Contributor&#39;</span><span class="p">,</span> <span class="k">array</span><span class="p">(</span>
+    <span class="s1">&#39;read&#39;</span> <span class="o">=&gt;</span> <span class="k">true</span><span class="p">,</span>
+    <span class="s1">&#39;edit_posts&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+    <span class="s1">&#39;delete_posts&#39;</span> <span class="o">=&gt;</span> <span class="k">false</span><span class="p">,</span>
+<span class="p">));</span>
+</code></pre></div><p>This is going to setup a new role called “Contributor”.</p>
+<p>We now need to define what permissions this role does, and does not have. I prefer to remove all permissions by default, and then add the ones I want.</p>
+<pre><code>function add_capability()
+{
+    $contributor_role = get_role('contributor');
+
+    $contributor_role-&gt;add_cap( 'read' );
+
+    // Remove all other capabilities
+    $contributor_role-&gt;add_cap('edit_pages', false );
+    $contributor_role-&gt;add_cap('publish_pages', false );
+    $contributor_role-&gt;add_cap('edit_others_pages', false);
+    $contributor_role-&gt;add_cap('edit_private_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('delete_others_pages', false);
+
+    $contributor_role-&gt;add_cap('activate_plugins', false);
+    $contributor_role-&gt;add_cap('edit_plugins', false);
+    $contributor_role-&gt;add_cap('delete_plugins', false);
+    $contributor_role-&gt;add_cap('install_plugins', false);
+    $contributor_role-&gt;add_cap('update_plugins', false);
+
+    $contributor_role-&gt;add_cap('delete_others_posts', false);
+    $contributor_role-&gt;add_cap('delete_posts', false);
+    $contributor_role-&gt;add_cap('delete_private_pages', false);
+    $contributor_role-&gt;add_cap('delete_published_pages', false);
+    $contributor_role-&gt;add_cap('delete_private_posts', false);
+    $contributor_role-&gt;add_cap('delete_published_posts', false);
+    $contributor_role-&gt;add_cap('edit_others_pages', false);
+    $contributor_role-&gt;add_cap('edit_others_posts', false);
+    $contributor_role-&gt;add_cap('edit_posts', false);
+    $contributor_role-&gt;add_cap('edit_private_posts', false);
+    $contributor_role-&gt;add_cap('edit_private_posts', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_pages', false);
+    $contributor_role-&gt;add_cap('edit_published_posts', false);
+    $contributor_role-&gt;add_cap('manage_categories', false);
+    $contributor_role-&gt;add_cap('manage_links', false);
+    $contributor_role-&gt;add_cap('moderate_comments', false);
+    $contributor_role-&gt;add_cap('publish_pages', false);
+    $contributor_role-&gt;add_cap('publish_posts', false);
+    $contributor_role-&gt;add_cap('read_private_pages', false);
+    $contributor_role-&gt;add_cap('read_private_posts', false);
+    $contributor_role-&gt;add_cap('unfiltered_html', false);
+    $contributor_role-&gt;add_cap('upload_files', false);
+
+    // Add only magazine access
+    $contributor_role-&gt;add_cap('read_magazines');
+    $contributor_role-&gt;add_cap('readmagazines');
+    $contributor_role-&gt;add_cap('deletemagazines');
+    $contributor_role-&gt;add_cap('editmagazines');
+    $contributor_role-&gt;add_cap('read_private_magazines');
+    $contributor_role-&gt;add_cap('edit_magazines');
+    $contributor_role-&gt;add_cap('edit_others_magazines');
+    $contributor_role-&gt;add_cap('publish_magazines');
+    $contributor_role-&gt;add_cap('delete_magazines'); // to be sure
+
+    $contributor_role-&gt;add_cap('read_documents', false);
+}
+add_action('admin_init', 'add_capability');
+</code></pre><p>In this instance we are adding the functionality for this user to ONLY be able to edit a post group we have created called ‘Magazines’.</p>
+<p>To see the full list of capabilities for the default user groups - check out this page: <a href="https://wordpress.org/support/article/roles-and-capabilities/">Roles and Capabilities | WordPress.org</a></p>
+<p>An important thing to note here is that when we setup our custom post type, we need to manually create the labels for the capabilities.</p>
+<pre><code>'public' =&gt; false,  
+'supports' =&gt; array( 'title', 'thumbnail'),
+ect...
+
+'capability_type' =&gt; 'magazines', // the name of your post group
+'capabilities' =&gt; array(
+    'publish_posts' =&gt; 'publish_magazines',
+    'edit_posts' =&gt; 'edit_magazines',
+    'edit_others_posts' =&gt; 'edit_others_magazines',
+    'read_private_posts' =&gt; 'read_private_magazines',
+    'edit_post' =&gt; 'editmagazines',
+    'delete_post' =&gt; 'deletemagazines',
+    'read_post' =&gt; 'readmagazines',
+),
+</code></pre><p>All you need to do now is ADD a new user in Wordpress, and assign them to the ‘contributor’ user group.</p>
+<p>Once you login you should see that this user only has access to the ‘Magazines’ post group.</p>	
+
+
+</section>
+
+</main>
+
+<footer class="container">
+	<hr size="10px" color="#cccccc" noshade>
+	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
+</footer>
+
+<script type="text/javascript">
+	var mode = document.getElementById('mode');
+	mode.onclick = function(event) {
+		event.preventDefault();
+
+		document.body.className = "dark-mode";
+	}
+</script>
+
+</body>
+</html>
