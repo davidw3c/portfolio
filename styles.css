@@ -105,10 +105,10 @@ ul {
 
 header {
 	height: 62px;
-/*			position: sticky;
-	top: 0;*/
+	/*position: sticky;*/
+	/*top: 0;*/
 	background-color: rgba(147,128,108,.1);
-	/*box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.17),0 1px 5px 1px rgba(0, 0, 0, 0.06);*/
+	box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.17),0 1px 5px 1px rgba(0, 0, 0, 0.06);
 	/*background-color: rgba(245,245,245,0.72);*/
 	    /*backdrop-filter: saturate(180%) blur(20px);*/
 }
@@ -198,7 +198,7 @@ iframe {
 	margin: 0;
 	display: block;
 	border: 1px solid #ccc;
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 15px 0px;
+	box-shadow: rgba(0, 0, 0, 0.25) 0px 4px 15px 10px;
 }
 
 .iframe::before {
