@@ -64,28 +64,28 @@
 
       <p><b>It can be one div:</b></p>
 
-      <pre>
-      var target = document.getElementById('my_classname');
-      </pre>
+<pre>
+var target = document.getElementById('my_classname');
+</pre>
 
       <p><b>Or it could be multiple divs:</b></p>
 
-      <pre>
-      var target = document.querySelectorAll('.my_classname');
-      </pre>
+<pre>
+var target = document.querySelectorAll('.my_classname');
+</pre>
 
 
       <h2 id="options">2. Set the Options</h2>
 
       <p>Now you need to create some 'settings' or options that will define how the Intersection Observer behaves. It will look like this:</p>
 
-      <pre>
-      var options = {
-        root: document.body,
-        rootMargin: '0px',
-        threshold: 0
-      }
-      </pre>
+<pre>
+var options = {
+  root: document.body,
+  rootMargin: '0px',
+  threshold: 0
+}
+</pre>
 
       <p>So let's break these properties down, one by one, to understand what they mean.</p>
 

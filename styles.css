@@ -109,6 +109,13 @@ nav li:first-child {
 nav a {
 	color: #fff;
 	display: flex;
+	text-decoration: none;
+	border-bottom: 1px solid #8d8d8d;
+	transition: 0.2s border-bottom ease-in-out;
+}
+
+nav a:hover {
+	border-bottom: 1px solid #fff;
 }
 
 nav svg {
@@ -129,11 +136,30 @@ main {
     border-bottom: 8px solid #efefef;
 }
 
+@keyframes example {
+  from {
+  	opacity: 0;
+  	transform: translateY(40px);
+  }
+  to {
+  	opacity: 1;
+  	transform: translateY(0px);
+  }
+}
+
 .heading-measure {
     max-width: 93ch;
 	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
+
+	transform: translateY(40px);
+	opacity: 0;
+	animation-name: example;
+	animation-duration: 0.8s;
+	animation-delay: 0.2s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
 }
 
 .heading h1 {
