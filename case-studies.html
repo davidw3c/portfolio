@@ -42,104 +42,61 @@
 
 		<p>Presented here are a collection of projects where I have acted as the lead Front End Developer. Some projects are active and live, whereas other projects are simply write-ups and references to websites I worked on in the past. I take no responsibility for the content or design of these websites.</p>
 
-	<!-- 	<ol>
-			<li><a href="#">The Ogden Trust</a></li>
-			<li><a href="#">Westcott House</a></li>
-		</ol>
-	 -->
+		<div class="grid">
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/ogden.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="ogden.html">The Ogden Trust</a></h3>
+				</div>
+			</div>
 
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/westcott.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="westcott.html">Westcott House</a></h3>
+				</div>
+			</div>
 
-		<!-- <hr size="1px" color="#ddd" noshade><p>💪Robust: The Grid System -- The 🦕 evolution of web layouts - raw html inline align property, tables, floats, flexbox, css grid---userwise</p><p>I love what I do. In a world that has become increasingly digital, having coding skills gives me the ability to shape the world, and I always strive to put accessibility and high-quality user experience at the heart of projects that I work on. I enjoy the continuous learning experience as well as embracing the role of "creative problem solver"- taking complex challenges and turning them into simple, elegant solutions.</p> -->
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/ukm-featured.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="ukm.html">UK Music</a></h3>
+				</div>
+			</div>		
 
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/woolf.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="woolf.html">The Woolf Institute</a></h3>
+				</div>
+			</div>
 
-		<h2>The Ogden Trust (2021-2022)</h2>
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/freman.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="freman.html">Freman College</a></h3>
+				</div>
+			</div>
 
-		<p><b>Sector:</b> Education</p>
-		<p><b>Highlights:</b> RNIB Accessibility Audit, WAVE Accessibility tool, keyboard friendly dropdown menus</p>
-
-		<p>A central theme of the new Ogden Trust website has been to achieve good Accessibility. To meet this aim, The Ogden Trust hired the RNIB to produce reports throughout the build. showing how we could create the most accessible website possible.</p>
-
-		<p>These reports highlighted a number of improvements I made, including responsive & clearly labelled data tables, use of accessibility friendly labels on forms and buttons, correct alt tag descriptions on images, adding ARIA states and landmarks to the HTML, good colour contrast and many more.</p>
-
-		<p>Throughout the build, I used the WAVE (Web Accessibility Evaluation Tool) by WebAIM in Google Chrome to catch as many accessibility issues as possible.</p>
-
-		<p>We wanted the website to work for keyboard users & screen-readers as well as desktop & tablet users. So the aim was to make the links on the website accessible via the tab key with clear ‘focus’ outline states. I built the website header navigation using hand-coded javascript, to enable keyboard users to tab through each link, then press the enter key to ‘open-close’ submenu drop downs , as well as automatically close the submenu when tabbing onto the next menu item.</p>
-
-		<p>I turned the Ogden Trust designs into a fully functioning website with the aid of a Chrome plugin called ‘Perfect Pixel’. This plugin is the digital equivalent of tracing paper- allowing you to overlay a reduced opacity JPG image of the design onto the website and tweak the padding, margins and fonts until everything is perfectly lined up.</p>
-
-		<h4><a href="ogden-gallery.html">View Ogden Gallery</a></h4>
-
-		<h2>Westcott House (2020)</h2>
-
-		<p>Working closely with our wonderful client Shelby, I built the entirety of the front end of the Westcott House website to be both stylish and user-friendly. We worked through page-by-page to ensure the clients requirements were met.</p>
-
-		<p>The website was built using SCSS with flexbox for layout, vanilla Javascript and PHP for Wordpress.</p>
-
-		<p>A number of animations feature on the website that I coded using Javascript. For example, the homepage slideshow features a ‘slide timer’ which I hand-coded, and many pages contain quotes which fade in, which uses some Javascript to detect when the quote element is visible on page scroll.</p>
-
-		<p>With as much attention to detail as possible in the front end using SCSS, I also fully integrated the website into Wordpress with a custom-built ‘page builder’ that utilises Advanced Custom Fields. This includes relationship pickers for related pages & footer quotes, sidebar featured images & quotes, repeater fields for download data tables. There are forms for example for the newsletter signup, as well as many different custom post groups.</p>
-
-		<h4><a href="westcott-gallery.html">View Westcott House Gallery</a></h4>
-
-
-		<h2>UK Music (2019)</h2>
-
-		<p>The UK Music website was built to be as accessible as possible. The raw HTML view includes a ‘skip to content’ link which is visually hidden instead of using ‘display:none’, and HTML sections with specific ID’s and headings. Body text contrast ratio achieves a AAA rating.</p>
-
-		<p>Page landmarks have the correct ARIA roles assigned to them.</p>
-
-		<p>You can use the keyboards tab key to browse through the website. The browser default ‘outline’ has not been hidden using CSS. There is a Javascript powered accessible navigation whereby dropdown menus can be accessed via the tab key.</p>
-
-		<p>Articles include the ability to upload audio transcripts of the article using a dedicated online text to voice MP3 service.</p>
-
-		<p>Footer links give users the choice of whether to click on the mailto email link or whether to highlight the text without clicking a link.</p>
-
-
-		<h4><a href="ukm-gallery.html">View UK Music Gallery</a></h4>
-
-		<h2>Woolf Institute, Cambridge</h2>
-
-<!-- 		<div class="iframe">
-			<iframe src="woolf-home.html" height="410px" width="710px" title="description" name="woolf-frame"></iframe>
-		</div> -->
-
-		<p><b>Technologies:</b> Craft CMS v2, Coloured Sections, CSS Animations</p>
-
-		<p>The Woolf Institute wanted a brand new website to coincide with their move to an impressive new premises on Madingley Road in Cambridge.</p>
-
-		<p>I integrated the website into Craft CMS, and used Javascript and SASS to create a number of unique touches and add interactivity to the website. For example, the book logo pages light up when hovering over the logo in the header, and also reveal when a user scrolls to the footer (using Javascript for viewport detection). Since the page 'theme' changes colour depending on where you on on the website, I wrote some javascript so that when a user hovers over the promo boxes on the homepage, the background changes to match that section colour to the theme they would be landing on.</p>
-
-		<p>The Woolf Institute was a pleasure to build, and great clients to work with. At the end of the project, myself and the team were treated to a tour of their brand new building. </p>
-
-		<h4><a href="woolf-gallery.html">View Woolf Institute Gallery</a></h4>
-
-		<h2>Freman College (2017)</h2>
-
-<!-- 		<div class="iframe">
-			<iframe src="freman-home.html" height="410px" width="710px" title="description" name="ogden-frame"></iframe>
-		</div> -->
-
-		<p><b>Technologies:</b> Craft CMS v2, Flexbox, CSS Animations</p>
-
-		<p>In March 2017, I was tasked with building the brand new Freman College website. Following on from other successful projects such as Lucy Cavendish College, I have found over the years that education based websites have been some of my favourite projects to work on.</p>
-		<p>With Freman College having a target audience of both parents and students, the approach I wanted to take was to build a website which portrayed a comfortable middle ground between "Robust" and "Progressive". Therefore, I built the underlying website structure to be as robust and browser friendly as possible- but added a layer of interesting animations and effects on top of this which would be available to modern browsers.</p>
-		<p>Specifically with regard to animations, I had the idea of a threefold effect on loading the homepage- of first fading in the homepage text and slideshow, and then a second or two later, sliding down the header, and sliding up a news carousel, in perfect sync.</p>
-		<p>Of particular note on this project was the huge amount of time and attention to detail which went into the mobile responsive of the website. We checked analytics before building the website and found that a large proportion of visitors were using mobile devices. I therefore placed a lot of emphasis making sure mobile elements and text were small, condensed and considered. I wanted to make sure the mobile navigation contained the best of both worlds - you can access both top level pages, or click on down arrows to reveal child pages.</p>
-
-		<h4><a href="freman-gallery.html">View Freman College Gallery</a></h4>
-
-		<h2>Lucy Cavendish College (2013-2014)</h2>
-
-		<!-- Legacy URL: https://web.archive.org/web/20170621104819/http://thedigitalawards.co/winners/cambridgeshire-2015/ -->
-		<p><b>Main Achievement:</b> Lucy Cavendish College won 'Gold' in the 'School, Education or Charity' category for the <a href="img/lucycav-digital-award-2015.jpg" target="_blank">Cambridgeshire Digital Awards 2015</a></p>
-
-		<p><b>Technologies Used:</b> Bootstrap 2, Expression Engine, SASS.</p>
-
-		<p>I was tasked with building the Front End of the Lucy Cavendish website, and also with integrating the website into a Content Management System. In this case, we used Expression Engine.</p>
-		<p>During the build of this project, I worked closely with the designer to achieve as close to “Pixel perfect” as we possibly could. The level of detail was very minute - I took several hundred screenshots of the website throughout the build, and zoomed in on the pixels, to line everything up perfectly! </p>
-		<p>Many of the navigation elements and buttons and so on were meticulously checked to make sure the gaps between things were mathematically perfect.</p>
-
-		<h4><a href="lucy-gallery.html">View Lucy Cavendish College Gallery</a></h4>
+			<div class="gridItem">
+				<div class="gridItem-image">
+					<img src="img/lucycav.jpg">
+				</div>
+				<div class="gridItem-body">
+					<h3><a href="lucy.html">Lucy Cavendish College</a></h3>
+				</div>
+			</div>
+		</div>
 
 		</div>
 

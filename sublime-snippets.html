@@ -41,52 +41,57 @@
 		<h2 id="create-a-new-snippet">Create a new Snippet</h2>
 		<p>In order to create a new snippet , in Mac - Sublime Text 3, go to <code>Tools &gt; Developer &gt; New Snippet</code> on some machines it may simply be <code>Tools &gt; New Snippet</code>.</p>
 		<p>You will be greeted with something that looks a bit like this in a new untitled file:</p>
-		<pre><code>&lt;snippet&gt;
-		&lt;content&gt;&lt;![CDATA[
-		Hello, ${1:this} is a ${2:snippet}.
-		]]&gt;&lt;/content&gt;
-		&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;
-		&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;
-		&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
-		&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
-		&lt;/snippet&gt;
-		</code></pre><p>Now lets say you have the following code, which you would like to use for your new Snippet:</p>
-		<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span><span class="p">(</span> <span class="nx">have_rows</span><span class="p">(</span><span class="s1">&#39;repeater_field_name&#39;</span><span class="p">)</span> <span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="err">
-		</span><span class="err">    &lt;?php while ( have_rows(&#39;repeater_field_name&#39;) ) : the_row(); ?&gt;
-		</span><span class="err">
-		</span><span class="err">        &lt;?php echo get_sub_field(&#39;sub_field_name&#39;); ?&gt;
-		</span><span class="err">
-		</span><span class="err">    &lt;?php endwhile; ?&gt;
-		</span><span class="err">&lt;?php endif; ?&gt;
-		</span></code></pre></div><p>What you would do is insert this code between the opening <code>&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[</code> and closing <code>]]&gt;&lt;/content&gt;</code></p>
+<pre><code>&lt;snippet&gt;
+&lt;content&gt;&lt;![CDATA[
+Hello, ${1:this} is a ${2:snippet}.
+]]&gt;&lt;/content&gt;
+&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;
+&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;
+&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
+&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
+&lt;/snippet&gt;
+</code></pre>
+		<p>Now lets say you have the following code, which you would like to use for your new Snippet:</p>
+		<div class="highlight">
+<pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span><span class="p">(</span> <span class="nx">have_rows</span><span class="p">(</span><span class="s1">&#39;repeater_field_name&#39;</span><span class="p">)</span> <span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="err">
+</span><span class="err">    &lt;?php while ( have_rows(&#39;repeater_field_name&#39;) ) : the_row(); ?&gt;
+</span><span class="err">
+</span><span class="err">        &lt;?php echo get_sub_field(&#39;sub_field_name&#39;); ?&gt;
+</span><span class="err">
+</span><span class="err">    &lt;?php endwhile; ?&gt;
+</span><span class="err">&lt;?php endif; ?&gt;
+</span></code></pre>
+	</div><p>What you would do is insert this code between the opening <code>&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[</code> and closing <code>]]&gt;&lt;/content&gt;</code></p>
 		<p>So it looks like this:</p>
-		<pre><code>&lt;snippet&gt;
-		&lt;content&gt;&lt;![CDATA[
-		&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
-		&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
+<pre><code>&lt;snippet&gt;
+&lt;content&gt;&lt;![CDATA[
+&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
+&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
 
-		&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
+&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
 
-		&lt;?php endwhile; ?&gt;
-		&lt;?php endif; ?&gt;
-		]]&gt;&lt;/content&gt;
-		&lt;/snippet&gt;
-		</code></pre><p>After the closing <code>]]&gt;&lt;/content&gt;</code> tag, you then have to insert a <code>&lt;tabTrigger&gt;</code> tag. Like this:</p>
+&lt;?php endwhile; ?&gt;
+&lt;?php endif; ?&gt;
+]]&gt;&lt;/content&gt;
+&lt;/snippet&gt;
+</code></pre>
+		<p>After the closing <code>]]&gt;&lt;/content&gt;</code> tag, you then have to insert a <code>&lt;tabTrigger&gt;</code> tag. Like this:</p>
 		<pre><code>&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
 		</code></pre><p>Your final code will look like this:</p>
-		<pre><code>&lt;snippet&gt;
-		&lt;content&gt;&lt;![CDATA[
-		&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
-		&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
+<pre><code>&lt;snippet&gt;
+&lt;content&gt;&lt;![CDATA[
+&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
+&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
 
-		&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
+&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
 
-		&lt;?php endwhile; ?&gt;
-		&lt;?php endif; ?&gt;
-		]]&gt;&lt;/content&gt;
-		&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
-		&lt;/snippet&gt;
-		</code></pre><h2 id="saving-the-snippet">Saving the Snippet</h2>
+&lt;?php endwhile; ?&gt;
+&lt;?php endif; ?&gt;
+]]&gt;&lt;/content&gt;
+&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
+&lt;/snippet&gt;
+</code></pre>
+		<h2 id="saving-the-snippet">Saving the Snippet</h2>
 		<p>Be sure to save your snippet with the file extension of <code>.sublimt-snippet</code> for example:</p>
 		<pre><code>acfrepeater.sublime-snippet
 		</code></pre><p>In Mac finder, you can see all of your snippets by going to the following location:</p>
