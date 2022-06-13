@@ -10,726 +10,722 @@
 	<title>David Walker - Interactive Google Map Tutorial</title>
 </head>
 
-<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+<body>
+    <header class="header">
+        <div class="header-measure">
+            <div class="header-logo">
+                <h1>David Walker</h1>
+            </div>
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tech-skills.html">Introduction</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<header>
-	<div class="container">
-		<div><a href="index.html"><b>David Walker</b></a></div>
-		<nav>
-			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+    <main>
+        <div class="heading">
+            <div class="heading-measure">
+                <h1>Render multiple markers onto a google map using Advanced Custom Fields</h1>
+            </div>
+        </div>
 
-			<a href="#" id="mode" class="light">
-				<img src="img/sun.png" id="mode_image" height="22" width="22">
-			</a>
-		</nav>
-	</div>	
-</header>
+        <div class="content">
+        <p>This tutorial will help you if you have a Google Map, with multiple markers on it, and want to have those markers be controlled with Wordpress using the Advanced Custom Fields add-on.</p>
+        <p>The first thing you will want to do, if you haven’t already is download &amp; install the advanced custom fields plugin: <a href="https://www.advancedcustomfields.com/">ACF | Advanced Custom Fields Plugin for WordPress</a></p>
+        <p>The next thing to do is create a template which will contain the map.</p>
+        <p>So within my main Wordpress theme folder, I create a file called <code>template-map.php</code>.</p>
+        <p>I’m just going to put some temporary placeholder content in for now:</p>
+        <pre><code>&lt;?php
+        get_header();
 
-<main class="container">
+        /*
+        Template Name: Map
+        */
+        ?&gt;
 
-<section>
+        &lt;p&gt;Map to go here&lt;/p&gt;
 
-<h2 id="render-multiple-markers-onto-a-google-map-using-advanced-custom-fields">Render multiple markers onto a google map using Advanced Custom Fields</h2>
-<p>This tutorial will help you if you have a Google Map, with multiple markers on it, and want to have those markers be controlled with Wordpress using the Advanced Custom Fields add-on.</p>
-<p>The first thing you will want to do, if you haven’t already is download &amp; install the advanced custom fields plugin: <a href="https://www.advancedcustomfields.com/">ACF | Advanced Custom Fields Plugin for WordPress</a></p>
-<p>The next thing to do is create a template which will contain the map.</p>
-<p>So within my main Wordpress theme folder, I create a file called <code>template-map.php</code>.</p>
-<p>I’m just going to put some temporary placeholder content in for now:</p>
-<pre><code>&lt;?php
-get_header();
+        &lt;?php
+        get_footer();
+        ?&gt;
+        </code></pre><p>Once I have this saved, I’m going to create a new page called “Map” and select ‘Map’ as the template &amp; click update:</p>
 
-/*
-Template Name: Map
-*/
-?&gt;
+        <p>
+          <img src="img/google-map-tutorial/template-select.png" width="300" alt="Template Select">
+        </p>
+        <p>Fortunately, the Advanced Custom Fields website has some great example code to help us to render multiple markers on a google map.
+        Simple visit this link: <a href="https://www.advancedcustomfields.com/resources/google-map/">ACF | Google Map</a>
+        And Scroll to the section entitled “Render multiple markers onto a map”.</p>
+        <p>For this to work, you need to add two things to your template:</p>
+        <ol>
+        <li>Google Maps Helper Code</li>
+        <li>Render Multiple Markers onto a map Code</li>
+        </ol>
+        <p>Here’s what the full template looks like:</p>
+        <pre><code>&lt;?php
+        get_header();
 
-&lt;p&gt;Map to go here&lt;/p&gt;
+        /*
+        Template Name: Map
+        */
+        ?&gt;
 
-&lt;?php
-get_footer();
-?&gt;
-</code></pre><p>Once I have this saved, I’m going to create a new page called “Map” and select ‘Map’ as the template &amp; click update:</p>
+        &lt;!-- Google Maps Helper Code --&gt;
 
-<p>
-  <img src="img/google-map-tutorial/template-select.png" alt="Template Select">
-</p>
-<p>Fortunately, the Advanced Custom Fields website has some great example code to help us to render multiple markers on a google map.
-Simple visit this link: <a href="https://www.advancedcustomfields.com/resources/google-map/">ACF | Google Map</a>
-And Scroll to the section entitled “Render multiple markers onto a map”.</p>
-<p>For this to work, you need to add two things to your template:</p>
-<ol>
-<li>Google Maps Helper Code</li>
-<li>Render Multiple Markers onto a map Code</li>
-</ol>
-<p>Here’s what the full template looks like:</p>
-<pre><code>&lt;?php
-get_header();
+        &lt;style type=&quot;text/css&quot;&gt;
+        .acf-map {
+            width: 100%;
+            height: 400px;
+            border: #ccc solid 1px;
+            margin: 20px 0;
+        }
 
-/*
-Template Name: Map
-*/
-?&gt;
+        // Fixes potential theme css conflict.
+        .acf-map img {
+           max-width: inherit !important;
+        }
+        &lt;/style&gt;
+        &lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+        (function( $ ) {
 
-&lt;!-- Google Maps Helper Code --&gt;
+        /**
+         * initMap
+         *
+         * Renders a Google Map onto the selected jQuery element
+         *
+         * @date    22/10/19
+         * @since   5.8.6
+         *
+         * @param   jQuery $el The jQuery element.
+         * @return  object The map instance.
+         */
+        function initMap( $el ) {
 
-&lt;style type=&quot;text/css&quot;&gt;
-.acf-map {
-    width: 100%;
-    height: 400px;
-    border: #ccc solid 1px;
-    margin: 20px 0;
-}
+            // Find marker elements within map.
+            var $markers = $el.find('.marker');
 
-// Fixes potential theme css conflict.
-.acf-map img {
-   max-width: inherit !important;
-}
-&lt;/style&gt;
-&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-(function( $ ) {
+            // Create gerenic map.
+            var mapArgs = {
+                zoom        : $el.data('zoom') || 16,
+                mapTypeId   : google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map( $el[0], mapArgs );
 
-/**
- * initMap
- *
- * Renders a Google Map onto the selected jQuery element
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   jQuery $el The jQuery element.
- * @return  object The map instance.
- */
-function initMap( $el ) {
+            // Add markers.
+            map.markers = [];
+            $markers.each(function(){
+                initMarker( $(this), map );
+            });
 
-    // Find marker elements within map.
-    var $markers = $el.find('.marker');
+            // Center map based on markers.
+            centerMap( map );
 
-    // Create gerenic map.
-    var mapArgs = {
-        zoom        : $el.data('zoom') || 16,
-        mapTypeId   : google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map( $el[0], mapArgs );
+            // Return map instance.
+            return map;
+        }
 
-    // Add markers.
-    map.markers = [];
-    $markers.each(function(){
-        initMarker( $(this), map );
-    });
+        /**
+         * initMarker
+         *
+         * Creates a marker for the given jQuery element and map.
+         *
+         * @date    22/10/19
+         * @since   5.8.6
+         *
+         * @param   jQuery $el The jQuery element.
+         * @param   object The map instance.
+         * @return  object The marker instance.
+         */
+        function initMarker( $marker, map ) {
 
-    // Center map based on markers.
-    centerMap( map );
+            // Get position from marker.
+            var lat = $marker.data('lat');
+            var lng = $marker.data('lng');
+            var latLng = {
+                lat: parseFloat( lat ),
+                lng: parseFloat( lng )
+            };
 
-    // Return map instance.
-    return map;
-}
+            // Create marker instance.
+            var marker = new google.maps.Marker({
+                position : latLng,
+                map: map
+            });
 
-/**
- * initMarker
- *
- * Creates a marker for the given jQuery element and map.
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   jQuery $el The jQuery element.
- * @param   object The map instance.
- * @return  object The marker instance.
- */
-function initMarker( $marker, map ) {
+            // Append to reference for later use.
+            map.markers.push( marker );
 
-    // Get position from marker.
-    var lat = $marker.data('lat');
-    var lng = $marker.data('lng');
-    var latLng = {
-        lat: parseFloat( lat ),
-        lng: parseFloat( lng )
-    };
+            // If marker contains HTML, add it to an infoWindow.
+            if( $marker.html() ){
 
-    // Create marker instance.
-    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map
-    });
+                // Create info window.
+                var infowindow = new google.maps.InfoWindow({
+                    content: $marker.html()
+                });
 
-    // Append to reference for later use.
-    map.markers.push( marker );
+                // Show info window when marker is clicked.
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open( map, marker );
+                });
+            }
+        }
 
-    // If marker contains HTML, add it to an infoWindow.
-    if( $marker.html() ){
+        /**
+         * centerMap
+         *
+         * Centers the map showing all markers in view.
+         *
+         * @date    22/10/19
+         * @since   5.8.6
+         *
+         * @param   object The map instance.
+         * @return  void
+         */
+        function centerMap( map ) {
 
-        // Create info window.
-        var infowindow = new google.maps.InfoWindow({
-            content: $marker.html()
+            // Create map boundaries from all map markers.
+            var bounds = new google.maps.LatLngBounds();
+            map.markers.forEach(function( marker ){
+                bounds.extend({
+                    lat: marker.position.lat(),
+                    lng: marker.position.lng()
+                });
+            });
+
+            // Case: Single marker.
+            if( map.markers.length == 1 ){
+                map.setCenter( bounds.getCenter() );
+
+            // Case: Multiple markers.
+            } else{
+                map.fitBounds( bounds );
+            }
+        }
+
+        // Render maps on page load.
+        $(document).ready(function(){
+            $('.acf-map').each(function(){
+                var map = initMap( $(this) );
+            });
         });
 
-        // Show info window when marker is clicked.
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open( map, marker );
-        });
-    }
-}
-
-/**
- * centerMap
- *
- * Centers the map showing all markers in view.
- *
- * @date    22/10/19
- * @since   5.8.6
- *
- * @param   object The map instance.
- * @return  void
- */
-function centerMap( map ) {
-
-    // Create map boundaries from all map markers.
-    var bounds = new google.maps.LatLngBounds();
-    map.markers.forEach(function( marker ){
-        bounds.extend({
-            lat: marker.position.lat(),
-            lng: marker.position.lng()
-        });
-    });
-
-    // Case: Single marker.
-    if( map.markers.length == 1 ){
-        map.setCenter( bounds.getCenter() );
-
-    // Case: Multiple markers.
-    } else{
-        map.fitBounds( bounds );
-    }
-}
-
-// Render maps on page load.
-$(document).ready(function(){
-    $('.acf-map').each(function(){
-        var map = initMap( $(this) );
-    });
-});
-
-})(jQuery);
-&lt;/script&gt;
+        })(jQuery);
+        &lt;/script&gt;
 
 
-&lt;!-- Render Multiple Markers onto a map Code --&gt;
+        &lt;!-- Render Multiple Markers onto a map Code --&gt;
 
-&lt;?php if( have_rows('locations') ): ?&gt;
-    &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
-        &lt;?php while ( have_rows('locations') ) : the_row();
+        &lt;?php if( have_rows('locations') ): ?&gt;
+            &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
+                &lt;?php while ( have_rows('locations') ) : the_row();
 
-            // Load sub field values.
-            $location = get_sub_field('location');
-            $title = get_sub_field('location_title');
-            $description = get_sub_field('description');
-            ?&gt;
-            &lt;div class=&quot;marker&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
-                &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
-                &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
-                &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    // Load sub field values.
+                    $location = get_sub_field('location');
+                    $title = get_sub_field('location_title');
+                    $description = get_sub_field('description');
+                    ?&gt;
+                    &lt;div class=&quot;marker&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
+                        &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
+                        &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+            &lt;?php endwhile; ?&gt;
             &lt;/div&gt;
-    &lt;?php endwhile; ?&gt;
-    &lt;/div&gt;
-&lt;?php endif; ?&gt;
+        &lt;?php endif; ?&gt;
 
-&lt;?php
-get_footer();
-?&gt;
-</code></pre><p>So let’s go ahead and create a Repeater Field, which matches the fields shown in the ACF example above.</p>
-<p>
-  <img src="img/google-map-tutorial/repeater-setup.png" alt="Repeater Setup">
-</p>
-<p>As you can see, I have created a new repeater field called “Locations” , which has 3 sub fields -  1) Location , which is a google map field type, 2) Location title - which is a plain text field, and 3) Description which is also a plain text field.</p>
-<p>I am then setting this field to show if the template is equal to ‘Map’:</p>
-<p>
-  <img src="img/google-map-tutorial/template-conditional.png" alt="Template Conditional">
-</p>
-<p><em>You will now need to generate and add an API key.</em></p>
-<p>In your functions.php file you will need to add the following function to get Google Maps to work in Advanced Custom Fields:</p>
-<pre><code>function my_acf_init() {
-    acf_update_setting('google_api_key', 'YOUR_API_KEY');
-}
-add_action('acf/init', 'my_acf_init');
-</code></pre><p>And then you need to update <code>template-map.php</code> and find the following line of code and add in your API key:</p>
-<pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
-</code></pre><p>Now it’s time to add some example content to our repeater field. To keep this simple, I’m just going to add 3 locations in Cambridge, UK.</p>
-<ol>
-<li>Cambridge Airport, 2) The Fitzwilliam Museum, and 3) King&rsquo;s College School.</li>
-</ol>
-<p>
-  <img src="img/google-map-tutorial/map-repeater.png" alt="Map Repeater">
-</p>
-<p>After clicking update and viewing the page, I can see I successfully have generated a google map on the page with 3 marker pins:</p>
-<p>
-  <img src="img/google-map-tutorial/map-pins.png" alt="Map Repeater">
-</p>
-<h2 id="how-to-create-buttons-which-filter-multiple-markers-in-google-maps">How to create buttons which filter multiple markers in google maps</h2>
-<p>Now let’s say you wish to assign certain map markers to a category and have them filter based upon a button click.</p>
-<p>We can set up the categories themselves in many ways, but in this example, I’m just going to add a select dropdown field to my repeater field called ‘category’ and for the sake of simplicity create 2 categories. One called “Education” and the second called “Travel”.</p>
-<p>
-  <img src="img/google-map-tutorial/categories.png" alt="Map Repeater">
-</p>
-<p>Back to my Map page I’m going to set Cambridge Airport as ‘Travel’ and The Fitzwilliam Museum &amp; King&rsquo;s College School as ‘Education’ and re-save the page.</p>
-<p>Now let’s add three buttons to our template code, right above the repeater field output:</p>
-<pre><code>&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
-&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
-&lt;button id=&quot;reset_markers&quot;&gt;Reset&lt;/button&gt;
-</code></pre><p>I have added a third button here called ‘reset’ - which is the only button to contain a unique ID.</p>
-<p>The other two buttons have a shared class of ‘map_marker_toggle’, and I’m using a data attribute called <code>data-id</code> - importantly this must match the VALUE from the select dropdown ‘choices’ field , so in my case the choices field contains:</p>
-<pre><code>education : Education
-travel : Travel
-</code></pre><p>With the format here being [value] : [label]</p>
-<p>Next up, we need to take the value from the ‘category’ select dropdown in our Wordpress repeater field and pass that into our ‘marker’ div, like so:</p>
-<pre><code>&lt;?php if( have_rows('locations') ): ?&gt;
-    &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
-        &lt;?php while ( have_rows('locations') ) : the_row();
+        &lt;?php
+        get_footer();
+        ?&gt;
+        </code></pre><p>So let’s go ahead and create a Repeater Field, which matches the fields shown in the ACF example above.</p>
+        <p>
+          <img src="img/google-map-tutorial/repeater-setup.png" alt="Repeater Setup">
+        </p>
+        <p>As you can see, I have created a new repeater field called “Locations” , which has 3 sub fields -  1) Location , which is a google map field type, 2) Location title - which is a plain text field, and 3) Description which is also a plain text field.</p>
+        <p>I am then setting this field to show if the template is equal to ‘Map’:</p>
+        <p>
+          <img src="img/google-map-tutorial/template-conditional.png" alt="Template Conditional">
+        </p>
+        <p><em>You will now need to generate and add an API key.</em></p>
+        <p>In your functions.php file you will need to add the following function to get Google Maps to work in Advanced Custom Fields:</p>
+        <pre><code>function my_acf_init() {
+            acf_update_setting('google_api_key', 'YOUR_API_KEY');
+        }
+        add_action('acf/init', 'my_acf_init');
+        </code></pre><p>And then you need to update <code>template-map.php</code> and find the following line of code and add in your API key:</p>
+        <pre><code>&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
+        </code></pre><p>Now it’s time to add some example content to our repeater field. To keep this simple, I’m just going to add 3 locations in Cambridge, UK.</p>
+        <ol>
+        <li>Cambridge Airport, 2) The Fitzwilliam Museum, and 3) King&rsquo;s College School.</li>
+        </ol>
+        <p>
+          <img src="img/google-map-tutorial/map-repeater.png" alt="Map Repeater">
+        </p>
+        <p>After clicking update and viewing the page, I can see I successfully have generated a google map on the page with 3 marker pins:</p>
+        <p>
+          <img src="img/google-map-tutorial/map-pins.png" alt="Map Repeater">
+        </p>
+        <h2 id="how-to-create-buttons-which-filter-multiple-markers-in-google-maps">How to create buttons which filter multiple markers in google maps</h2>
+        <p>Now let’s say you wish to assign certain map markers to a category and have them filter based upon a button click.</p>
+        <p>We can set up the categories themselves in many ways, but in this example, I’m just going to add a select dropdown field to my repeater field called ‘category’ and for the sake of simplicity create 2 categories. One called “Education” and the second called “Travel”.</p>
+        <p>
+          <img src="img/google-map-tutorial/categories.png" alt="Map Repeater">
+        </p>
+        <p>Back to my Map page I’m going to set Cambridge Airport as ‘Travel’ and The Fitzwilliam Museum &amp; King&rsquo;s College School as ‘Education’ and re-save the page.</p>
+        <p>Now let’s add three buttons to our template code, right above the repeater field output:</p>
+        <pre><code>&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
+        &lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
+        &lt;button id=&quot;reset_markers&quot;&gt;Reset&lt;/button&gt;
+        </code></pre><p>I have added a third button here called ‘reset’ - which is the only button to contain a unique ID.</p>
+        <p>The other two buttons have a shared class of ‘map_marker_toggle’, and I’m using a data attribute called <code>data-id</code> - importantly this must match the VALUE from the select dropdown ‘choices’ field , so in my case the choices field contains:</p>
+        <pre><code>education : Education
+        travel : Travel
+        </code></pre><p>With the format here being [value] : [label]</p>
+        <p>Next up, we need to take the value from the ‘category’ select dropdown in our Wordpress repeater field and pass that into our ‘marker’ div, like so:</p>
+        <pre><code>&lt;?php if( have_rows('locations') ): ?&gt;
+            &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
+                &lt;?php while ( have_rows('locations') ) : the_row();
 
-            // Load sub field values.
-            $location = get_sub_field('location');
-            $title = get_sub_field('location_title');
-            $description = get_sub_field('description');
+                    // Load sub field values.
+                    $location = get_sub_field('location');
+                    $title = get_sub_field('location_title');
+                    $description = get_sub_field('description');
 
-            $category = get_sub_field( 'category' );
-            ?&gt;
-            &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
-                &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
-                &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
-                &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    $category = get_sub_field( 'category' );
+                    ?&gt;
+                    &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
+                        &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
+                        &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+            &lt;?php endwhile; ?&gt;
             &lt;/div&gt;
-    &lt;?php endwhile; ?&gt;
-    &lt;/div&gt;
-&lt;?php endif; ?&gt;
-</code></pre><p>The two new pieces of code here are: <code>$category = get_sub_field( 'category' );</code> and <code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;</code>.</p>
-<p>Here is the complete code:</p>
-<pre><code>&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
-&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
+        &lt;?php endif; ?&gt;
+        </code></pre><p>The two new pieces of code here are: <code>$category = get_sub_field( 'category' );</code> and <code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;</code>.</p>
+        <p>Here is the complete code:</p>
+        <pre><code>&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
+        &lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
 
-&lt;?php if( have_rows('locations') ): ?&gt;
-    &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
-        &lt;?php while ( have_rows('locations') ) : the_row();
+        &lt;?php if( have_rows('locations') ): ?&gt;
+            &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
+                &lt;?php while ( have_rows('locations') ) : the_row();
 
-            // Load sub field values.
-            $location = get_sub_field('location');
-            $title = get_sub_field('location_title');
-            $description = get_sub_field('description');
+                    // Load sub field values.
+                    $location = get_sub_field('location');
+                    $title = get_sub_field('location_title');
+                    $description = get_sub_field('description');
 
-            $category = get_sub_field( 'category' );
-            ?&gt;
-            &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
-                &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
-                &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
-                &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    $category = get_sub_field( 'category' );
+                    ?&gt;
+                    &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
+                        &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
+                        &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+            &lt;?php endwhile; ?&gt;
             &lt;/div&gt;
-    &lt;?php endwhile; ?&gt;
-    &lt;/div&gt;
-&lt;?php endif; ?&gt;
-</code></pre><p>So our goal here is to create some Javascript which will get the ‘data-id’ attribute from the button clicked on by the user, then use that information to search through our google map markers for matching data-category attributes and only show those markers.</p>
-<p>Firstly, let’s find the function called “initMap” which starts like this: <code>function initMap( $el )</code></p>
-<p>You should be able to see the following piece of code:</p>
-<pre><code>    // Add markers.
-    map.markers = [];
-    $markers.each(function(){
-        initMarker( $(this), map );
-    });
-</code></pre><p>So lets take a look at what’s inside <code>map.markers</code> by doing a console log. I’m doing to first store map.markers in a variable, then run console.log like so:</p>
-<pre><code>    // Add markers.
-    map.markers = [];
-    $markers.each(function(){
-        initMarker( $(this), map );
-    });
+        &lt;?php endif; ?&gt;
+        </code></pre><p>So our goal here is to create some Javascript which will get the ‘data-id’ attribute from the button clicked on by the user, then use that information to search through our google map markers for matching data-category attributes and only show those markers.</p>
+        <p>Firstly, let’s find the function called “initMap” which starts like this: <code>function initMap( $el )</code></p>
+        <p>You should be able to see the following piece of code:</p>
+        <pre><code>    // Add markers.
+            map.markers = [];
+            $markers.each(function(){
+                initMarker( $(this), map );
+            });
+        </code></pre><p>So lets take a look at what’s inside <code>map.markers</code> by doing a console log. I’m doing to first store map.markers in a variable, then run console.log like so:</p>
+        <pre><code>    // Add markers.
+            map.markers = [];
+            $markers.each(function(){
+                initMarker( $(this), map );
+            });
 
-    var map_markers = map.markers;
-    console.log(map_markers);
-</code></pre><p>If I right click and ‘inspect’ the page to pull up the developer tools then click ‘console’, I can see our console.log has returned to us an array with 3 objects in;</p>
-<p>
-  <img src="img/google-map-tutorial/array.png" alt="Array">
-</p>
-<p>Each object of course represents one of our map markers.</p>
-<p>If we open up each Object we can view the properties currently available to us:</p>
-<p>
-  <img src="img/google-map-tutorial/object-properties.png" alt="Object Properties">
-</p>
-<p>Some of these properties will look familiar to you if you go back to the template-map.php code and then find the function called <code>function initMarker( $marker, map )</code>
-If you look at the following code where the marker instance is created, you will see ‘position’ and ‘map’ - both of which are properties in our Object console view above:</p>
-<pre><code>    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map
-    });
-</code></pre><p>Pay particular attention to the property called ‘position’. Notice the variable ‘latLng’.
-This variable contains the data attributes of ‘data-lat’ and ‘data-lng’ that are added to the repeater field code:</p>
-<p><code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;</code></p>
-<p>This is done just above the marker instance code:</p>
-<pre><code>    var lat = $marker.data('lat');
-    var lng = $marker.data('lng');
-    var latLng = {
-        lat: parseFloat( lat ),
-        lng: parseFloat( lng )
-    };
-</code></pre><p>So in order for us to have something to ‘target’ our marker object with, I need to add a NEW property to this object. In this case, we’re going to extract the data-category attribute we created from each marker div: <code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;”&gt;</code> using the same method as the lat/long.</p>
-<p>So, inside our <code>function initMarker( $marker, map )</code> function, let’s add a new variable:</p>
-<pre><code>var marker_category = $marker.data('category');
-</code></pre><p>So the ‘marker_category’ variable will hold whatever data is inside our marker div’s ‘data-category’ attribute.</p>
-<p>Now we need to make a new property in the marker object, and assign this variable to it:</p>
-<pre><code>    // Create marker instance.
-    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map,
-        markercategory: marker_category,
-    });
-</code></pre><p>So the full code will look like this:</p>
-<pre><code>function initMarker( $marker, map ) {
+            var map_markers = map.markers;
+            console.log(map_markers);
+        </code></pre><p>If I right click and ‘inspect’ the page to pull up the developer tools then click ‘console’, I can see our console.log has returned to us an array with 3 objects in;</p>
+        <p>
+          <img src="img/google-map-tutorial/array.png" alt="Array">
+        </p>
+        <p>Each object of course represents one of our map markers.</p>
+        <p>If we open up each Object we can view the properties currently available to us:</p>
+        <p>
+          <img src="img/google-map-tutorial/object-properties.png" alt="Object Properties">
+        </p>
+        <p>Some of these properties will look familiar to you if you go back to the template-map.php code and then find the function called <code>function initMarker( $marker, map )</code>
+        If you look at the following code where the marker instance is created, you will see ‘position’ and ‘map’ - both of which are properties in our Object console view above:</p>
+        <pre><code>    var marker = new google.maps.Marker({
+                position : latLng,
+                map: map
+            });
+        </code></pre><p>Pay particular attention to the property called ‘position’. Notice the variable ‘latLng’.
+        This variable contains the data attributes of ‘data-lat’ and ‘data-lng’ that are added to the repeater field code:</p>
+        <p><code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;</code></p>
+        <p>This is done just above the marker instance code:</p>
+        <pre><code>    var lat = $marker.data('lat');
+            var lng = $marker.data('lng');
+            var latLng = {
+                lat: parseFloat( lat ),
+                lng: parseFloat( lng )
+            };
+        </code></pre><p>So in order for us to have something to ‘target’ our marker object with, I need to add a NEW property to this object. In this case, we’re going to extract the data-category attribute we created from each marker div: <code>&lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;”&gt;</code> using the same method as the lat/long.</p>
+        <p>So, inside our <code>function initMarker( $marker, map )</code> function, let’s add a new variable:</p>
+        <pre><code>var marker_category = $marker.data('category');
+        </code></pre><p>So the ‘marker_category’ variable will hold whatever data is inside our marker div’s ‘data-category’ attribute.</p>
+        <p>Now we need to make a new property in the marker object, and assign this variable to it:</p>
+        <pre><code>    // Create marker instance.
+            var marker = new google.maps.Marker({
+                position : latLng,
+                map: map,
+                markercategory: marker_category,
+            });
+        </code></pre><p>So the full code will look like this:</p>
+        <pre><code>function initMarker( $marker, map ) {
 
-var marker_category = $marker.data('category');
+        var marker_category = $marker.data('category');
 
-    // Get position from marker.
-    var lat = $marker.data('lat');
-    var lng = $marker.data('lng');
-    var latLng = {
-        lat: parseFloat( lat ),
-        lng: parseFloat( lng )
-    };
+            // Get position from marker.
+            var lat = $marker.data('lat');
+            var lng = $marker.data('lng');
+            var latLng = {
+                lat: parseFloat( lat ),
+                lng: parseFloat( lng )
+            };
 
-    // Create marker instance.
-    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map,
-        markercategory: marker_category,
-    });
+            // Create marker instance.
+            var marker = new google.maps.Marker({
+                position : latLng,
+                map: map,
+                markercategory: marker_category,
+            });
 
-ect .....
-</code></pre><p>Head back to the map page, refresh the page, and lets take another look at the inspector tools in the console tab, opening up those objects again we can see a new property has appeared:</p>
-<p>
-  <img src="img/google-map-tutorial/custom-object.png" alt="Custom Object">
-</p>
-<p>You will see for the first item ‘markercategory: travel’ , for the second item ‘markercategory: education’  - perfect!</p>
-<p>So lets go back to the <code>function initMap( $el ) </code> function , and comment out our previous console log code as we won’t be needing it for now:</p>
-<pre><code>    // var map_markers = map.markers;
-    // console.log(map_markers);
-</code></pre><p>Right below this, we’re going to create the ‘on click’ event handler for our buttons. Since we have two (and in future maybe more) buttons that share a class, we will query all buttons with the <code>map_marker_toggle</code> class and then loop through them using a for loop:</p>
-<pre><code>    // var map_markers = map.markers;
-    // console.log(map_markers);
+        ect .....
+        </code></pre><p>Head back to the map page, refresh the page, and lets take another look at the inspector tools in the console tab, opening up those objects again we can see a new property has appeared:</p>
+        <p>
+          <img src="img/google-map-tutorial/custom-object.png" alt="Custom Object">
+        </p>
+        <p>You will see for the first item ‘markercategory: travel’ , for the second item ‘markercategory: education’  - perfect!</p>
+        <p>So lets go back to the <code>function initMap( $el ) </code> function , and comment out our previous console log code as we won’t be needing it for now:</p>
+        <pre><code>    // var map_markers = map.markers;
+            // console.log(map_markers);
+        </code></pre><p>Right below this, we’re going to create the ‘on click’ event handler for our buttons. Since we have two (and in future maybe more) buttons that share a class, we will query all buttons with the <code>map_marker_toggle</code> class and then loop through them using a for loop:</p>
+        <pre><code>    // var map_markers = map.markers;
+            // console.log(map_markers);
 
-    var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
+            var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
 
-    for(var i = 0; i &lt; map_marker_toggles.length; i++) {
-    console.log(map_marker_toggles[i]);
-    }
-</code></pre><p>To check this is working, I am running a console log of all the buttons on our page with this class, and when I inspect and check the console, I see the following:</p>
-<p>
-  <img src="img/google-map-tutorial/inspect-buttons.png" alt="Inspect Buttons">
-</p>
-<p>So now lets do the on click event handler, and retrieve the ‘data-id’ attribute by passing that into a console log:</p>
-<pre><code>    // var map_markers = map.markers;
-    // console.log(map_markers);
+            for(var i = 0; i &lt; map_marker_toggles.length; i++) {
+            console.log(map_marker_toggles[i]);
+            }
+        </code></pre><p>To check this is working, I am running a console log of all the buttons on our page with this class, and when I inspect and check the console, I see the following:</p>
+        <p>
+          <img src="img/google-map-tutorial/inspect-buttons.png" alt="Inspect Buttons">
+        </p>
+        <p>So now lets do the on click event handler, and retrieve the ‘data-id’ attribute by passing that into a console log:</p>
+        <pre><code>    // var map_markers = map.markers;
+            // console.log(map_markers);
 
-    var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
+            var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
 
-    for(var i = 0; i &lt; map_marker_toggles.length; i++) {
-    map_marker_toggles[i].onclick = function() {
-    var returned_data_attribute = this.getAttribute('data-id');
-    console.log(returned_data_attribute);
-    }
-    }
-</code></pre><p>So if I refresh the page, load up the console, and click on the “travel’ button I see this:</p>
-<p>
-  <img src="img/google-map-tutorial/console-travel.png" alt="Console Travel">
-</p>
-<p>Great!</p>
-<p>Now for an explanation of the final piece of code. You will remember originally we ran a console log of the following:</p>
-<pre><code>var map_markers = map.markers;
-console.log(map_markers);
-</code></pre><p>Which has been kept as commented out code above our <code>map_marker_toggles</code> variable.</p>
-<p>What this console log gave us was an array, containing our map markers, each as an object. So what we need to do at this stage is once the button has been clicked and we’ve stored the buttons data-id attribute, we need to loop over the array inside the ‘map_markers’ variable and change a couple of properties. Here’s a reminder of what it looked like:</p>
-<p>
-  <img src="img/google-map-tutorial/custom-object.png" alt="Custom Object">
-</p>
-<p>You will notice a property called ‘visible’. This is a boolean - meaning it can either be true or false. Right now the property is set to ‘true’ as our markers are visible. So we’ll want to be able to change this property.</p>
-<p>However, I’m also going to use one of the ‘Marker’ class methods called ‘setVisible’ which is another boolean. This is what will show and hide the markers. See here for more information: <a href="https://developers.google.com/maps/documentation/javascript/reference/marker">Marker  |  Maps JavaScript API  |  Google Developers</a></p>
-<p>Here’s my code:</p>
-<pre><code>   var map_markers = map.markers;
-   for(var i = 0; i &lt; map_markers.length; i++) {
+            for(var i = 0; i &lt; map_marker_toggles.length; i++) {
+            map_marker_toggles[i].onclick = function() {
+            var returned_data_attribute = this.getAttribute('data-id');
+            console.log(returned_data_attribute);
+            }
+            }
+        </code></pre><p>So if I refresh the page, load up the console, and click on the “travel’ button I see this:</p>
+        <p>
+          <img src="img/google-map-tutorial/console-travel.png" alt="Console Travel">
+        </p>
+        <p>Great!</p>
+        <p>Now for an explanation of the final piece of code. You will remember originally we ran a console log of the following:</p>
+        <pre><code>var map_markers = map.markers;
+        console.log(map_markers);
+        </code></pre><p>Which has been kept as commented out code above our <code>map_marker_toggles</code> variable.</p>
+        <p>What this console log gave us was an array, containing our map markers, each as an object. So what we need to do at this stage is once the button has been clicked and we’ve stored the buttons data-id attribute, we need to loop over the array inside the ‘map_markers’ variable and change a couple of properties. Here’s a reminder of what it looked like:</p>
+        <p>
+          <img src="img/google-map-tutorial/custom-object.png" alt="Custom Object">
+        </p>
+        <p>You will notice a property called ‘visible’. This is a boolean - meaning it can either be true or false. Right now the property is set to ‘true’ as our markers are visible. So we’ll want to be able to change this property.</p>
+        <p>However, I’m also going to use one of the ‘Marker’ class methods called ‘setVisible’ which is another boolean. This is what will show and hide the markers. See here for more information: <a href="https://developers.google.com/maps/documentation/javascript/reference/marker">Marker  |  Maps JavaScript API  |  Google Developers</a></p>
+        <p>Here’s my code:</p>
+        <pre><code>   var map_markers = map.markers;
+           for(var i = 0; i &lt; map_markers.length; i++) {
 
-if (map_markers[i].markercategory == returned_data_attribute) {
-    map_markers[i].visible = 'true';
-    map_markers[i].setVisible(true);
-} else {
-    map_markers[i].visible = 'false';
-    map_markers[i].setVisible(false);
-}
-   }
-</code></pre><p>So the ‘map_markers` variable holds the array containing the map marker objects. We loop through them, using a for loop. Then, we’re running a conditional, to check if the map markers ‘markercategory’ property (the one we created) MATCHES the ‘returned_data_attribute’ (which is the data-id attribute of the clicked on button). If it matches, it’s going to set all those matching markers to have a property ‘visible’ of ‘true’ and use the ‘setVisible’ method and set that to true. Our ELSE statement will ensure all other markers are set to false, therefore hidden.</p>
-<p>Here’s the full code:</p>
-<pre><code>    // var map_markers = map.markers;
-    // console.log(map_markers);
+        if (map_markers[i].markercategory == returned_data_attribute) {
+            map_markers[i].visible = 'true';
+            map_markers[i].setVisible(true);
+        } else {
+            map_markers[i].visible = 'false';
+            map_markers[i].setVisible(false);
+        }
+           }
+        </code></pre><p>So the ‘map_markers` variable holds the array containing the map marker objects. We loop through them, using a for loop. Then, we’re running a conditional, to check if the map markers ‘markercategory’ property (the one we created) MATCHES the ‘returned_data_attribute’ (which is the data-id attribute of the clicked on button). If it matches, it’s going to set all those matching markers to have a property ‘visible’ of ‘true’ and use the ‘setVisible’ method and set that to true. Our ELSE statement will ensure all other markers are set to false, therefore hidden.</p>
+        <p>Here’s the full code:</p>
+        <pre><code>    // var map_markers = map.markers;
+            // console.log(map_markers);
 
-    var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
+            var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
 
-    for(var i = 0; i &lt; map_marker_toggles.length; i++) {
-    map_marker_toggles[i].onclick = function() {
-    var returned_data_attribute = this.getAttribute('data-id');
-   
-   var map_markers = map.markers;
-   for(var i = 0; i &lt; map_markers.length; i++) {
+            for(var i = 0; i &lt; map_marker_toggles.length; i++) {
+            map_marker_toggles[i].onclick = function() {
+            var returned_data_attribute = this.getAttribute('data-id');
+           
+           var map_markers = map.markers;
+           for(var i = 0; i &lt; map_markers.length; i++) {
 
-if (map_markers[i].markercategory == returned_data_attribute) {
-    map_markers[i].visible = 'true';
-    map_markers[i].setVisible(true);
-} else {
-    map_markers[i].visible = 'false';
-    map_markers[i].setVisible(false);
-}
-   }
-    }
-    }
-</code></pre><p>Refreshing the page, I can see that clicking our buttons works, and the markers then show based on the clicked on button. Perfect!</p>
-<p>Finally, we just need to code up our reset button.</p>
-<pre><code>    // Reset Button
-    var reset_button = document.getElementById('reset_markers');
-    var map_markers = map.markers;
+        if (map_markers[i].markercategory == returned_data_attribute) {
+            map_markers[i].visible = 'true';
+            map_markers[i].setVisible(true);
+        } else {
+            map_markers[i].visible = 'false';
+            map_markers[i].setVisible(false);
+        }
+           }
+            }
+            }
+        </code></pre><p>Refreshing the page, I can see that clicking our buttons works, and the markers then show based on the clicked on button. Perfect!</p>
+        <p>Finally, we just need to code up our reset button.</p>
+        <pre><code>    // Reset Button
+            var reset_button = document.getElementById('reset_markers');
+            var map_markers = map.markers;
 
-    reset_button.onclick = function() {
-   for(var i = 0; i &lt; map_markers.length; i++) {
-map_markers[i].visible = 'true';
-map_markers[i].setVisible(true);
-   }
-    }
-</code></pre><p>So now we have a fully functioning google map with filter buttons:</p>
-<p>
-  <img src="img/google-map-tutorial/complete-map.png" alt="Complete Map">
-</p>
-<p>Here’s the entire code of <code>template-map.php</code> for reference:</p>
-<pre><code>&lt;?php
-get_header();
+            reset_button.onclick = function() {
+           for(var i = 0; i &lt; map_markers.length; i++) {
+        map_markers[i].visible = 'true';
+        map_markers[i].setVisible(true);
+           }
+            }
+        </code></pre><p>So now we have a fully functioning google map with filter buttons:</p>
+        <p>
+          <img src="img/google-map-tutorial/complete-map.png" alt="Complete Map">
+        </p>
+        <p>Here’s the entire code of <code>template-map.php</code> for reference:</p>
+        <pre><code>&lt;?php
+        get_header();
 
-/*
-Template Name: Map
-*/
-?&gt;
+        /*
+        Template Name: Map
+        */
+        ?&gt;
 
-&lt;!-- Google Maps Helper Code --&gt;
+        &lt;!-- Google Maps Helper Code --&gt;
 
-&lt;style type=&quot;text/css&quot;&gt;
-.acf-map {
-    width: 100%;
-    height: 400px;
-    border: #ccc solid 1px;
-    margin: 20px 0;
-}
+        &lt;style type=&quot;text/css&quot;&gt;
+        .acf-map {
+            width: 100%;
+            height: 400px;
+            border: #ccc solid 1px;
+            margin: 20px 0;
+        }
 
-/*Fixes potential theme css conflict.*/
-.acf-map img {
-   max-width: inherit !important;
-}
-&lt;/style&gt;
-&lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
-&lt;script type=&quot;text/javascript&quot;&gt;
-(function( $ ) {
+        /*Fixes potential theme css conflict.*/
+        .acf-map img {
+           max-width: inherit !important;
+        }
+        &lt;/style&gt;
+        &lt;script src=&quot;https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&quot;&gt;&lt;/script&gt;
+        &lt;script type=&quot;text/javascript&quot;&gt;
+        (function( $ ) {
 
-/**
- * initMap
- * Renders a Google Map onto the selected jQuery element
- */
-function initMap( $el ) {
+        /**
+         * initMap
+         * Renders a Google Map onto the selected jQuery element
+         */
+        function initMap( $el ) {
 
-    // Find marker elements within map.
-    var $markers = $el.find('.marker');
+            // Find marker elements within map.
+            var $markers = $el.find('.marker');
 
-    // Create gerenic map.
-    var mapArgs = {
-        zoom        : $el.data('zoom') || 16,
-        mapTypeId   : google.maps.MapTypeId.ROADMAP
-    };
-    var map = new google.maps.Map( $el[0], mapArgs );
+            // Create gerenic map.
+            var mapArgs = {
+                zoom        : $el.data('zoom') || 16,
+                mapTypeId   : google.maps.MapTypeId.ROADMAP
+            };
+            var map = new google.maps.Map( $el[0], mapArgs );
 
-    // Add markers.
-    map.markers = [];
-    $markers.each(function(){
-        initMarker( $(this), map );
-    });
+            // Add markers.
+            map.markers = [];
+            $markers.each(function(){
+                initMarker( $(this), map );
+            });
 
-    // var map_markers = map.markers;
-    // console.log(map_markers);
+            // var map_markers = map.markers;
+            // console.log(map_markers);
 
-    var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
+            var map_marker_toggles = document.querySelectorAll('.map_marker_toggle');
 
-    for(var i = 0; i &lt; map_marker_toggles.length; i++) {
-    map_marker_toggles[i].onclick = function() {
-    var returned_data_attribute = this.getAttribute('data-id');
+            for(var i = 0; i &lt; map_marker_toggles.length; i++) {
+            map_marker_toggles[i].onclick = function() {
+            var returned_data_attribute = this.getAttribute('data-id');
 
-   var map_markers = map.markers;
-   for(var i = 0; i &lt; map_markers.length; i++) {
+           var map_markers = map.markers;
+           for(var i = 0; i &lt; map_markers.length; i++) {
 
-if (map_markers[i].markercategory == returned_data_attribute) {
-    map_markers[i].visible = 'true';
-    map_markers[i].setVisible(true);
-} else {
-    map_markers[i].visible = 'false';
-    map_markers[i].setVisible(false);
-}
-   }
-    }
-    }
+        if (map_markers[i].markercategory == returned_data_attribute) {
+            map_markers[i].visible = 'true';
+            map_markers[i].setVisible(true);
+        } else {
+            map_markers[i].visible = 'false';
+            map_markers[i].setVisible(false);
+        }
+           }
+            }
+            }
 
-    // Reset Button
-    var reset_button = document.getElementById('reset_markers');
-    var map_markers = map.markers;
+            // Reset Button
+            var reset_button = document.getElementById('reset_markers');
+            var map_markers = map.markers;
 
-    reset_button.onclick = function() {
-   for(var i = 0; i &lt; map_markers.length; i++) {
-map_markers[i].visible = 'true';
-map_markers[i].setVisible(true);
-   }
-    }
+            reset_button.onclick = function() {
+           for(var i = 0; i &lt; map_markers.length; i++) {
+        map_markers[i].visible = 'true';
+        map_markers[i].setVisible(true);
+           }
+            }
 
 
-    // Center map based on markers.
-    centerMap( map );
+            // Center map based on markers.
+            centerMap( map );
 
-    // Return map instance.
-    return map;
-}
+            // Return map instance.
+            return map;
+        }
 
-/**
- * initMarker
- * Creates a marker for the given jQuery element and map.
- */
-function initMarker( $marker, map ) {
+        /**
+         * initMarker
+         * Creates a marker for the given jQuery element and map.
+         */
+        function initMarker( $marker, map ) {
 
-var marker_category = $marker.data('category');
+        var marker_category = $marker.data('category');
 
-    // Get position from marker.
-    var lat = $marker.data('lat');
-    var lng = $marker.data('lng');
-    var latLng = {
-        lat: parseFloat( lat ),
-        lng: parseFloat( lng )
-    };
+            // Get position from marker.
+            var lat = $marker.data('lat');
+            var lng = $marker.data('lng');
+            var latLng = {
+                lat: parseFloat( lat ),
+                lng: parseFloat( lng )
+            };
 
-    // Create marker instance.
-    var marker = new google.maps.Marker({
-        position : latLng,
-        map: map,
-        markercategory: marker_category,
-    });
+            // Create marker instance.
+            var marker = new google.maps.Marker({
+                position : latLng,
+                map: map,
+                markercategory: marker_category,
+            });
 
-    // Append to reference for later use.
-    map.markers.push( marker );
+            // Append to reference for later use.
+            map.markers.push( marker );
 
-    // If marker contains HTML, add it to an infoWindow.
-    if( $marker.html() ){
+            // If marker contains HTML, add it to an infoWindow.
+            if( $marker.html() ){
 
-        // Create info window.
-        var infowindow = new google.maps.InfoWindow({
-            content: $marker.html()
+                // Create info window.
+                var infowindow = new google.maps.InfoWindow({
+                    content: $marker.html()
+                });
+
+                // Show info window when marker is clicked.
+                google.maps.event.addListener(marker, 'click', function() {
+                    infowindow.open( map, marker );
+                });
+            }
+        }
+
+        /**
+         * centerMap
+         * Centers the map showing all markers in view.
+         */
+        function centerMap( map ) {
+
+            // Create map boundaries from all map markers.
+            var bounds = new google.maps.LatLngBounds();
+            map.markers.forEach(function( marker ){
+                bounds.extend({
+                    lat: marker.position.lat(),
+                    lng: marker.position.lng()
+                });
+            });
+
+            // Case: Single marker.
+            if( map.markers.length == 1 ){
+                map.setCenter( bounds.getCenter() );
+
+            // Case: Multiple markers.
+            } else{
+                map.fitBounds( bounds );
+            }
+        }
+
+        // Render maps on page load.
+        $(document).ready(function(){
+            $('.acf-map').each(function(){
+                var map = initMap( $(this) );
+            });
         });
 
-        // Show info window when marker is clicked.
-        google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open( map, marker );
-        });
-    }
-}
-
-/**
- * centerMap
- * Centers the map showing all markers in view.
- */
-function centerMap( map ) {
-
-    // Create map boundaries from all map markers.
-    var bounds = new google.maps.LatLngBounds();
-    map.markers.forEach(function( marker ){
-        bounds.extend({
-            lat: marker.position.lat(),
-            lng: marker.position.lng()
-        });
-    });
-
-    // Case: Single marker.
-    if( map.markers.length == 1 ){
-        map.setCenter( bounds.getCenter() );
-
-    // Case: Multiple markers.
-    } else{
-        map.fitBounds( bounds );
-    }
-}
-
-// Render maps on page load.
-$(document).ready(function(){
-    $('.acf-map').each(function(){
-        var map = initMap( $(this) );
-    });
-});
-
-})(jQuery);
-&lt;/script&gt;
+        })(jQuery);
+        &lt;/script&gt;
 
 
-&lt;!-- Render Multiple Markers onto a map Code --&gt;
+        &lt;!-- Render Multiple Markers onto a map Code --&gt;
 
-&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
-&lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
-&lt;button id=&quot;reset_markers&quot;&gt;Reset&lt;/button&gt;
+        &lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;education&quot;&gt;Education&lt;/button&gt;
+        &lt;button class=&quot;map_marker_toggle&quot; data-id=&quot;travel&quot;&gt;Travel&lt;/button&gt;
+        &lt;button id=&quot;reset_markers&quot;&gt;Reset&lt;/button&gt;
 
-&lt;?php if( have_rows('locations') ): ?&gt;
-    &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
-        &lt;?php while ( have_rows('locations') ) : the_row();
+        &lt;?php if( have_rows('locations') ): ?&gt;
+            &lt;div class=&quot;acf-map&quot; data-zoom=&quot;16&quot;&gt;
+                &lt;?php while ( have_rows('locations') ) : the_row();
 
-            // Load sub field values.
-            $location = get_sub_field('location');
-            $title = get_sub_field('location_title');
-            $description = get_sub_field('description');
+                    // Load sub field values.
+                    $location = get_sub_field('location');
+                    $title = get_sub_field('location_title');
+                    $description = get_sub_field('description');
 
-            $category = get_sub_field( 'category' );
-            ?&gt;
-            &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
-                &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
-                &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
-                &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    $category = get_sub_field( 'category' );
+                    ?&gt;
+                    &lt;div class=&quot;marker&quot; data-category=&quot;&lt;?php echo esc_html($category); ?&gt;&quot; data-lat=&quot;&lt;?php echo esc_attr($location['lat']); ?&gt;&quot; data-lng=&quot;&lt;?php echo esc_attr($location['lng']); ?&gt;&quot;&gt;
+                        &lt;h3&gt;&lt;?php echo esc_html( $title ); ?&gt;&lt;/h3&gt;
+                        &lt;p&gt;&lt;em&gt;&lt;?php echo esc_html( $location['address'] ); ?&gt;&lt;/em&gt;&lt;/p&gt;
+                        &lt;p&gt;&lt;?php echo esc_html( $description ); ?&gt;&lt;/p&gt;
+                    &lt;/div&gt;
+            &lt;?php endwhile; ?&gt;
             &lt;/div&gt;
-    &lt;?php endwhile; ?&gt;
-    &lt;/div&gt;
-&lt;?php endif; ?&gt;
+        &lt;?php endif; ?&gt;
 
-&lt;?php
-get_footer();
-?&gt;
-</code></pre><h2 id="considerations-and-improvements">Considerations and improvements</h2>
-<p>This method is designed to be a rough guide on how to achieve a wordpress integrated google map, with multiple markers that can be toggled.</p>
-<p>There are some considerations and things that could be improved for next time.</p>
-<ol>
-<li>
-<p>If you have a map with lots of markers, and thus lots of repeater field rows, it is possible that loading the google map multiple times when editing the content in Wordpress could trigger the API key to register too many hits. If this goes above a certain limit, it might restrict full access to the map.</p>
-</li>
-<li>
-<p>A way to improve the aforementioned scenario is to not use the ACF google map field, but instead just create two plain text fields - lat and long. The downside here is that adding content into wordpress with multiple map markers might take longer as you would need to manually find the lat &amp; long values for each location.</p>
-</li>
-<li>
-<p>If your map markers contain an info window that needs to link to a single page for each marker, a custom post type might be a better solution than a repeater field. In this instance, you&rsquo;d have either a google map field or plain text lat &amp; long fields inside a post group, and then loop through your custom post group to retrieve your map markers.</p>
-</li>
-</ol>	
+        &lt;?php
+        get_footer();
+        ?&gt;
+        </code></pre><h2 id="considerations-and-improvements">Considerations and improvements</h2>
+        <p>This method is designed to be a rough guide on how to achieve a wordpress integrated google map, with multiple markers that can be toggled.</p>
+        <p>There are some considerations and things that could be improved for next time.</p>
+        <ol>
+        <li>
+        <p>If you have a map with lots of markers, and thus lots of repeater field rows, it is possible that loading the google map multiple times when editing the content in Wordpress could trigger the API key to register too many hits. If this goes above a certain limit, it might restrict full access to the map.</p>
+        </li>
+        <li>
+        <p>A way to improve the aforementioned scenario is to not use the ACF google map field, but instead just create two plain text fields - lat and long. The downside here is that adding content into wordpress with multiple map markers might take longer as you would need to manually find the lat &amp; long values for each location.</p>
+        </li>
+        <li>
+        <p>If your map markers contain an info window that needs to link to a single page for each marker, a custom post type might be a better solution than a repeater field. In this instance, you&rsquo;d have either a google map field or plain text lat &amp; long fields inside a post group, and then loop through your custom post group to retrieve your map markers.</p>
+        </li>
+        </ol>   
 
+        </div>       
+    </main>
 
-</section>
-
-</main>
-
-<footer class="container">
-	<hr size="10px" color="#cccccc" noshade>
-	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
-</footer>
-
-<script type="text/javascript">
-	var mode = document.getElementById('mode');
-	mode.onclick = function(event) {
-		event.preventDefault();
-
-		document.body.className = "dark-mode";
-	}
-</script>
-
+    <footer>
+    <br>
+    <hr size="1" color="#ccc" noshade>
+    <p align="left">&copy; Author: David Walker  2022.</p>
+    </footer>
 </body>
 </html>

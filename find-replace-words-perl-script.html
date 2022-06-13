@@ -10,65 +10,62 @@
 	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
 </head>
 
-<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+<body>
+	<header class="header">
+		<div class="header-measure">
+			<div class="header-logo">
+				<h1>David Walker</h1>
+			</div>
+			<div class="header-nav">
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="tech-skills.html">Introduction</a></li>
+						<li><a href="articles.html">Articles</a></li>
+						<li><a href="case-studies.html">Case Studies</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
 
-<header>
-	<div class="container">
-		<div><a href="index.html"><b>David Walker</b></a></div>
-		<nav>
-			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+	<main>
+		<div class="heading">
+			<div class="heading-measure">
+				<h1>Find & replace words using a Perl script</h1>	
+			</div>
+		</div>
 
-			<a href="#" id="mode" class="light">
-				<img src="img/sun.png" id="mode_image" height="22" width="22">
-			</a>
-		</nav>
-	</div>	
-</header>
+		<div class="content">
+		<p>Are you looking for a quick, powerful way to find and replace a word across multiple documents? Writing a small Perl
+		script is a simple and powerful method you could try.</p>
 
-<main class="container">
+		<h3 id="perl-one-liner-to-find--replace-word-in-a-file">Perl one liner to find &amp; replace word in a file</h3>
+		<p>The following “one liner” can be directly used in Terminal (in MacOS or Linux):</p>
 
-<section>
-	<h1>Find & replace words using a Perl script</h1>	
+		<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n">perl</span> <span class="o">-</span><span class="n">pi</span> <span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">e</span> <span class="s">&#39;s/old-word/new-word/g;&#39;</span> <span class="sr">/absolute/</span><span class="n">path</span><span class="sr">/to/</span><span class="n">folder</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">html</span>
+		</code></pre></div>
 
-<p>Are you looking for a quick, powerful way to find and replace a word across multiple documents? Writing a small Perl
-script is a simple and powerful method you could try.</p>
+		<p>The above example would replace all instances of <code>old-word</code> with <code>new-word</code> in <code>file.html</code>.</p>
 
-<h3 id="perl-one-liner-to-find--replace-word-in-a-file">Perl one liner to find &amp; replace word in a file</h3>
-<p>The following “one liner” can be directly used in Terminal (in MacOS or Linux):</p>
+		<p>The <code>/g</code> tells Perl to perform this operation “globally” - in other words, on the entire file.</p>
+		<h3 id="multiple-commands-in-a-bash-script">Multiple commands in a bash script</h3>
+		<p>If you need to update multiple files, you could execute this command several times, in a shell script.</p>
+		<p>Simply create a file that ends in the .sh file extension. e.g. replace.sh and populate it like so:</p>
+		<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+		</span><span class="cp"></span>perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file.html
+		perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file2.html
+		perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file3.html
+		</code></pre>
+		</div>
+		
+		</div>
+	</main>
 
-<div class="highlight"><pre class="chroma"><code class="language-perl" data-lang="perl"><span class="n">perl</span> <span class="o">-</span><span class="n">pi</span> <span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">e</span> <span class="s">&#39;s/old-word/new-word/g;&#39;</span> <span class="sr">/absolute/</span><span class="n">path</span><span class="sr">/to/</span><span class="n">folder</span><span class="o">/</span><span class="n">file</span><span class="o">.</span><span class="n">html</span>
-</code></pre></div>
-
-<p>The above example would replace all instances of <code>old-word</code> with <code>new-word</code> in <code>file.html</code>.</p>
-
-<p>The <code>/g</code> tells Perl to perform this operation “globally” - in other words, on the entire file.</p>
-<h3 id="multiple-commands-in-a-bash-script">Multiple commands in a bash script</h3>
-<p>If you need to update multiple files, you could execute this command several times, in a shell script.</p>
-<p>Simply create a file that ends in the .sh file extension. e.g. replace.sh and populate it like so:</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
-</span><span class="cp"></span>perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file.html
-perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file2.html
-perl -pi -w -e <span class="s1">&#39;s/old-word/new-word/g;&#39;</span> /absolute/path/to/folder/file3.html
-</code></pre></div>
-
-
-</section>
-
-</main>
-
-<footer class="container">
-	<hr size="10px" color="#cccccc" noshade>
-	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
-</footer>
-
-<script type="text/javascript">
-	var mode = document.getElementById('mode');
-	mode.onclick = function(event) {
-		event.preventDefault();
-
-		document.body.className = "dark-mode";
-	}
-</script>
-
+	<footer>
+	<br>
+	<hr size="1" color="#ccc" noshade>
+	<p align="left">&copy; Author: David Walker  2022.</p>
+	</footer>
 </body>
 </html>

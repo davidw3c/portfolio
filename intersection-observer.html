@@ -1,0 +1,431 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="author" content="David Walker">
+	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	<title>David Walker - Interactive Google Map Tutorial</title>
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-measure">
+            <div class="header-logo">
+                <h1>David Walker</h1>
+            </div>
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tech-skills.html">Introduction</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+      <div class="heading">
+        <div class="heading-measure">
+          <h1>Javascript Intersection Observer Tutorial</h1>
+          <p>Or, to put it in more simple terms - How to make something cool happen when a div scrolls into view - using only raw Javascript.</i></p>
+        </div>
+      </div>
+
+      <div class="content">
+      <p>The Javascript Intersection Observer API is perfect for 'observing' an HTML element on the page such as a div, to detect whether it has become visible within a predefined, scrollable area. The objective of this article is to provide a really basic overview of the Intersection Observer and some very simple examples on how to get started. I do not intend to cover all aspects of Intersection Observer in this tutorial, this is just intended as a bitesized overview to get started.</p>
+
+      <p>Hopefully after learning this, you should never need to use one of those 'javascript viewport' plugins ever again!</p>
+
+      <h2>The 4 building blocks</h2>
+
+      <p>There are 4 basic parts to building an intersection observer script:</p>
+
+      <ol>
+        <li><b><a href="#target">Select target element:</a></b> Selecting a div or other element on the page you want to target. For example, a div with the class 'my_target' might be selected</li>
+        <li><b><a href="#options">Set Options:</a></b> This is an object, of options that will be passed back into the intersectional observer constructor. It has 3 fields; root, rootMargin and threshold.</li>
+        <li>
+          <b><a href="#callback">Callback function:</a></b> A function that will be called when the target element is intersected. In other words, what changes you want to make to a page once an element is visible.
+        </li>
+        <li>
+          <b><a href="#constructor">Constructor:</a></b> This is just the IntersectionalObserver() constructor itself. You'll be passing the options and callback into it, and then telling it to 'observe' your target element.
+        </li>
+      </ol>
+
+
+      <h2 id="target">1. Select the HTML element(s) you want to Target</h2>
+
+      <p>This is the HTML element you want to 'watch' to check when it appears when scrolling and then run an action on it. For the sake of this article, I am just going to use divs, but you could watch any html tag (or tags) such as h1, p, section, etc. You just need to make sure your targets are stored inside a variable.</p>
+
+      <p><b>It can be one div:</b></p>
+
+      <pre>
+      var target = document.getElementById('my_classname');
+      </pre>
+
+      <p><b>Or it could be multiple divs:</b></p>
+
+      <pre>
+      var target = document.querySelectorAll('.my_classname');
+      </pre>
+
+
+      <h2 id="options">2. Set the Options</h2>
+
+      <p>Now you need to create some 'settings' or options that will define how the Intersection Observer behaves. It will look like this:</p>
+
+      <pre>
+      var options = {
+        root: document.body,
+        rootMargin: '0px',
+        threshold: 0
+      }
+      </pre>
+
+      <p>So let's break these properties down, one by one, to understand what they mean.</p>
+
+      <h3>What each option means</h3>
+
+      <table border="1" cellspacing="0" cellpadding="10">
+        <tr>
+          <td bgcolor="#eee">Property</td>
+          <td bgcolor="#eee">Meaning</td>
+        </tr>
+
+        <tr>
+          <td valign="top"><pre>root</pre></td>
+          <td valign="top">Root represents the area you are scrolling in. 99% of the time, you can just leave this setting blank as it defaults to the document body, however on rare occasions you may wish to set this as another container or iframe.</td>
+        </tr>
+
+        <tr> 
+          <td valign="top"><pre>threshold</pre></td>
+          <td valign="top">Theshold represents the amount of the object that must be visible in order for the observer to be triggered. For example, '0' would mean that immediately upon entering the viewport, the function is triggered. '0.5' would mean 50% of the object has to be in view. And '1' would mean 100% of the object has to be in view.</td>
+        </tr>
+
+        <tr>
+          <td valign="top"><pre>rootMargin </pre></td>
+          <td valign="top">Root Margin allows the observer function to be triggered before the object is visible in the root. So for example, if you were to set rootMargin as 100px, it would mean that when you are precisely 100 pixels away from viewing the target object, the observer function would fire.</td>
+        </tr>
+      </table>
+
+      <h2 id="callback">3. Create a Callback Function</h2>
+
+      <p>Now you need to create a callback function. This is essentially the function you want to fire once your target object is in view.</p>
+
+      <p>You test whether your target element is in view by using the `isIntersecting` conditional. An example script might look like this:</p>
+
+      <pre>
+      function callback (entries, observer) {
+        entries.forEach(entry =&gt; {
+          if (entry.isIntersecting) {
+            document.body.style.background=&quot;black&quot;;
+            document.body.style.color=&quot;white&quot;;
+          } else {
+            document.body.style.background=&quot;white&quot;;
+            document.body.style.color=&quot;black&quot;;
+          }
+        });
+      } 
+      </pre>
+
+      <h2 id="constructor">4. Fire the Constructor</h2>
+
+      <p>Finally, you want to actually run this piece of code, like so:</p>
+
+      <pre>
+      var observer = new IntersectionObserver(callback);
+      observer.observe(target_div);  
+      </pre>
+
+      <p>Bear in mind this example only includes how to observe ONE target div. I shall cover how to observe multiple target divs below.</p>
+
+
+      <h2>Putting it all together: A simple example</h2>
+
+      <p>Create a basic HTML file, just called something like 'demo.html' and copy and paste the following code into it:</p>
+
+      <pre>
+      &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;body&gt;
+
+      &lt;style&gt;
+      body {
+        transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
+        font-family: helvetica;
+        line-height: 1.4;
+        max-width: 600px;
+        margin: auto;
+      } 
+      &lt;/style&gt;
+
+      &lt;h1&gt;Background Change Demo&lt;/h1&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+
+      &lt;div class=&quot;target-element&quot;&gt;&lt;h2&gt;Dark Background Section&lt;/h2&gt;&lt;/div&gt;
+
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+
+      &lt;/div&gt;
+
+      &lt;script&gt;
+      var options = {
+        root: document.body,
+        rootMargin: '0px',
+        threshold: 0
+      }
+
+      function callback (entries, observer) {
+        entries.forEach(entry =&gt; {
+          if (entry.isIntersecting) {
+            document.body.style.background=&quot;black&quot;;
+            document.body.style.color=&quot;white&quot;;
+          } else {
+            document.body.style.background=&quot;white&quot;;
+            document.body.style.color=&quot;black&quot;;
+          }
+        });
+      }
+      var observer = new IntersectionObserver(callback);
+
+      var target_div = document.querySelector('.target-element');
+      observer.observe(target_div);
+      &lt;/script&gt;
+
+      &lt;/body&gt;
+      &lt;/html&gt; 
+
+      </pre>
+
+      <p>This should create a page whereby the background colour changes to black and the text to white, once the div with the class name 'target-element' comes into view.</p>
+
+      <h2>Multiple Intersectional Observers</h2>
+      <p>Now lets create an example using multiple intersectional observers. In this instance, I have multiple divs with the class name of 'section'. I want it so that when this section scrolls into view, it fades in, and changes the body background colour.</p>
+
+      <pre>
+       &lt;!DOCTYPE html&gt;
+      &lt;html&gt;
+      &lt;body&gt;
+
+      &lt;style&gt;
+      html,body {
+        height: 100%;   
+      }
+      body {
+        transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
+        font-family: helvetica;
+        line-height: 1.4;
+        max-width: 600px;
+        margin: auto;
+      } 
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .section {
+        opacity: 0;
+        background: #fff;
+        transition: 0.4s;
+        height: 100%;
+        padding: 30px;
+      }
+
+      .show {
+        opacity: 1;
+      }
+
+      h2 {
+        margin: 0;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        width: 100%;
+      }
+      &lt;/style&gt;
+
+
+      &lt;div class=&quot;section&quot; data-background=&quot;tomato&quot;&gt;
+        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+      &lt;/div&gt;
+
+      &lt;div class=&quot;section&quot; data-background=&quot;green&quot;&gt;
+        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;section&quot; data-background=&quot;orange&quot;&gt;
+        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;section&quot; data-background=&quot;purple&quot;&gt;
+        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+      &lt;/div&gt;
+
+      &lt;script&gt;
+        var cards = document.querySelectorAll('.section');
+
+        var options = {
+          threshold: 0.5,
+        }
+
+        function callback(entries, observer) {
+          entries.forEach(entry =&gt; {
+            var entry_data_attr = entry.target.getAttribute('data-background');
+            
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              document.body.style.background = entry_data_attr;
+            } 
+            else {
+              entry.target.classList.remove('show');
+            }
+          });
+        }
+
+        var observer = new IntersectionObserver(callback, options);
+
+        cards.forEach(section =&gt; {
+          observer.observe(section);
+        });
+      &lt;/script&gt;
+
+      &lt;/body&gt;
+      &lt;/html&gt; 
+      </pre>
+
+      <p>In this example, we query all of the section divs, which builds an array. Threshold in options at 0.5 means that when the section is 50% in view, it will be triggered as active. In the callback function here, we're then storing the data-attribute (which I've named data-background on the div) inside a variable, and then run an if statement to say that if the section div is 'intersecting' (aka visible), then add a 'show' class to it, and set the document body background colour to match the value stored inside the active section div's 'data-background' attribute. Once the div comes out of view, it then returns to normal and removes the 'show' class. </p>
+
+      <h2>How to run the observer only once</h2>
+
+      <p>What if we only want the animations and transitions to happen once when scrolling down the page, and not repeat when the user scrolls back up? The way to do this is to use `observer.unobserve()` . Then remove the else statement like so:</p>
+
+      <pre>
+       &lt;script&gt;
+        var cards = document.querySelectorAll('.section');
+
+        var options = {
+          threshold: 0.5,
+        }
+
+        function callback(entries, observer) {
+          entries.forEach(entry =&gt; {
+
+            var entry_data_attr = entry.target.getAttribute('data-background');
+
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show');
+              document.body.style.background = entry_data_attr;
+
+              // runs observer only once, comment out the else statement to use
+              observer.unobserve(entry.target); 
+            } 
+          });
+        }
+
+        var observer = new IntersectionObserver(callback, options);
+
+        cards.forEach(section =&gt; {
+          observer.observe(section);
+        });
+      &lt;/script&gt; 
+      </pre>
+
+      <p>Created: 5 May 2022. Author: David Walker.</p>    
+
+      </div>
+    </main>
+
+    <footer>
+    <br>
+    <hr size="1" color="#ccc" noshade>
+    <p align="left">&copy; Author: David Walker  2022.</p>
+    </footer>
+</body>
+</html>

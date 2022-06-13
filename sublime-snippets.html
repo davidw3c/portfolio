@@ -10,100 +10,95 @@
 	<title>Create code snippets in Sublime Text 3 - David Walker Web Developer</title>
 </head>
 
-<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+<body>
+    <header class="header">
+        <div class="header-measure">
+            <div class="header-logo">
+                <h1>David Walker</h1>
+            </div>
+            <div class="header-nav">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tech-skills.html">Introduction</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
 
-<header>
-	<div class="container">
-		<div><a href="index.html"><b>David Walker</b></a></div>
-		<nav>
-			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+	<main>
+		<div class="heading">
+			<div class="heading-measure">
+				<h1>Create code snippets in Sublime Text 3</h1>	
+			</div>
+		</div>
 
-			<a href="#" id="mode" class="light">
-				<img src="img/sun.png" id="mode_image" height="22" width="22">
-			</a>
-		</nav>
-	</div>	
-</header>
-
-<main class="container">
-
-<section>
-	<h1>Create code snippets in Sublime Text 3</h1>	
-
-<p>Code snippets in Sublime Text 3 can save you a lot of time. They allow you to create a key word which you type and then press &lsquo;tab&rsquo; to generate a code block.</p>
-<h2 id="create-a-new-snippet">Create a new Snippet</h2>
-<p>In order to create a new snippet , in Mac - Sublime Text 3, go to <code>Tools &gt; Developer &gt; New Snippet</code> on some machines it may simply be <code>Tools &gt; New Snippet</code>.</p>
-<p>You will be greeted with something that looks a bit like this in a new untitled file:</p>
-<pre><code>&lt;snippet&gt;
-    &lt;content&gt;&lt;![CDATA[
-Hello, ${1:this} is a ${2:snippet}.
-]]&gt;&lt;/content&gt;
-    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;
-    &lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;
-    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
-    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
-&lt;/snippet&gt;
-</code></pre><p>Now lets say you have the following code, which you would like to use for your new Snippet:</p>
-<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span><span class="p">(</span> <span class="nx">have_rows</span><span class="p">(</span><span class="s1">&#39;repeater_field_name&#39;</span><span class="p">)</span> <span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="err">
-</span><span class="err">    &lt;?php while ( have_rows(&#39;repeater_field_name&#39;) ) : the_row(); ?&gt;
-</span><span class="err">
-</span><span class="err">        &lt;?php echo get_sub_field(&#39;sub_field_name&#39;); ?&gt;
-</span><span class="err">
-</span><span class="err">    &lt;?php endwhile; ?&gt;
-</span><span class="err">&lt;?php endif; ?&gt;
-</span></code></pre></div><p>What you would do is insert this code between the opening <code>&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[</code> and closing <code>]]&gt;&lt;/content&gt;</code></p>
-<p>So it looks like this:</p>
-<pre><code>&lt;snippet&gt;
-	&lt;content&gt;&lt;![CDATA[
-&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
-	&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
-
-		&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
-
-	&lt;?php endwhile; ?&gt;
-&lt;?php endif; ?&gt;
-]]&gt;&lt;/content&gt;
-&lt;/snippet&gt;
-</code></pre><p>After the closing <code>]]&gt;&lt;/content&gt;</code> tag, you then have to insert a <code>&lt;tabTrigger&gt;</code> tag. Like this:</p>
-<pre><code>&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
-</code></pre><p>Your final code will look like this:</p>
-<pre><code>&lt;snippet&gt;
-	&lt;content&gt;&lt;![CDATA[
-&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
-	&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
+		<div class="content">
+		<p>Code snippets in Sublime Text 3 can save you a lot of time. They allow you to create a key word which you type and then press &lsquo;tab&rsquo; to generate a code block.</p>
+		<h2 id="create-a-new-snippet">Create a new Snippet</h2>
+		<p>In order to create a new snippet , in Mac - Sublime Text 3, go to <code>Tools &gt; Developer &gt; New Snippet</code> on some machines it may simply be <code>Tools &gt; New Snippet</code>.</p>
+		<p>You will be greeted with something that looks a bit like this in a new untitled file:</p>
+		<pre><code>&lt;snippet&gt;
+		&lt;content&gt;&lt;![CDATA[
+		Hello, ${1:this} is a ${2:snippet}.
+		]]&gt;&lt;/content&gt;
+		&lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;
+		&lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;
+		&lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
+		&lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
+		&lt;/snippet&gt;
+		</code></pre><p>Now lets say you have the following code, which you would like to use for your new Snippet:</p>
+		<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span> <span class="k">if</span><span class="p">(</span> <span class="nx">have_rows</span><span class="p">(</span><span class="s1">&#39;repeater_field_name&#39;</span><span class="p">)</span> <span class="p">)</span><span class="o">:</span> <span class="cp">?&gt;</span><span class="err">
+		</span><span class="err">    &lt;?php while ( have_rows(&#39;repeater_field_name&#39;) ) : the_row(); ?&gt;
+		</span><span class="err">
+		</span><span class="err">        &lt;?php echo get_sub_field(&#39;sub_field_name&#39;); ?&gt;
+		</span><span class="err">
+		</span><span class="err">    &lt;?php endwhile; ?&gt;
+		</span><span class="err">&lt;?php endif; ?&gt;
+		</span></code></pre></div><p>What you would do is insert this code between the opening <code>&lt;snippet&gt;&lt;content&gt;&lt;![CDATA[</code> and closing <code>]]&gt;&lt;/content&gt;</code></p>
+		<p>So it looks like this:</p>
+		<pre><code>&lt;snippet&gt;
+		&lt;content&gt;&lt;![CDATA[
+		&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
+		&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
 
 		&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
 
-	&lt;?php endwhile; ?&gt;
-&lt;?php endif; ?&gt;
-]]&gt;&lt;/content&gt;
-&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
-&lt;/snippet&gt;
-</code></pre><h2 id="saving-the-snippet">Saving the Snippet</h2>
-<p>Be sure to save your snippet with the file extension of <code>.sublimt-snippet</code> for example:</p>
-<pre><code>acfrepeater.sublime-snippet
-</code></pre><p>In Mac finder, you can see all of your snippets by going to the following location:</p>
-<pre><code>Users &gt; yourname &gt; Library &gt; Application Support &gt; Sublime Text 3 &gt; Packages &gt; User
-</code></pre><p>Note that you will need to show hidden files as Library will be hidden. The shortcut to do this is <code>Command + Shift + . </code></p>	
+		&lt;?php endwhile; ?&gt;
+		&lt;?php endif; ?&gt;
+		]]&gt;&lt;/content&gt;
+		&lt;/snippet&gt;
+		</code></pre><p>After the closing <code>]]&gt;&lt;/content&gt;</code> tag, you then have to insert a <code>&lt;tabTrigger&gt;</code> tag. Like this:</p>
+		<pre><code>&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
+		</code></pre><p>Your final code will look like this:</p>
+		<pre><code>&lt;snippet&gt;
+		&lt;content&gt;&lt;![CDATA[
+		&lt;?php if( have_rows('repeater_field_name') ): ?&gt;
+		&lt;?php while ( have_rows('repeater_field_name') ) : the_row(); ?&gt;
 
+		&lt;?php echo get_sub_field('sub_field_name'); ?&gt;
 
-</section>
+		&lt;?php endwhile; ?&gt;
+		&lt;?php endif; ?&gt;
+		]]&gt;&lt;/content&gt;
+		&lt;tabTrigger&gt;acfrepeater&lt;/tabTrigger&gt;
+		&lt;/snippet&gt;
+		</code></pre><h2 id="saving-the-snippet">Saving the Snippet</h2>
+		<p>Be sure to save your snippet with the file extension of <code>.sublimt-snippet</code> for example:</p>
+		<pre><code>acfrepeater.sublime-snippet
+		</code></pre><p>In Mac finder, you can see all of your snippets by going to the following location:</p>
+		<pre><code>Users &gt; yourname &gt; Library &gt; Application Support &gt; Sublime Text 3 &gt; Packages &gt; User
+		</code></pre><p>Note that you will need to show hidden files as Library will be hidden. The shortcut to do this is <code>Command + Shift + . </code></p>
+		</div>
+	</main>
 
-</main>
-
-<footer class="container">
-	<hr size="10px" color="#cccccc" noshade>
-	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
-</footer>
-
-<script type="text/javascript">
-	var mode = document.getElementById('mode');
-	mode.onclick = function(event) {
-		event.preventDefault();
-
-		document.body.className = "dark-mode";
-	}
-</script>
-
+	<footer>
+	<br>
+	<hr size="1" color="#ccc" noshade>
+	<p align="left">&copy; Author: David Walker  2022.</p>
+	</footer>
 </body>
 </html>

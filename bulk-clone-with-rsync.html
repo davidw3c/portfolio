@@ -10,81 +10,92 @@
 	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
 </head>
 
-<body id="home" topmargin="30px" leftmargin="30px" rightmargin="30px" bottommargin="30px">
+<body>
+	<header class="header">
+		<div class="header-measure">
+			<div class="header-logo">
+				<h1>David Walker</h1>
+			</div>
+			<div class="header-nav">
+				<nav>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="tech-skills.html">Introduction</a></li>
+						<li><a href="articles.html">Articles</a></li>
+						<li><a href="case-studies.html">Case Studies</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</header>
 
-<header>
-	<div class="container">
-		<div><a href="index.html"><b>David Walker</b></a></div>
-		<nav>
-			<a href="index.html#welcome">Welcome</a> <a href="index.html#skills">Skills</a> <a href="index.html#articles">Articles</a> <a href="index.html#case-studies">Case Studies</a>
+	<main>
+		<div class="heading">
+			<div class="heading-measure">
+				<h1>How to bulk clone folders using rsync</h1>	
+			</div>
+		</div>
 
-			<a href="#" id="mode" class="light">
-				<img src="img/sun.png" id="mode_image" height="22" width="22">
-			</a>
-		</nav>
-	</div>	
-</header>
+		<div class="content">
+		<p>One of the best features of a computer is the ability to automate tasks so that you don&rsquo;t have to repeat the same task manually over and over. One such task you may face is copying files across multiple folders from one location to another.</p>
+		
+		<h2 id="what-is-rsync">What is rsync?</h2>
+		
+		<p>Rsync is a handy little utility tool which can help you sync and copy the contents of a folder into another folder in one easy command.</p>
+		
+		<p>Initially released back in 1996, You can usually find pre-installed on Mac and Linux.
+		Check rsync is installed</p>
+		
+		<p>To double check rsync is installed, just open your Terminal app and type:</p>
+		
+		<pre><code>rsync -v
+		</code></pre><h2 id="how-to-write-rsync-commands">How to write rsync commands</h2>
+		
+		<p>Rsync commands use the following easy to remember structure:</p>
+		
+		<pre><code>rsync -[OPTIONS] [SOURCE FILE PATH] [DESTINATION PATH]
+		</code></pre><h2 id="basic-terminal-example">Basic Terminal example</h2>
+		
+		<p>You can copy one folder into another by opening your Terminal App and writing:</p>
+		
+		<pre><code>rsync -r /path/to/src_folder /path/to/dest_folder
+		</code></pre><p>Note that the above example would would copy the folder <code>src_folder</code> INTO the folder <code>dest_folder</code>, so you’d end up with a folder structure like this: <code>dest_folder/src_folder</code>.</p>
+		
+		<h2 id="glossary-of-terms">Glossary of terms</h2>
+		<p><code>-r</code>: recursive - you recurse the command into directories.
+		<code>-a</code>: archive - useful for backups - preserves file information (such as time stamps and permissions ect).</p>
+		<h2 id="copy-only-the-contents-of-a-folder">Copy only the contents of a folder</h2>
+		<p>In order to copy the contents of <code>src_folder</code> into <code>dest_folder</code>, you need to add a forward slash <code>/</code> onto the end of your <code>src_folder</code> path (but not onto the <code>dest_folder</code>) like so:</p>
+		<pre><code>rsync -r /path/to/src_folder/ /path/to/dest_folder
+		</code></pre><h2 id="how-to-run-multiple-rsync-commands-inside-a-shell-script">How to run multiple rsync commands inside a shell script</h2>
+		
+		<p>Let’s say you have multiple rsync commands you want to run, but don’t want to keep copying and pasting them into the terminal every time.</p>
+		
+		<p>You can create a shell script with multiple commands.</p>
+		
+		<p>Open a code editor and enter the following:</p>
+		<pre><code>#!/bin/bash
+		rsync -r /path/to/src_folder1/ /path/to/dest_folder1
+		rsync -r /path/to/src_folder2/ /path/to/dest_folder2
+		rsync -r /path/to/src_folder3/ /path/to/dest_folder3
+		</code></pre><p>Obviously the paths would be changed to meet your requirements.</p>
+		<p>The line at the top <code>#!/bin/bash</code> is known as the &ldquo;shebang line&rdquo;.</p>
+		<p>Save the file with the <code>.sh</code> extension.</p>
+		<p>In order to run the shell script, you can usually just open up Terminal and type <code>sh</code> , then press the space key, followed by entering the shell script file path. You can do this by dragging and dropping the shell script into the terminal and it will auto populate the path.</p>
+		
+		<p>Here&rsquo;s an Example:</p>
+		
+		<pre><code>sh /path/to/file.sh
+		</code></pre><p>If you run into errors, check the file is executable by running the following command in terminal:</p>
+		<pre><code>chmod +x /path/to/shellscript.sh
+		</code></pre><p>This article gives only a very basic overview of rsync, however much more advanced capabilities are also available.</p>	
+		</div>
+	</main>
 
-<main class="container">
-
-<section>
-	<h1>How to bulk clone folders using rsync</h1>	
-
-<p>One of the best features of a computer is the ability to automate tasks so that you don&rsquo;t have to repeat the same task manually over and over. One such task you may face is copying files across multiple folders from one location to another.</p>
-<h2 id="what-is-rsync">What is rsync?</h2>
-<p>Rsync is a handy little utility tool which can help you sync and copy the contents of a folder into another folder in one easy command.</p>
-<p>Initially released back in 1996, You can usually find pre-installed on Mac and Linux.
-Check rsync is installed</p>
-<p>To double check rsync is installed, just open your Terminal app and type:</p>
-<pre><code>rsync -v
-</code></pre><h2 id="how-to-write-rsync-commands">How to write rsync commands</h2>
-<p>Rsync commands use the following easy to remember structure:</p>
-<pre><code>rsync -[OPTIONS] [SOURCE FILE PATH] [DESTINATION PATH]
-</code></pre><h2 id="basic-terminal-example">Basic Terminal example</h2>
-<p>You can copy one folder into another by opening your Terminal App and writing:</p>
-<pre><code>rsync -r /path/to/src_folder /path/to/dest_folder
-</code></pre><p>Note that the above example would would copy the folder <code>src_folder</code> INTO the folder <code>dest_folder</code>, so you’d end up with a folder structure like this: <code>dest_folder/src_folder</code>.</p>
-<h2 id="glossary-of-terms">Glossary of terms</h2>
-<p><code>-r</code>: recursive - you recurse the command into directories.
-<code>-a</code>: archive - useful for backups - preserves file information (such as time stamps and permissions ect).</p>
-<h2 id="copy-only-the-contents-of-a-folder">Copy only the contents of a folder</h2>
-<p>In order to copy the contents of <code>src_folder</code> into <code>dest_folder</code>, you need to add a forward slash <code>/</code> onto the end of your <code>src_folder</code> path (but not onto the <code>dest_folder</code>) like so:</p>
-<pre><code>rsync -r /path/to/src_folder/ /path/to/dest_folder
-</code></pre><h2 id="how-to-run-multiple-rsync-commands-inside-a-shell-script">How to run multiple rsync commands inside a shell script</h2>
-<p>Let’s say you have multiple rsync commands you want to run, but don’t want to keep copying and pasting them into the terminal every time.</p>
-<p>You can create a shell script with multiple commands.</p>
-<p>Open a code editor and enter the following:</p>
-<pre><code>#!/bin/bash
-rsync -r /path/to/src_folder1/ /path/to/dest_folder1
-rsync -r /path/to/src_folder2/ /path/to/dest_folder2
-rsync -r /path/to/src_folder3/ /path/to/dest_folder3
-</code></pre><p>Obviously the paths would be changed to meet your requirements.</p>
-<p>The line at the top <code>#!/bin/bash</code> is known as the &ldquo;shebang line&rdquo;.</p>
-<p>Save the file with the <code>.sh</code> extension.</p>
-<p>In order to run the shell script, you can usually just open up Terminal and type <code>sh</code> , then press the space key, followed by entering the shell script file path. You can do this by dragging and dropping the shell script into the terminal and it will auto populate the path.</p>
-<p>Here&rsquo;s an Example:</p>
-<pre><code>sh /path/to/file.sh
-</code></pre><p>If you run into errors, check the file is executable by running the following command in terminal:</p>
-<pre><code>chmod +x /path/to/shellscript.sh
-</code></pre><p>This article gives only a very basic overview of rsync, however much more advanced capabilities are also available.</p>	
-
-</section>
-
-</main>
-
-<footer class="container">
-	<hr size="10px" color="#cccccc" noshade>
-	<p><credit>David Walker &copy; 2022.</credit> This website is 100% free from any tracking scripts or ads.</p>
-</footer>
-
-<script type="text/javascript">
-	var mode = document.getElementById('mode');
-	mode.onclick = function(event) {
-		event.preventDefault();
-
-		document.body.className = "dark-mode";
-	}
-</script>
-
+	<footer>
+	<br>
+	<hr size="1" color="#ccc" noshade>
+	<p align="left">&copy; Author: David Walker  2022.</p>
+	</footer>
 </body>
 </html>
