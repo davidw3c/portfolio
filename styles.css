@@ -146,10 +146,10 @@ main {
 	font-size: 19px;
 }
 
-.heading h1,
+/*.heading h1,
 .heading p {
 	max-width: 65ch;
-}
+}*/
 
 .content {
 	max-width: 93ch;
