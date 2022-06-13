@@ -130,7 +130,7 @@ main {
 }
 
 .heading-measure {
-    max-width: 80ch;
+    max-width: 93ch;
 	margin: 0 auto;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -152,7 +152,7 @@ main {
 }
 
 .content {
-	max-width: 80ch;
+	max-width: 93ch;
 	margin: auto;
 	padding-top: 25px;
 	padding-bottom: 35px;
