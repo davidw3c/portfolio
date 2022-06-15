@@ -119,28 +119,28 @@ var options = {
 
       <p>You test whether your target element is in view by using the `isIntersecting` conditional. An example script might look like this:</p>
 
-      <pre>
-      function callback (entries, observer) {
-        entries.forEach(entry =&gt; {
-          if (entry.isIntersecting) {
-            document.body.style.background=&quot;black&quot;;
-            document.body.style.color=&quot;white&quot;;
-          } else {
-            document.body.style.background=&quot;white&quot;;
-            document.body.style.color=&quot;black&quot;;
-          }
-        });
-      } 
-      </pre>
+<pre>
+function callback (entries, observer) {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      document.body.style.background=&quot;black&quot;;
+      document.body.style.color=&quot;white&quot;;
+    } else {
+      document.body.style.background=&quot;white&quot;;
+      document.body.style.color=&quot;black&quot;;
+    }
+  });
+} 
+</pre>
 
       <h2 id="constructor">4. Fire the Constructor</h2>
 
       <p>Finally, you want to actually run this piece of code, like so:</p>
 
-      <pre>
-      var observer = new IntersectionObserver(callback);
-      observer.observe(target_div);  
-      </pre>
+<pre>
+var observer = new IntersectionObserver(callback);
+observer.observe(target_div);  
+</pre>
 
       <p>Bear in mind this example only includes how to observe ONE target div. I shall cover how to observe multiple target divs below.</p>
 
@@ -149,236 +149,236 @@ var options = {
 
       <p>Create a basic HTML file, just called something like 'demo.html' and copy and paste the following code into it:</p>
 
-      <pre>
-      &lt;!DOCTYPE html&gt;
-      &lt;html&gt;
-      &lt;body&gt;
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
 
-      &lt;style&gt;
-      body {
-        transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
-        font-family: helvetica;
-        line-height: 1.4;
-        max-width: 600px;
-        margin: auto;
-      } 
-      &lt;/style&gt;
+&lt;style&gt;
+body {
+  transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
+  font-family: helvetica;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: auto;
+} 
+&lt;/style&gt;
 
-      &lt;h1&gt;Background Change Demo&lt;/h1&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;h1&gt;Background Change Demo&lt;/h1&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
 
-      &lt;div class=&quot;target-element&quot;&gt;&lt;h2&gt;Dark Background Section&lt;/h2&gt;&lt;/div&gt;
+&lt;div class=&quot;target-element&quot;&gt;&lt;h2&gt;Dark Background Section&lt;/h2&gt;&lt;/div&gt;
 
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
-      &lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
-      voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
-      odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
+&lt;p&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit vitae officia numquam
+voluptatem modi. Repudiandae ratione obcaecati autem amet quos, reprehenderit dolore, eligendi, nam,
+odit excepturi officia voluptas ullam praesentium.&lt;/p&gt;
 
-      &lt;/div&gt;
+&lt;/div&gt;
 
-      &lt;script&gt;
-      var options = {
-        root: document.body,
-        rootMargin: '0px',
-        threshold: 0
-      }
+&lt;script&gt;
+var options = {
+  root: document.body,
+  rootMargin: '0px',
+  threshold: 0
+}
 
-      function callback (entries, observer) {
-        entries.forEach(entry =&gt; {
-          if (entry.isIntersecting) {
-            document.body.style.background=&quot;black&quot;;
-            document.body.style.color=&quot;white&quot;;
-          } else {
-            document.body.style.background=&quot;white&quot;;
-            document.body.style.color=&quot;black&quot;;
-          }
-        });
-      }
-      var observer = new IntersectionObserver(callback);
+function callback (entries, observer) {
+  entries.forEach(entry =&gt; {
+    if (entry.isIntersecting) {
+      document.body.style.background=&quot;black&quot;;
+      document.body.style.color=&quot;white&quot;;
+    } else {
+      document.body.style.background=&quot;white&quot;;
+      document.body.style.color=&quot;black&quot;;
+    }
+  });
+}
+var observer = new IntersectionObserver(callback);
 
-      var target_div = document.querySelector('.target-element');
-      observer.observe(target_div);
-      &lt;/script&gt;
+var target_div = document.querySelector('.target-element');
+observer.observe(target_div);
+&lt;/script&gt;
 
-      &lt;/body&gt;
-      &lt;/html&gt; 
+&lt;/body&gt;
+&lt;/html&gt; 
 
-      </pre>
+</pre>
 
       <p>This should create a page whereby the background colour changes to black and the text to white, once the div with the class name 'target-element' comes into view.</p>
 
       <h2>Multiple Intersectional Observers</h2>
       <p>Now lets create an example using multiple intersectional observers. In this instance, I have multiple divs with the class name of 'section'. I want it so that when this section scrolls into view, it fades in, and changes the body background colour.</p>
 
-      <pre>
-       &lt;!DOCTYPE html&gt;
-      &lt;html&gt;
-      &lt;body&gt;
+<pre>
+ &lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
 
-      &lt;style&gt;
-      html,body {
-        height: 100%;   
-      }
-      body {
-        transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
-        font-family: helvetica;
-        line-height: 1.4;
-        max-width: 600px;
-        margin: auto;
+&lt;style&gt;
+html,body {
+  height: 100%;   
+}
+body {
+  transition: 0.3s background ease-in-out, 0.3s color ease-in-out;
+  font-family: helvetica;
+  line-height: 1.4;
+  max-width: 600px;
+  margin: auto;
+} 
+
+* {
+  box-sizing: border-box;
+}
+
+.section {
+  opacity: 0;
+  background: #fff;
+  transition: 0.4s;
+  height: 100%;
+  padding: 30px;
+}
+
+.show {
+  opacity: 1;
+}
+
+h2 {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+&lt;/style&gt;
+
+
+&lt;div class=&quot;section&quot; data-background=&quot;tomato&quot;&gt;
+  &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;section&quot; data-background=&quot;green&quot;&gt;
+  &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; data-background=&quot;orange&quot;&gt;
+  &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+&lt;/div&gt;
+&lt;div class=&quot;section&quot; data-background=&quot;purple&quot;&gt;
+  &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+  var cards = document.querySelectorAll('.section');
+
+  var options = {
+    threshold: 0.5,
+  }
+
+  function callback(entries, observer) {
+    entries.forEach(entry =&gt; {
+      var entry_data_attr = entry.target.getAttribute('data-background');
+      
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        document.body.style.background = entry_data_attr;
       } 
-
-      * {
-        box-sizing: border-box;
+      else {
+        entry.target.classList.remove('show');
       }
+    });
+  }
 
-      .section {
-        opacity: 0;
-        background: #fff;
-        transition: 0.4s;
-        height: 100%;
-        padding: 30px;
-      }
+  var observer = new IntersectionObserver(callback, options);
 
-      .show {
-        opacity: 1;
-      }
+  cards.forEach(section =&gt; {
+    observer.observe(section);
+  });
+&lt;/script&gt;
 
-      h2 {
-        margin: 0;
-      }
-
-      img {
-        max-width: 100%;
-        height: auto;
-        width: 100%;
-      }
-      &lt;/style&gt;
-
-
-      &lt;div class=&quot;section&quot; data-background=&quot;tomato&quot;&gt;
-        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
-      &lt;/div&gt;
-
-      &lt;div class=&quot;section&quot; data-background=&quot;green&quot;&gt;
-        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;section&quot; data-background=&quot;orange&quot;&gt;
-        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
-      &lt;/div&gt;
-      &lt;div class=&quot;section&quot; data-background=&quot;purple&quot;&gt;
-        &lt;h2&gt;Demo Content to go here&lt;/h2&gt;
-      &lt;/div&gt;
-
-      &lt;script&gt;
-        var cards = document.querySelectorAll('.section');
-
-        var options = {
-          threshold: 0.5,
-        }
-
-        function callback(entries, observer) {
-          entries.forEach(entry =&gt; {
-            var entry_data_attr = entry.target.getAttribute('data-background');
-            
-            if (entry.isIntersecting) {
-              entry.target.classList.add('show');
-              document.body.style.background = entry_data_attr;
-            } 
-            else {
-              entry.target.classList.remove('show');
-            }
-          });
-        }
-
-        var observer = new IntersectionObserver(callback, options);
-
-        cards.forEach(section =&gt; {
-          observer.observe(section);
-        });
-      &lt;/script&gt;
-
-      &lt;/body&gt;
-      &lt;/html&gt; 
-      </pre>
+&lt;/body&gt;
+&lt;/html&gt; 
+</pre>
 
       <p>In this example, we query all of the section divs, which builds an array. Threshold in options at 0.5 means that when the section is 50% in view, it will be triggered as active. In the callback function here, we're then storing the data-attribute (which I've named data-background on the div) inside a variable, and then run an if statement to say that if the section div is 'intersecting' (aka visible), then add a 'show' class to it, and set the document body background colour to match the value stored inside the active section div's 'data-background' attribute. Once the div comes out of view, it then returns to normal and removes the 'show' class. </p>
 
