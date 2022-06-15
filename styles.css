@@ -301,7 +301,7 @@ video {
 .gridItem {
 	position: relative;
 	background: #f3f3f3;
-	border: 1px solid #ccc;
+	border-bottom: 6px solid #1d70b8;
 }
 
 /*.gridItem:hover {
@@ -324,7 +324,6 @@ video {
 }
 
 .gridItem-body {
-	border-top: 1px solid #ccc;
 	padding: 18px 16px;
 	text-align: left;
 }
