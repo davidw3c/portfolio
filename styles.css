@@ -41,6 +41,14 @@ h4 {
 	margin-top: 0;
 }
 
+.content ol {
+	padding-left: 24px;
+}
+
+.content ol li {
+	margin: 20px 0;
+}
+
 mark {
 	background: #fffddc;
 }
