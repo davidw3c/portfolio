@@ -12,12 +12,18 @@
 </head>
 
 <body>
+	<div class="header-nav-underlay inactive"></div>
 	<header class="header">
 		<div class="header-measure">
 			<div class="header-logo">
-				<h1>David Walker</h1>
+				<h1>
+					<!-- <img src="./img/logo-icon.svg" alt=""> -->
+				David Walker</h1>
 			</div>
-			<div class="header-nav">
+
+			<div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+
+			<div class="header-nav hidden-mobile">
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -28,6 +34,7 @@
                     </ul>
                 </nav>
 			</div>
+
 		</div>
 	</header>
 
@@ -64,7 +71,9 @@
 	</main>
 
 	<footer class="footer">
-		<p>&copy; Author: David Walker 2022.</p>
+		<p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
 	</footer>
+
+	<script src="./scripts.js"></script>
 </body>
 </html>
