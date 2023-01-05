@@ -11,13 +11,18 @@
 </head>
 
 <body>
+	<div class="header-nav-underlay inactive"></div>
 	<header class="header">
 		<div class="header-measure">
 			<div class="header-logo">
-				<h1>David Walker</h1>
+				<h1>
+					<!-- <img src="./img/logo-icon.svg" alt=""> -->
+				David Walker</h1>
 			</div>
-			<div class="header-nav">
 
+			<div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+
+			<div class="header-nav hidden-mobile">
                 <nav>
                     <ul>
                         <li><a href="index.html">Home</a></li>
@@ -28,6 +33,7 @@
                     </ul>
                 </nav>
 			</div>
+
 		</div>
 	</header>
 
@@ -41,13 +47,21 @@
 
 		<div class="content">
 
-		<h2>Project Case Study Write-ups</h2>
-
-		<p>Presented here are a collection of projects where I have acted as the lead Front End Developer. Some projects are active and live, whereas other projects are simply write-ups and references to websites I worked on in the past. I take no responsibility for the content or design of these websites.</p>
-
 		<div class="portfolio">
 			<div class="portfolio-row">
 	
+
+				<div class="portfolio-cell">
+					<div class="preview">
+						<div class="preview-image">
+							<img src="img/okra.jpg" width="275" height="205">
+						</div>
+						<div class="preview-body">
+							<h3><a href="okra.html">OKRA.ai</a></h3>
+						</div>
+					</div>
+				</div>
+
 				<div class="portfolio-cell">
 					<div class="preview">
 						<div class="preview-image">
@@ -70,6 +84,10 @@
 					</div>
 				</div>
 
+			</div>
+
+			<div class="portfolio-row">
+
 				<div class="portfolio-cell">
 					<div class="preview">
 						<div class="preview-image">
@@ -80,10 +98,6 @@
 						</div>
 					</div>	
 				</div>	
-
-			</div>
-
-			<div class="portfolio-row">
 
 				<div class="portfolio-cell">
 					<div class="preview">
@@ -107,6 +121,11 @@
 					</div>
 				</div>
 
+
+
+			</div>
+
+			<div class="portfolio-row">
 				<div class="portfolio-cell">
 					<div class="preview">
 						<div class="preview-image">
@@ -117,15 +136,16 @@
 						</div>
 					</div>
 				</div>
-
-			</div>
+			</div>	
 		</div>
 
 		</div>
 	</main>
 
 	<footer class="footer">
-		<p>&copy; Author: David Walker 2022.</p>
+		<p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
 	</footer>
+
+	<script src="./scripts.js"></script>
 </body>
 </html>
