@@ -11,24 +11,31 @@
 </head>
 
 <body>
-   <header class="header">
-      <div class="header-measure">
-         <div class="header-logo">
-            <h1>David Walker</h1>
-         </div>
-         <div class="header-nav">
-             <nav>
-                 <ul>
-                     <li><a href="index.html">Home</a></li>
-                     <li><a href="tech-skills.html">Introduction</a></li>
-                     <li><a href="articles.html">Articles</a></li>
-                     <li><a href="case-studies.html">Case Studies</a></li>
-                     <li class="nav-promo"><a href="https://codepen.io/davidatchameleon/" class="nav-button" target="_blank">Codepen</a></li>
-                 </ul>
-             </nav>
-         </div>
+  <div class="header-nav-underlay inactive"></div>
+  <header class="header">
+    <div class="header-measure">
+      <div class="header-logo">
+        <h1>
+          <!-- <img src="./img/logo-icon.svg" alt=""> -->
+        David Walker</h1>
       </div>
-   </header>
+
+      <div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+
+      <div class="header-nav hidden-mobile">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tech-skills.html">Introduction</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-promo"><a href="https://codepen.io/davidatchameleon/" class="nav-button" target="_blank">Codepen</a></li>
+                    </ul>
+                </nav>
+      </div>
+
+    </div>
+  </header>
 
     <main>
       <div class="heading">
@@ -424,7 +431,9 @@ img {
     </main>
 
   <footer class="footer">
-    <p>&copy; Author: David Walker 2022.</p>
+    <p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
   </footer>
+
+  <script src="./scripts.js"></script>
 </body>
 </html>
