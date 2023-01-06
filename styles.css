@@ -209,6 +209,10 @@ code {
 		right: 20px;
 		cursor: pointer;
 	}
+
+	#menu-toggle img {
+		max-width: 38px;
+	}
 }
 
 .header {
@@ -250,12 +254,12 @@ code {
     text-transform: uppercase;
 	color: #fff;
 	font-weight: 700;
-/*	font-family: 'Smooch', cursive;*/
-/*	font-family: 'Ephesis', cursive;*/
-/*font-family: 'Just Me Again Down Here', cursive;*/
+}
 
-
-	/*font-family:'Public Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";*/
+@media(max-width: 700px) {
+	.header-logo h1 {
+		font-size: 22px;
+	}
 }
 
 .header-logo img {
@@ -278,7 +282,7 @@ code {
 		left: 0;
 		height: 100%;
 		width: calc(100% - 85px);
-		background: #000;
+		background: #004182;
 		padding: 30px;
 		box-sizing: border-box;
 		transition: 0.2s visibility, 0.2s opacity, 0.2s transform;
@@ -492,6 +496,7 @@ main {
 /*	background-size: 310px;*/
     text-align: center;
     color: #fff;
+    position: relative;
 
 /*	background-image: url('./img/hero-2.jpg');
 	background-size: cover;
@@ -499,6 +504,20 @@ main {
 
 /*	background-position: top 20px center;*/
 
+}
+
+.heading:before {
+	content:'';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: url('./img/brushstroke.svg');
+	background-position: center center;
+	opacity: 0.05;
+	background-size: cover;
 }
 
 .heading-measure {
