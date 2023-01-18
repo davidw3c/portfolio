@@ -1,0 +1,89 @@
+
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="author" content="David Walker">
+	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
+	<link rel="icon" type="image/png" href="favicon.png">
+	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+	<div class="header-nav-underlay inactive"></div>
+	<header class="header">
+		<div class="header-measure">
+			<div class="header-logo">
+				<h1><a href="index.html">David Walker</a></h1>
+			</div>
+
+			<div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+
+			<div class="header-nav hidden-mobile">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tech-skills.html">Introduction</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="case-studies.html">Case Studies</a></li>
+                        <li class="nav-promo"><a href="https://codepen.io/davidatchameleon/" class="nav-button" target="_blank">Codepen</a></li>
+                    </ul>
+                </nav>
+			</div>
+
+		</div>
+	</header>
+
+	<main>
+		<div class="heading">
+			<div class="heading-measure">
+				<h1>Domino Printing Email Campaigns</h1>
+				<p>Return to the <a href="case-studies.html">Case studies page</a></p>
+			</div>
+		</div>
+
+		<div class="content">
+
+		<h2>Domino Printing (Nov 2018 - Jan 2019)</h2>
+
+		<p><b>MJML, Pardot, Markdown, Github, Shell Scripting, Email Templates</b></p>
+
+		<p>	From late 2018 to present (January 2019), I was tasked with hand coding a number of email templates for Domino printing. These email templates ranged from standard marketing emails, to internal newsletters. </p>
+
+		<p>Domino used an online email marketing automation tool called <b>Salesforce Pardot</b>.</p>
+
+		<p>This tool allows you to take your HTML email templates, and set up editable 'regions' so that when Domino staff members want to create a new email campaign, they can use your HTML template and simply edit the content, without any coding knowledge required themselves.</p>
+
+		<p>Early on in this process, I was hand coding the email templates using raw HTML. This was a bigger task than it sounds because creating HTML email templates that work correctly on email clients all the way back to Outlook 2007 (which was part of the brief), required a lot of special quirks within the code to make the templates as robust as possible.</p>
+
+		<p>Domino wanted us to code quite a lot of templates on a regular basis, so eventually I considered we might need a change from the raw HTML approach.</p>
+
+		<p>In order to help Domino Printing utilise a more productive workflow, I suggested to them that we adopt an email framework, such as <b>MJML</b> or <b>Foundation Emails (by Zurb)</b>.</p>
+
+		<p>This had a number of benefits:</p>
+
+		<p>1. Code would already be pre-tested to help support older email clients, which was important to Domino</p>
+
+		<p>2. A framework would come with plenty of pre-existing documentation</p>
+
+		<p>3. The code would be much more "portable" amoung various development teams that Domino decide to contract in future</p>
+
+		<p>I spent a number of hours developing a demo template in both MJML and Foundation- and met with Domino to report my findings. Domino chose MJML, and I then went on to produce a number of templates using the MJML framework.</p>
+
+		<p>Eventually, we were dealing with over 100 email templates. I then improved the workflow further by <b>hand coding a shell script</b>, which allowed us to quickly automate tasks and make updates across multiple email templates if required.</p>
+
+		<p>I helped to set up the Domino emails github repo and <b>wrote github documentation</b> for developers and users on how to update and use templates, respectively.</p> 
+
+		</div>
+
+	</main>
+
+	<footer class="footer">
+		<p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
+	</footer>
+
+	<script src="./scripts.js"></script>
+</body>
+</html>

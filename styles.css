@@ -5,7 +5,7 @@
 
 
 body {
-	max-width: 1340px;
+	max-width: 1400px;
 	margin: 0 auto;
 	line-height: 1.6;
 	font-size: 1.15rem;
@@ -121,7 +121,7 @@ h4 {
 }
 
 .content {
-	max-width: 970px;
+	max-width: 1000px;
 	margin: auto;
 	padding-top: 62px;
 	padding-bottom: 60px;
@@ -132,6 +132,7 @@ h4 {
 .content h2 {
 	margin-top: 46px;
 	font-size: 28px;
+	font-size: 2rem;
 	position: relative;
 }
 
@@ -260,6 +261,12 @@ code {
 	.header-logo h1 {
 		font-size: 22px;
 	}
+}
+
+.header-logo a {
+	border-bottom: 1px solid #35bbed;
+text-decoration: none;
+color: white;
 }
 
 .header-logo img {
@@ -490,7 +497,7 @@ main {
 
 
 .heading {
-    padding: 180px 0 120px 0;
+    padding: 150px 0 105px 0;
      background-color: #004182;
 /*	background-image: url('./img/code-pattern.svg');*/
 /*	background-size: 310px;*/
@@ -657,8 +664,8 @@ video {
 }
 
 .portfolio-cell {
-	width: 33.3333%;
-	flex: 0 0 33.3333%;
+	width: 33.333%;
+	flex: 0 0 33.333%;
 	float: left;
 	box-sizing: border-box;
 	padding: 0 20px 40px 20px;
