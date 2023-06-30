@@ -4,21 +4,21 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="author" content="David Walker">
+	<meta name="color-scheme" content="dark light" />
 	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
-	<link rel="icon" type="image/png" href="favicon.png">
-	<link rel="stylesheet" type="text/css" href="styles.css">
+	<link rel="icon" href="data:,">
 	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-	<div class="header-nav-underlay inactive"></div>
 	<header class="header">
 		<div class="header-measure">
 			<div class="header-logo">
 				<h1><a href="index.html">David Walker</a></h1>
 			</div>
 
-			<div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+			<a href="#menu" class="menu-toggle">Menu</a>
 
 			<div class="header-nav hidden-mobile">
                 <nav>
@@ -99,9 +99,21 @@
 	</main>
 
 	<footer class="footer">
-		<p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
-	</footer>
+		<div id="menu">
+			<h2>Menu Navigation</h2>
+			<ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tech-skills.html">Introduction</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="https://codepen.io/davidatchameleon/" class="nav-button" target="_blank">Codepen</a></li>
+                <li><a href="https://github.com/davidw3c/wordpress-sublime-snippets" target="_blank">Github</a></li>
+                <br>
+                <li><a href="#">↑ Top of the page</a></li>
+			</ul>
+		</div>
 
-	<script src="./scripts.js"></script>
+		<p>&copy; David Walker - Cambridge based Front End Web Developer.</p> 
+	</footer>
 </body>
 </html>

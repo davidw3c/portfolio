@@ -6,22 +6,19 @@
 	<meta name="author" content="David Walker">
 	<meta name="color-scheme" content="dark light" />
 	<meta name="description" content="David Walker - Front End Web developer based in Cambridge, UK">
-	<link rel="icon" type="image/png" href="favicon.png">
+	<link rel="icon" href="data:,">
 	<title>David Walker - Front End Web developer based in Cambridge, UK</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
-	<div class="header-nav-underlay inactive"></div>
 	<header class="header">
 		<div class="header-measure">
 			<div class="header-logo">
-				<h1>
-					<!-- <img src="./img/logo-icon.svg" alt=""> -->
-				<a href="index.html">David Walker</a></h1>
+				<h1><a href="index.html">David Walker</a></h1>
 			</div>
 
-			<div id="menu-toggle" class="inactive"><img src="./img/menu-icon.svg" height="45" width="45" alt=""></div>
+			<a href="#menu" class="menu-toggle">Menu</a>
 
 			<div class="header-nav hidden-mobile">
                 <nav>
@@ -48,16 +45,14 @@
 				<p><a href="case-studies.html" class="button-white">View Case Studies</a></p>
 
 				<div class="hero__arrow">
-					<img src="./img/down-arrow.svg" alt="">
+					<a href="#welcome"><img src="./img/down-arrow.svg" alt=""></a>
 				</div>
 			</div>
 		</div>
 
-		<div class="home-intro">
+		<div class="home-intro" id="welcome">
 			<div class="content">
 				<h2>I build websites with a focus on Accessibility & Simplicity</h2>
-
-				<!-- <div class="divider middle"></div> -->
 
 				<p>I have over 10 years of industry experience building professional, responsive websites for a wide range of sectors including start-ups, education, conservation, biotech and non-profit industries. Some of the websites I have worked on have gone on to win awards.</p>
 
@@ -73,8 +68,6 @@
 			<div class="content">
 
 				<h2>Index of Contents</h2>
-
-				<!-- <div class="divider"></div> -->
 
 				<p>What's here? This is a quick overview of the pages you will find on this website. I know not many websites have the novel idea of actually using an index page as an index anymore, but given that I grew up seeing the web evolve, I wanted to sneak in a reference to <a href="http://info.cern.ch/hypertext/WWW/TheProject.html" target="_blank">the world's first ever website</a> somewhere on my portfolio!</p>
 
@@ -127,8 +120,6 @@
 
 		<h2>Elsewhere on the Web</h2>
 
-		<!-- <div class="divider"></div> -->
-
 		<p>Here you can find some links to other places you can find me on the web.</p>
 
 		<p><b>&bull; <a href="https://codepen.io/davidatchameleon/" target="_blank">codepen.io/davidatchameleon</a></b> : Check out some of my code snippets & experiments on codepen.io [Note: Link opens in a new window].</p>
@@ -144,9 +135,21 @@
 	</main>
 
 	<footer class="footer">
-		<p>&copy; David Walker 2023. &nbsp; Made with <img src="img/heart.svg" class="heart" alt="love"> in Cambridge, UK</p>
-	</footer>
+		<div id="menu">
+			<h2>Menu Navigation</h2>
+			<ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="tech-skills.html">Introduction</a></li>
+                <li><a href="articles.html">Articles</a></li>
+                <li><a href="case-studies.html">Case Studies</a></li>
+                <li><a href="https://codepen.io/davidatchameleon/" class="nav-button" target="_blank">Codepen</a></li>
+                <li><a href="https://github.com/davidw3c/wordpress-sublime-snippets" target="_blank">Github</a></li>
+                <br>
+                <li><a href="#">↑ Top of the page</a></li>
+			</ul>
+		</div>
 
-	<script src="./scripts.js"></script>
+		<p>&copy; David Walker - Cambridge based Front End Web Developer.</p> 
+	</footer>
 </body>
 </html>

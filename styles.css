@@ -6,7 +6,7 @@ body {
 	position: relative;
 	font-family: arial, 'Helvetica', sans-serif;
 	background: #dddddd;
-	color: #1f2429;
+/*	color: #1f2429;*/
 	box-shadow: 0px 1px 35px 20px rgba(50,50,50,0.22);
 }
 
@@ -40,14 +40,27 @@ h4 {
 }
 
 .home-index {
-/*	background: #f2f7fb;*/
 	background: #eaeaea;
 }
 
-
+@supports (color-scheme: dark light) {
+    @media screen and (prefers-color-scheme: dark) {
+		.home-index {
+			background: #2d2d2d;
+		}
+    }
+}
 
 .home-elsewhere {
 	background: #fff;
+}
+
+@supports (color-scheme: dark light) {
+    @media screen and (prefers-color-scheme: dark) {
+		.home-elsewhere {
+			background: #2d2d2d;
+		}
+    }
 }
 
 .content {
@@ -125,10 +138,10 @@ iframe {
 }
 
 a {
-	color: #000;
+	color: inherit;
 	text-decoration-thickness: 1px; 
 	text-underline-offset: 5px; 
-	text-decoration-color: #000;
+	text-decoration-color: inherit;
 }
 
 pre {
@@ -149,21 +162,20 @@ code {
 }
 
 /*Mobile Menu*/ 
-#menu-toggle {
+.menu-toggle {
 	display: none;
 }
 
 @media(max-width: 990px) {
-	#menu-toggle {
-		display: block;
+	.menu-toggle {
+		display: inline-block;
 		position: absolute;
-		top: 18px;
+		top: 19px;
 		right: 20px;
-		cursor: pointer;
-	}
-
-	#menu-toggle img {
-		max-width: 38px;
+		color: #fff;
+		text-decoration: none;
+		border: 1px solid #fff;
+		padding: 4px 13px;
 	}
 }
 
@@ -231,9 +243,7 @@ code {
 }
 
 .header-logo a {
-	border-bottom: 1px solid #fff;
-	text-decoration: none;
-/*	color: white;*/
+	text-underline-offset: 6px;
 	color: inherit;
 }
 
@@ -329,12 +339,9 @@ nav li:first-child {
 
 nav a {
 	display: inline-block;
-/*	color: #fff;*/
 	color: inherit;
 	vertical-align: middle;
-	text-decoration: none;
-  	border-bottom: 1px solid #fff;
-	transition: 0.2s border-bottom ease-in-out;
+	text-decoration: underline;
 }
 
 @media(max-width: 990px) {
@@ -348,15 +355,14 @@ nav a:hover {
 }
 
 nav a.nav-button {
-border: 0;
-padding-left: 20px;
-padding-right: 20px;
-padding-top: 6px;
-padding-bottom: 6px;
-/*background-color: transparent;*/
-/*background: #139bce;*/
-color: #fff;
-border: 1px solid #fff;
+	border: 0;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 6px;
+	text-decoration: none;
+	padding-bottom: 6px;
+	color: inherit;
+	border: 1px solid #fff;
 }
 
 /*@media(max-width: 800px) {
@@ -383,6 +389,14 @@ main {
     padding: 0;
 }
 
+@supports (color-scheme: dark light) {
+    @media screen and (prefers-color-scheme: dark) {
+        main {
+        	background: #373737;
+        }
+    }
+}
+
 @keyframes slideUpFadeIn {
   from {
   	opacity: 0;
@@ -406,7 +420,7 @@ main {
 
 @media (max-width: 700px) {
 	.hero {
-		padding: 120px 0 40px 0;
+		padding: 110px 0 40px 0;
 	}
 }
 
@@ -450,7 +464,7 @@ main {
 
 @media(max-width: 700px) {
 	.hero h1 {
-		font-size: 37px;
+		font-size: 30px;
 	}
 }
 
@@ -464,12 +478,23 @@ main {
 
 @media(max-width: 700px) {
 	.hero p {
-		font-size: 18px;
+		font-size: 17px;
+		padding-left: 10px;
+		padding-right: 10px;
+/*		max-width: 250px;
+		margin-left: auto;
+		margin-right: auto;*/
 	}
 }
 
 .hero__arrow {
 	padding-top: 75px;
+}
+
+@media(max-width: 700px) {
+	.hero__arrow {
+		padding-top: 38px;
+	}
 }
 
 .heading a {
@@ -601,6 +626,12 @@ main {
 	font-size: 16px;
 }
 
+@media(max-width: 700px) {
+	.button-white {
+		margin-top: 20px;
+	}
+}
+
 video {
   width: 100%;
   height: auto;
@@ -650,7 +681,7 @@ video {
 }
 
 .preview a {
-	color: #000;
+	color: inherit;
 	text-decoration: none;
 	display: block;
 }
@@ -842,6 +873,12 @@ video {
     font-size: 17px;
 }
 
+@media(max-width: 990px) {
+	.footer {
+		text-align: left;
+	}
+}
+
 .footer p {
 	margin: 0;
 }
@@ -911,4 +948,52 @@ table, table th, table td {
 table th {
 	font-weight: bold;
 	text-align: left;
+}
+
+#menu {
+	padding-bottom: 20px;
+}
+
+#menu h2 {
+	display: none;
+}
+
+@media(max-width: 990px) {
+	#menu h2 {
+		margin-top: 0;
+		display: block;
+	}
+}
+
+#menu br {
+	display: none;
+}
+
+@media(max-width: 990px) {
+	#menu br {
+		display: block;
+	}
+}
+
+#menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+#menu li {
+	margin: 0 10px;
+	display: inline-block;
+}
+
+@media(max-width: 990px) {
+	#menu li {
+		margin: 0 0 15px 0;
+		display: block;
+	}
+}
+
+#menu a {
+	color: inherit;
+	text-decoration-color: inherit;
 }
