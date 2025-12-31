@@ -55,7 +55,7 @@ h4 {
 }
 
 .home-index {
-	background-color: rgba(0,0,0,0.1);
+	background-color: #F2F1ED;
 }
 
 @supports (color-scheme: dark light) {
@@ -202,7 +202,7 @@ code {
 	left: 0;
 	width: 100%;
 	z-index: 999;
-	border-bottom: 1px solid rgba(255,255,255,0.2);
+/*	border-bottom: 1px solid rgba(255,255,255,0.2);*/
 }
 
 .header-measure {
@@ -444,12 +444,11 @@ main {
 }
 
 .hero {
-    padding: 180px 0 60px 0;
-/*    background-color: var(--base-color);*/
-    color: #fff;
-background-color: #262626;
-    text-align: center;
-    position: relative;
+	padding: 180px 0 60px 0;
+	color: #fff;
+	background-color: #1A1A1A;
+	text-align: center;
+	position: relative;
 }
 
 @media (max-width: 700px) {
@@ -473,39 +472,22 @@ color: white;
 	left: 0;
 	right: 0;
 	bottom: 0;
+	z-index: 2;
 /*	background-image: url('./img/texture.png');*/
 /*	background-repeat: repeat;*/
 /*	background-size: cover;*/
 /*	background-position: center;*/
-	opacity: 0.6;
+	opacity: 0.5;
 
-/*  background:
-    linear-gradient(0deg, rgba(255,255,255,0.05), rgba(0,0,0,0.05)),
-    linear-gradient(90deg, rgba(255,255,255,0.03), rgba(0,0,0,0.03)),
-    repeating-radial-gradient(circle,
-      rgba(255,255,255,0.05),
-      rgba(255,255,255,0.05) 1px,
-      rgba(0,0,0,0.05) 1px,
-      rgba(0,0,0,0.05) 2px
-    );
-  background-size: 3px 3px, 4px 4px, 5px 5px;*/
-
-  background:
-    linear-gradient(
-      rgba(255,255,255,0.08) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255,255,255,0.08) 1px,
-      transparent 1px
-    );
-  background-size: 40px 40px;
+  background-image:
+    linear-gradient(120deg, transparent 70%, rgba(0,0,0,0.5) 70%),
+    linear-gradient(300deg, transparent 60%, rgba(0,0,0,0.5) 60%);
 
 }
 
 .hero-measure {
 	position: relative;
+	z-index: 999;
     max-width: 940px;
 	margin: 0 auto;
 	padding-left: 20px;
@@ -569,7 +551,7 @@ font-size: 84px;
 
 
 .heading {
-    padding: 150px 0 105px 0;
+    padding: 170px 0 105px 0;
 /*    background-color: #252525;*/
 	background-color: var(--base-color);
 
@@ -593,7 +575,7 @@ font-size: 84px;
 	}
 }
 
-/*.heading:before {
+.heading:before {
 	content:'';
 	display: block;
 	position: absolute;
@@ -601,14 +583,19 @@ font-size: 84px;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background: url('./img/code-pattern.svg');
-	background-size: 450px;
-	background-position: center center;
-	opacity: 0.07;
-	background-repeat: repeat;
-}*/
+	opacity: 0.5;
+
+  background-image:
+    linear-gradient(120deg, transparent 70%, rgba(0,0,0,0.5) 70%),
+    linear-gradient(300deg, transparent 60%, rgba(0,0,0,0.5) 60%);
+
+}
+
+
 
 .heading-measure {
+	position: relative;
+	z-index: 99;
     max-width: 940px;
 	margin: 0 auto;
 	padding-left: 20px;
