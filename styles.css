@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Righteous&display=swap');
+
 :root {
 /*	--base-color: #082f82;*/
 	--base-color: #131313;
@@ -31,6 +33,9 @@ body {
 
 h1, h2, h3 {
 	line-height: 1.25;
+/*	font-family: "Caprasimo", serif;*/
+/* font-family: "Righteous", sans-serif;*/
+	  font-weight: 600;
 /*	font-family: sans-serif;*/
 /*	font-family: "Montserrat", sans-serif;*/
 	/*	font-family: "Oxanium", sans-serif;*/
