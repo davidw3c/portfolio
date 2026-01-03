@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 :root {
 /*	--base-color: #082f82;*/
@@ -17,7 +17,7 @@ body {
 	line-height: 1.55;
 	font-size: 1.15rem;
 	position: relative;
-	font-family: helvetica, arial, sans-serif;
+	font-family: helvetica, "Inter", arial, sans-serif;
 /*	font-family: "Plus Jakarta Sans", sans-serif;*/
 	 font-weight: 400;
 	background-color: rgba(0,0,0,0.15);
@@ -35,7 +35,7 @@ h1, h2, h3 {
 	line-height: 1.25;
 /*	font-family: "Caprasimo", serif;*/
 /* font-family: "Righteous", sans-serif;*/
-	  font-weight: 600;
+	  font-weight: 700;
 /*	font-family: sans-serif;*/
 /*	font-family: "Montserrat", sans-serif;*/
 	/*	font-family: "Oxanium", sans-serif;*/
@@ -439,6 +439,8 @@ main {
 }
 
 .hero h1 {
+	max-width: 800px;
+	margin: 0 auto 30px auto !important;
 color: white;
   text-shadow: -1px -1px 0 rgba(0,0,0,0.2), 1px -1px 0 rgba(0,0,0,0.2), -1px 1px 0 rgba(0,0,0,0.2), 1px 1px 0 rgba(0,0,0,0.2);
 }
