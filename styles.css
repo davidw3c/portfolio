@@ -63,24 +63,8 @@ h4 {
 	background-color: #F2F1ED;
 }
 
-@supports (color-scheme: dark light) {
-    @media screen and (prefers-color-scheme: dark) {
-		.home-index {
-			background: #2d2d2d;
-		}
-    }
-}
-
 .home-elsewhere {
 	background: #fff;
-}
-
-@supports (color-scheme: dark light) {
-    @media screen and (prefers-color-scheme: dark) {
-		.home-elsewhere {
-			background: #2d2d2d;
-		}
-    }
 }
 
 .content {
@@ -427,14 +411,6 @@ nav svg {
 main {
     background: white;
     padding: 0;
-}
-
-@supports (color-scheme: dark light) {
-    @media screen and (prefers-color-scheme: dark) {
-        main {
-        	background: #373737;
-        }
-    }
 }
 
 @keyframes slideUpFadeIn {
