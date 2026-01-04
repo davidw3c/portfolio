@@ -60,7 +60,7 @@ h4 {
 }
 
 .home-index {
-	background-color: #F2F1ED;
+	background-color: #E1E1E1;
 }
 
 .home-elsewhere {
@@ -191,7 +191,7 @@ code {
 	left: 0;
 	width: 100%;
 	z-index: 999;
-/*	border-bottom: 1px solid rgba(255,255,255,0.2);*/
+	border-top: 8px solid #a60f64;
 }
 
 .header-measure {
@@ -829,7 +829,7 @@ video {
 	background: #fff;
 	position: relative;
 	border: 2px solid #e2e2e2;
-	border-bottom: 4px solid var(--accent-color);
+	border-bottom: 4px solid #a60f64;
 	/*box-shadow: 0 2px 16px 0 rgb(0 0 0 / 15%);*/
 	transition: border-color .2s,box-shadow .2s,transform .2s,-webkit-box-shadow .2s,-webkit-transform .2s;
 	display: flex;
@@ -911,7 +911,7 @@ video {
 }
 
 .footer {
-/*    background-color: #252525;*/
+border-top: 8px solid #a60f64;
     background-color: var(--base-color);
     color: #fff;
     text-align: center;
