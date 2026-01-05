@@ -45,227 +45,257 @@
 
 		<div class="content">
 
-		<h2>Introduction</h2>	
-		<p>I began my career over a decade ago by completing an OCN Level 3 Web Development course, and volunteering at a local web development agency. From there I got my first job as a junior developer and progressed on to work for an agency in Cambridge to become lead Front End Developer.</p>
+			<div class="article_plus_sidebar">
+				<div class="article_plus_sidebar-main">
 
-		<h2>Core Skills Overview</h2>
+				<h2>Introduction</h2>	
+				<p>I began my career over a decade ago by completing an OCN Level 3 Web Development course, and volunteering at a local web development agency. From there I got my first job as a junior developer and progressed on to work for an agency in Cambridge to become lead Front End Developer.</p>
 
-		<div class="tech-skills">
 
-			<div class="tech-skills__item">
-				<img src="./img/skills/html.svg" alt="">
-				<p>Clean Semantic Markup</p>
+				<!-- 		<h2>Development Philosophy</h2>
+
+				<p>From a code perspective, I try to code a project in such a way that if another developer were to come along and take over the project in future, they would understand how it works. This often means avoiding trying to look clever by making things overly complex. I would much prefer to create a project that uses some native technologies and assemble them in a way that other developers could easily understand (including myself when I revisit the project in future!). I like projects that are simple and stand the test of time, rather than complex and fad-driven.</p>
+
+				<p>I believe in keeping things simple as much as possible. It is great to add stylish elements and subtle animations to a project, but I feel we must not forget a website should first and foremost present information in a way that is accessible to all. Pages should load quickly.</p>
+
+				<p>I try to minimise the use of third-party plugins or frameworks in projects where I am lead developer - and code as much as possible myself using native technologies. I feel this approach has had two benefits - 1) it vastly improves my skill as a developer, 2) the project is made up of timeless code that any developer trained to read those languages can alter in future. The argument for using third-party systems is often that it helps teams of developers working on large projects - but personally I feel the opposite, that becoming too dependent on third party systems leaves projects and companies vulnerable to that third-party system becoming outdated or redunant - whereas the code and programming languages themselves stand the test of time. Javascript is still going to be here in 10 years time, but that fancy new framework might not be. It's a better investment in the long run simply to learn the tools of the trade!</p> -->
+
+				<h2>Technical Skills: In detail</h2>
+
+				<p>I am a believer in <a href="https://www.oreilly.com/library/view/programming-javascript-applications/9781491950289/ch05.html" target="_blank">the separation of concerns</a> - HTML for document structure, CSS for presentation, Javascript for functionality.</p>
+
+				<p><b>HTML:</b> With many of the website projects I work on, I deliberately opt to 'disable styles' in a browser from time to time and check if the website could be fully usable without any CSS present. The purpose of this exercise is not to assume that users would literally browse with styles disabled, but rather to encourage writing good quality, semantic markup. Progressive enhancement as a build philosophy states that the core of your application should be bullet proof and work across <i>any</i> device. So it's important that the HTML is well written- including features such as ARIA roles & landmarks for screen readers. I like to ensure that my HTML is also neatly indented and humanly readable in the code editor.</p>
+
+				<p><b>CSS:</b> CSS has undergone some very exciting developments over the last few years - with flexbox and CSS grid, CSS custom properties, calc functions, clamp, as well as upcoming features like container queries - there has never been a better time to make full use of the capabilities of CSS.</p>
+
+				<p>I subscribe to the <b>BEM (Block Element Modifier)</b> approach to coding my projects and tend not to use other approaches such as utility classes (like those used in Tailwind).</p>
+
+				<p>I use SASS as a CSS preprocessor as part of a GULP task runner in a commercial setting. For personal projects I prefer to use raw CSS - as I enjoy the simplicity of being able to jump right into the CSS without running terminal commands or installing packages.</p>
+
+				<p><b>Javascript & AJAX:</b> I code my projects in vanilla Javascript and have made it a priority over the years to specialise in being a vanilla Javascript developer, as opposed to using templating languages like jQuery. I am not opposed to JS frameworks, but I find that writing Javascript on projects allows me to gain a much deeper appreciation and learning of the core Javascript language - I feel I might not have gained so much knowledge if I had used lots of frameworks without a true understanding of what is going on 'under the hood'.</p>
+
+				<p>I can comfortably write Javascript including traversing the DOM, for loops, Event bubbling, Adding / Removing class based upon scroll position, Adding and removing cookies, changing HTML attributes, Change content based upon date/time, Toggles (e.g. Mobile Menu Toggle), arrays, functions, name spacing, event listeners, form control, using intersection observer to trigger events and animations on page scrolls and much more. I have experimented with writing games such as Space Invaders using raw Javascript. I'm continually learning new things and it is my goal to continue to expand and grow in this area.</p>
+
+				<p><b>SVG's:</b> I have experience of directly manipulating inline SVG's to animate them on a page as well as using Javascript to manipulate page elements when hovering over certain SVG group areas.</p>
+
+				<p><b>Task Runners (e.g. Gulp):</b> When I write HTML, SASS and Javascript- I use a task runner- in my case 'Gulp' - to watch and compile the code. I also install a plugin in my browser called "Live Reload" which allows me to see my changes happen live in the browser as it automatically refreshes each time I make a code update.</p>
+
+				<p><b>GIT Version Control:</b> From local to staging to production. Using GIT to administer version control of projects. Experience of using Springloops and Buddy.</p>
+
+				<p><b>Terminal:</b> Commands to push / pull / commit changes, resolve conflicts and merge changes, create new branches, switch branch etc.</p>
+
+				<p><b>CMS Integration:</b> Wordress, Expression Engine, Craft CMS. I custom code templates to create themes using PHP, Twig or ExpressionEngine syntax. In the case of Wordpress, which I use most commonly, I tend to work with Advanced Custom Fields. I always aim to build a CMS setup that is tailored to a specific client and is as user friendly as possible.</p>
+
+				<p><b>Accessibiliy:</b> A11y practices, page landmarks, keyboard friendly site navigations, contrast ratios, Progressive Enhancement build philosophy.</p>
+
+				<p><b>Testing & Optimising:</b> Before “go live” I follow a process of looking at things such as Image optimisation, caching and use of tools such as Google Page Speed Insights to improve page loading times. I also ensure the groundwork for good SEO has been laid.</p>
+
+				<p><b>Email Marketing Campaigns:</b> MJML, Foundation, Pardot, Mailchimp, Litmus testing</p>
+
+				<p><b>Static Site Generators:</b> I have experience with two static site generators - Jekyll and HUGO. There are an endless list of static site generators to use, but I have found these two in particular to be very versatile.</p>
+
+				<p><b>Setting websites live:</b> Using services such as TSO Host, Digital Ocean, GoDaddy, HostGator and more recently - Siteground. Processes include forcing non-www's to www's using htaccess, find/replace queries in database, git deployment, setting up SSH access, adding public SSH key, setting up security & speed plugins, implementing go live checklists and so on..</p>
+
+				<p><b>Operating Systems:</b> Mac OS (work), Linux Ubuntu (personal), Linux Mint, Windows 7/10.</p>
+
+				<p><b>Sublime Text Snippets:</b> I have written 'snippets' in sublime text which enable you to create a shortcut code, press tab and generate a ready to use code snippet.</p>
+
+				<p><b>Shell Scripting:</b> I have written a number of BASH scripts for projects which incorporate Linux utilities such as Rsync, Sed, Grep, Head, Tail, PdfImages, ImageMagick to help drastically increase the speed of lengthy tasks and develop a system of efficient task automation.</p>
+
+				<p><b>Video & Audio:</b> As a personal hobby I have experience with converting old analog video formats such as VHS tapes and 8mm video to digitised formats using hardware such as AV to HDMI converters &amp; upscalers, video capture devices and software such as virtualdub, OBS, winDV and others. I have a working knowledge of the various correct resolutions for capturing footage depending on the source (e.g. PAL vs NTSC), as well as deinterlacing, compression algorithms. I have also had experience of using Audacity to convert mono sound into stereo sound.</p>
+
+				<p><b>Family History Documentaries:</b> I have helped people to create short films about family history and for elderly relatives to film their "life story" for future generations to remember.</p>
+
+				</div>
+
+				<div class="article_plus_sidebar-side">
+
+					<h2>Core Skills Overview</h2>
+
+				<div class="tech-skills">
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/html.svg" alt="">
+						<p>Clean Semantic Markup</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/css.svg" alt="">
+						<p>Code that makes websites pretty</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/scss.svg" alt="">
+						<p>CSS Pre-Compilers (Sass)</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/js.svg" alt="">
+						<p>Interactivity to web pages</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/responsive.svg" alt="">
+						<p>Responsive Attention to Detail</p>
+					</div>
+
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/gulp.svg" alt="">
+						<p>Workflow management tools</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/wireframe.svg" alt="">
+						<p>Project planning with clients</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/sketch.svg" alt="">
+						<p>Design tools - Sketch and Figma</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/analytics.svg" alt="">
+						<p>Search Engine Optimisation</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/git.svg" alt="">
+						<p>GiT Version Control Workflow</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/craft.svg" alt="">
+						<p>Craft CMS Template Integration</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/twig.svg" alt="">
+						<p>Twig - Templating Language</p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/mjml.png" height="120" width="120" alt="">
+						<p><b>Email Marketing</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/terminal.png" height="120" width="120" alt="">
+						<p><b>Terminal</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/linux.png" height="120" width="120" alt="">
+						<p><b>Linux Systems</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/vhs.png" height="120" width="120" alt="">
+						<p><b>Digitising VHS</b></p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/bash.png" height="120" width="120" alt="">
+						<p><b>BASH Scripts</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/lighthouse.png" height="120" width="120" alt="">
+						<p><b>Performance</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/ssg.png" height="120" width="120" alt="">
+						<p><b>Static Site Gen's</b></p>
+					</div>
+
+					<div class="tech-skills__item">
+						<img src="./img/skills/wp.png" height="120" width="120" alt="">
+						<p><b>Wordpress</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/craft.png" height="120" width="120" alt="">
+						<p><b>Craft</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/git.png" height="120" width="120" alt="">
+						<p><b>Version Control</b></p>
+					</div>
+				</div>
+
+		<!-- 		<div class="tech-skills">
+					<div class="tech-skills__item">
+						<img src="./img/skills/html.png" height="120" width="120" alt="">
+						<p><b>HTML 5</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/css.png" height="120" width="120" alt="">
+						<p><b>CSS 3</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/js.png" height="120" width="120" alt="">
+						<p><b>Vanilla JS</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/sass.png" height="120" width="120" alt="">
+						<p><b>SASS</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/twig.png" height="120" width="120" alt="">
+						<p><b>TWIG</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/wp.png" height="120" width="120" alt="">
+						<p><b>Wordpress</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/craft.png" height="120" width="120" alt="">
+						<p><b>Craft</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/bem.png" height="120" width="120" alt="">
+						<p><b>BEM CSS</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/gulp.png" height="120" width="120" alt="">
+						<p><b>Task Runners</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/mjml.png" height="120" width="120" alt="">
+						<p><b>Email Marketing</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/linux.png" height="120" width="120" alt="">
+						<p><b>Linux Systems</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/git.png" height="120" width="120" alt="">
+						<p><b>Version Control</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/terminal.png" height="120" width="120" alt="">
+						<p><b>Terminal</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/accessibility.png" height="120" width="120" alt="">
+						<p><b>Accessibility</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/vhs.png" height="120" width="120" alt="">
+						<p><b>Digitising VHS</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/bash.png" height="120" width="120" alt="">
+						<p><b>BASH Scripts</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/lighthouse.png" height="120" width="120" alt="">
+						<p><b>Performance</b></p>
+					</div>
+					<div class="tech-skills__item">
+						<img src="./img/skills/ssg.png" height="120" width="120" alt="">
+						<p><b>Static Site Gen's</b></p>
+					</div>
+				</div> -->					
+				</div>
 			</div>
 
-			<div class="tech-skills__item">
-				<img src="./img/skills/css.svg" alt="">
-				<p>Code that makes websites pretty</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/scss.svg" alt="">
-				<p>CSS Pre-Compilers (Sass)</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/js.svg" alt="">
-				<p>Interactivity to web pages</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/responsive.svg" alt="">
-				<p>Responsive Attention to Detail</p>
-			</div>
-
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/gulp.svg" alt="">
-				<p>Workflow management tools</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/wireframe.svg" alt="">
-				<p>Project planning with clients</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/sketch.svg" alt="">
-				<p>Design tools - Sketch and Figma</p>
-			</div>
-
-
-
-
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/analytics.svg" alt="">
-				<p>Search Engine Optimisation</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/git.svg" alt="">
-				<p>GiT Version Control Workflow</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/craft.svg" alt="">
-				<p>Craft CMS Template Integration</p>
-			</div>
-
-			<div class="tech-skills__item">
-				<img src="./img/skills/twig.svg" alt="">
-				<p>Twig - Templating Language</p>
-			</div>
-
-		</div>
-
-<!-- 		<div class="tech-skills">
-			<div class="tech-skills__item">
-				<img src="./img/skills/html.png" height="120" width="120" alt="">
-				<p><b>HTML 5</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/css.png" height="120" width="120" alt="">
-				<p><b>CSS 3</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/js.png" height="120" width="120" alt="">
-				<p><b>Vanilla JS</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/sass.png" height="120" width="120" alt="">
-				<p><b>SASS</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/twig.png" height="120" width="120" alt="">
-				<p><b>TWIG</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/wp.png" height="120" width="120" alt="">
-				<p><b>Wordpress</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/craft.png" height="120" width="120" alt="">
-				<p><b>Craft</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/bem.png" height="120" width="120" alt="">
-				<p><b>BEM CSS</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/gulp.png" height="120" width="120" alt="">
-				<p><b>Task Runners</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/mjml.png" height="120" width="120" alt="">
-				<p><b>Email Marketing</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/linux.png" height="120" width="120" alt="">
-				<p><b>Linux Systems</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/git.png" height="120" width="120" alt="">
-				<p><b>Version Control</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/terminal.png" height="120" width="120" alt="">
-				<p><b>Terminal</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/accessibility.png" height="120" width="120" alt="">
-				<p><b>Accessibility</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/vhs.png" height="120" width="120" alt="">
-				<p><b>Digitising VHS</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/bash.png" height="120" width="120" alt="">
-				<p><b>BASH Scripts</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/lighthouse.png" height="120" width="120" alt="">
-				<p><b>Performance</b></p>
-			</div>
-			<div class="tech-skills__item">
-				<img src="./img/skills/ssg.png" height="120" width="120" alt="">
-				<p><b>Static Site Gen's</b></p>
-			</div>
-		</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- 		<h2>Development Philosophy</h2>
-
-		<p>From a code perspective, I try to code a project in such a way that if another developer were to come along and take over the project in future, they would understand how it works. This often means avoiding trying to look clever by making things overly complex. I would much prefer to create a project that uses some native technologies and assemble them in a way that other developers could easily understand (including myself when I revisit the project in future!). I like projects that are simple and stand the test of time, rather than complex and fad-driven.</p>
-
-		<p>I believe in keeping things simple as much as possible. It is great to add stylish elements and subtle animations to a project, but I feel we must not forget a website should first and foremost present information in a way that is accessible to all. Pages should load quickly.</p>
-		
-		<p>I try to minimise the use of third-party plugins or frameworks in projects where I am lead developer - and code as much as possible myself using native technologies. I feel this approach has had two benefits - 1) it vastly improves my skill as a developer, 2) the project is made up of timeless code that any developer trained to read those languages can alter in future. The argument for using third-party systems is often that it helps teams of developers working on large projects - but personally I feel the opposite, that becoming too dependent on third party systems leaves projects and companies vulnerable to that third-party system becoming outdated or redunant - whereas the code and programming languages themselves stand the test of time. Javascript is still going to be here in 10 years time, but that fancy new framework might not be. It's a better investment in the long run simply to learn the tools of the trade!</p> -->
-
-		<h2>Technical Skills: In detail</h2>
-
-		<p>I am a believer in <a href="https://www.oreilly.com/library/view/programming-javascript-applications/9781491950289/ch05.html" target="_blank">the separation of concerns</a> - HTML for document structure, CSS for presentation, Javascript for functionality.</p>
-
-		<p><b>HTML:</b> With many of the website projects I work on, I deliberately opt to 'disable styles' in a browser from time to time and check if the website could be fully usable without any CSS present. The purpose of this exercise is not to assume that users would literally browse with styles disabled, but rather to encourage writing good quality, semantic markup. Progressive enhancement as a build philosophy states that the core of your application should be bullet proof and work across <i>any</i> device. So it's important that the HTML is well written- including features such as ARIA roles & landmarks for screen readers. I like to ensure that my HTML is also neatly indented and humanly readable in the code editor.</p>
-
-		<p><b>CSS:</b> CSS has undergone some very exciting developments over the last few years - with flexbox and CSS grid, CSS custom properties, calc functions, clamp, as well as upcoming features like container queries - there has never been a better time to make full use of the capabilities of CSS.</p>
-
-		<p>I subscribe to the <b>BEM (Block Element Modifier)</b> approach to coding my projects and tend not to use other approaches such as utility classes (like those used in Tailwind).</p>
-
-		<p>I use SASS as a CSS preprocessor as part of a GULP task runner in a commercial setting. For personal projects I prefer to use raw CSS - as I enjoy the simplicity of being able to jump right into the CSS without running terminal commands or installing packages.</p>
-
-		<p><b>Javascript & AJAX:</b> I code my projects in vanilla Javascript and have made it a priority over the years to specialise in being a vanilla Javascript developer, as opposed to using templating languages like jQuery. I am not opposed to JS frameworks, but I find that writing Javascript on projects allows me to gain a much deeper appreciation and learning of the core Javascript language - I feel I might not have gained so much knowledge if I had used lots of frameworks without a true understanding of what is going on 'under the hood'.</p>
-
-		<p>I can comfortably write Javascript including traversing the DOM, for loops, Event bubbling, Adding / Removing class based upon scroll position, Adding and removing cookies, changing HTML attributes, Change content based upon date/time, Toggles (e.g. Mobile Menu Toggle), arrays, functions, name spacing, event listeners, form control, using intersection observer to trigger events and animations on page scrolls and much more. I have experimented with writing games such as Space Invaders using raw Javascript. I'm continually learning new things and it is my goal to continue to expand and grow in this area.</p>
-
-		<p><b>SVG's:</b> I have experience of directly manipulating inline SVG's to animate them on a page as well as using Javascript to manipulate page elements when hovering over certain SVG group areas.</p>
-
-		<p><b>Task Runners (e.g. Gulp):</b> When I write HTML, SASS and Javascript- I use a task runner- in my case 'Gulp' - to watch and compile the code. I also install a plugin in my browser called "Live Reload" which allows me to see my changes happen live in the browser as it automatically refreshes each time I make a code update.</p>
-
-		<p><b>GIT Version Control:</b> From local to staging to production. Using GIT to administer version control of projects. Experience of using Springloops and Buddy.</p>
-
-		<p><b>Terminal:</b> Commands to push / pull / commit changes, resolve conflicts and merge changes, create new branches, switch branch etc.</p>
-
-		<p><b>CMS Integration:</b> Wordress, Expression Engine, Craft CMS. I custom code templates to create themes using PHP, Twig or ExpressionEngine syntax. In the case of Wordpress, which I use most commonly, I tend to work with Advanced Custom Fields. I always aim to build a CMS setup that is tailored to a specific client and is as user friendly as possible.</p>
-
-		<p><b>Accessibiliy:</b> A11y practices, page landmarks, keyboard friendly site navigations, contrast ratios, Progressive Enhancement build philosophy.</p>
-
-		<p><b>Testing & Optimising:</b> Before “go live” I follow a process of looking at things such as Image optimisation, caching and use of tools such as Google Page Speed Insights to improve page loading times. I also ensure the groundwork for good SEO has been laid.</p>
-
-		<p><b>Email Marketing Campaigns:</b> MJML, Foundation, Pardot, Mailchimp, Litmus testing</p>
-
-		<p><b>Static Site Generators:</b> I have experience with two static site generators - Jekyll and HUGO. There are an endless list of static site generators to use, but I have found these two in particular to be very versatile.</p>
-
-		<p><b>Setting websites live:</b> Using services such as TSO Host, Digital Ocean, GoDaddy, HostGator and more recently - Siteground. Processes include forcing non-www's to www's using htaccess, find/replace queries in database, git deployment, setting up SSH access, adding public SSH key, setting up security & speed plugins, implementing go live checklists and so on..</p>
-
-		<p><b>Operating Systems:</b> Mac OS (work), Linux Ubuntu (personal), Linux Mint, Windows 7/10.</p>
-
-		<p><b>Sublime Text Snippets:</b> I have written 'snippets' in sublime text which enable you to create a shortcut code, press tab and generate a ready to use code snippet.</p>
-
-		<p><b>Shell Scripting:</b> I have written a number of BASH scripts for projects which incorporate Linux utilities such as Rsync, Sed, Grep, Head, Tail, PdfImages, ImageMagick to help drastically increase the speed of lengthy tasks and develop a system of efficient task automation.</p>
-
-		<p><b>Video & Audio:</b> As a personal hobby I have experience with converting old analog video formats such as VHS tapes and 8mm video to digitised formats using hardware such as AV to HDMI converters &amp; upscalers, video capture devices and software such as virtualdub, OBS, winDV and others. I have a working knowledge of the various correct resolutions for capturing footage depending on the source (e.g. PAL vs NTSC), as well as deinterlacing, compression algorithms. I have also had experience of using Audacity to convert mono sound into stereo sound.</p>
-
-		<p><b>Family History Documentaries:</b> I have helped people to create short films about family history and for elderly relatives to film their "life story" for future generations to remember.</p>
 		</div>
 	</main>
 
